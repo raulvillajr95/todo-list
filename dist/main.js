@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\n  background-color: red;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo-list/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo-list/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -110,13 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/folder.js":
+/*!***********************!*\
+  !*** ./src/folder.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Folder\": () => (/* binding */ Folder)\n/* harmony export */ });\nclass Folder{\n  constructor(name) {\n    this.name = name;\n    this.folder = [];\n  }\n\n  addNote(note){\n    this.folder.push(note)\n  }\n\n  showTodo(){\n    this.folder.forEach((todo) => {\n      console.log(todo)\n    })\n  }\n\n}\n\n// ex\nlet folder1 = new Folder('Folder1')\nfolder1.addNote({title: 'milk'})\nfolder1.addNote({title: 'juice'})\n// console.log(folder1)\n// folder1.showTodo()\n\n\n\n//# sourceURL=webpack://todo-list/./src/folder.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log('toto')\n\n/**\n * change to devlopment mode\n * add everything to github\n * set up image with webpack\n * set up scripts like watch, etc.\n */\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _folder_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./folder.js */ \"./src/folder.js\");\n\n\n\n\nlet todoDependencies = (function() {\n\n  let folders = [[{title: 'milk'}, {title: 'juice'}],\n    [{title: 'oreos'},{title: 'ritz'}]];\n\n  let defaultFolder = [];\n\n  return {\n    folders,\n    defaultFolder,\n  }\n})()\n\nfunction showFolder() {\n  todoDependencies.folders.forEach((folder) => {\n    console.log(folder)\n  });\n}\n// ex\n// showFolder()\n\nlet groceries = new _folder_js__WEBPACK_IMPORTED_MODULE_2__.Folder('Groceries')\nconsole.log(groceries)\n\n/**\n * Example actions sequence:\n * s1\n * create folder\n * \n * s2\n * create folder\n * create todo\n * \n * s3\n * create todo(adds to default folder)\n * \n * s4\n * view all folders created\n * \n * s5\n * create 3 todo's in 1 folder\n * view all todo's in that 1 folder\n * \n * s6\n * view 1 todo\n * \n * s7\n * delete single todo\n * \n * s8\n * delete whole folder and its todo's\n */\n\n\n\n\n/**\n * work on example actions\n *  this is to make sure things work on console\n *  use 'mm-dd-yyyy' for now\n * add dates to note\n *  use date-fns\n *  just date for now, no time\n * create function that deletes a specified todo\n * create function that deletes a specified folder\n * create default folder where ALL notes are added\n * create function that displays multiple folders\n * create function that displays a folder's todo's\n * create function that displays a todo\n * each time a folder is created, it's added to 'folders'\n * each time a note is created, it's added to folder\n * plan out ui/ux\n *  it's my first time pre-planning\n *    so only use whimsical\n * \n * notes:\n * -todos need to be objects, kinda like the 'books'\n *  preset for library\n * -each 'todo' has a 'title'(string), 'description'(string),\n *  'dueDate'(maybe a Date-fns), 'priority'(maybe a number?)\n * -have folders of 'todo's\n * -have a module file for each thing\n * -ui should be able to:\n *    view of multiple folders\n *    view of multiple 'todo's\n *    view 1 full todo\n *    delete todo\n *    delete folder\n * -modeled liked iOS Reminders but simpler\n * -use date-fns library\n * -use localStorage to save to local browser\n * \n * later:\n * add eslint and prettier\n * improve it UI/UX wise\n * remove dev mode\n * do 10 exercises in each, Exercism, CodeWars, & HackerRank\n */\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/todo.js":
+/*!*********************!*\
+  !*** ./src/todo.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Note\": () => (/* binding */ Note)\n/* harmony export */ });\nclass Note{\n  constructor(title, description, dueDate, priority) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n  }\n}\n\n// ex\nlet note2 = new Note('Juice', 'Need apple juice', '', 1)\n// console.log(note2)\n\n\n\n//# sourceURL=webpack://todo-list/./src/todo.js?");
 
 /***/ })
 
