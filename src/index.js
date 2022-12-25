@@ -54,42 +54,30 @@ appliences.folder.push(shaker)
 appliences.showTodo()
 
 // s6, view 1 todo
+console.log(todoDependencies.folders[2].folder[0], 's6')
 
+// s7, delete single todo
+todoDependencies.folders[2].folder.splice(0, 1);
+console.log(todoDependencies.folders[2].folder, 's7');
+
+// s8, delete whole folder and its todo's
+todoDependencies.folders.splice(3, 1);
 
 console.log(todoDependencies.folders, 'folders')
 console.log(todoDependencies.defaultFolder, 'default folder')
 
-/**
- * Example actions sequence:
- * 
- * s6
- * view 1 todo
- * 
- * s7
- * delete single todo
- * 
- * s8
- * delete whole folder and its todo's
- */
-
-
-
 
 /**
- * work on example actions
- *  this is to make sure things work on console
- *  use 'mm-dd-yyyy' for now
- * add dates to note
- *  use date-fns
- *  just date for now, no time
- * create function that deletes a specified todo
- * create function that deletes a specified folder
- * create default folder where ALL notes are added
+ * refactor action code
+ *  they need to be simple calls
  * create function that displays multiple folders
  * create function that displays a folder's todo's
  * create function that displays a todo
  * each time a folder is created, it's added to 'folders'
  * each time a note is created, it's added to folder
+ * add dates to note
+ *  use date-fns
+ *  just date for now, no time
  * plan out ui/ux
  *  it's my first time pre-planning
  *    so only use whimsical
