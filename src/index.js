@@ -1,13 +1,11 @@
 import './style.css';
-import { Note } from './todo.js';
+import { Todo } from './todo.js';
 import { Folder } from './folder.js';
 
 let todoDependencies = (function() {
 
-  let folders = [[{title: 'milk'}, {title: 'juice'}],
-    [{title: 'oreos'},{title: 'ritz'}]];
-
-  let defaultFolder = [];
+  let defaultFolder = new Folder('Default');
+  let folders = [defaultFolder];
 
   return {
     folders,
@@ -23,27 +21,46 @@ function showFolder() {
 // ex
 // showFolder()
 
+// s1, create a folder
 let groceries = new Folder('Groceries')
-console.log(groceries)
+todoDependencies.folders.push(groceries)
+
+// s2, create folder, create todo
+let school = new Folder('School')
+todoDependencies.folders.push(school)
+let pencils = new Todo('Pencils', 'No.2 pencils needed for math', '01-08-2023', 1)
+todoDependencies.defaultFolder.folder.push(pencils)
+school.folder.push(pencils)
+
+// s3, create todo(adds to default folder)
+let gas = new Todo('Gas', 'Grab gas this Tuesday', '12-27-2022')
+todoDependencies.defaultFolder.folder.push(gas)
+
+// s4, view all folders created
+showFolder()
+
+// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
+let appliences = new Folder('Appliences')
+todoDependencies.folders.push(appliences)
+let fridge = new Todo('Refrigerator', 'Three door fridge', '12-25-2022', 1)
+todoDependencies.defaultFolder.folder.push(fridge)
+appliences.folder.push(fridge)
+let microwave = new Todo('Microwave', 'Small microwave', '1-10-2022', 1)
+todoDependencies.defaultFolder.folder.push(microwave)
+appliences.folder.push(microwave)
+let shaker = new Todo('Shaker', '1 liter smoothie shaker', '12-30-2022', 1)
+todoDependencies.defaultFolder.folder.push(shaker)
+appliences.folder.push(shaker)
+appliences.showTodo()
+
+// s6, view 1 todo
+
+
+console.log(todoDependencies.folders, 'folders')
+console.log(todoDependencies.defaultFolder, 'default folder')
 
 /**
  * Example actions sequence:
- * s1
- * create folder
- * 
- * s2
- * create folder
- * create todo
- * 
- * s3
- * create todo(adds to default folder)
- * 
- * s4
- * view all folders created
- * 
- * s5
- * create 3 todo's in 1 folder
- * view all todo's in that 1 folder
  * 
  * s6
  * view 1 todo

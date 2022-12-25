@@ -1,4 +1,4 @@
-class Note{
+class Todo{
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -8,7 +8,7 @@ class Note{
 }
 
 // ex
-let note2 = new Note('Juice', 'Need apple juice', '', 1)
+let note2 = new Todo('Juice', 'Need apple juice', '', 1)
 // console.log(note2)
 
-export { Note }
+export { Todo }
