@@ -82,19 +82,19 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
- * refactor action code
- *  they need to be simple calls
- * create function that displays multiple folders
- * create function that displays a folder's todo's
- * create function that displays a todo
- * each time a folder is created, it's added to 'folders'
- * each time a note is created, it's added to folder
+ * create clear page function
+ * create function that displays home page,
+ *  list of folders as param
+ * create function that displays folder page,
+ *  1 param, folder object
+ *    from their grab todo's & title
+ * create function that displays note page
+ *  1 param, todo object
+ *    from their grab title, dueDate, priority, & description
+ * have a the same s8 sequence, but with ui
  * add dates to note
  *  use date-fns
  *  just date for now, no time
- * plan out ui/ux
- *  it's my first time pre-planning
- *    so only use whimsical
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'
