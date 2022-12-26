@@ -26,11 +26,14 @@ function createFolder(name) {
   todoDependencies.folders.push(new Folder(name))
 }
 
-// ex
-let folder1 = new Folder('Folder1')
-folder1.addNote({title: 'milk'})
-folder1.addNote({title: 'juice'})
-// console.log(folder1)
-// folder1.showTodo()
+function deleteFolder(folderToRemove) {
+  todoDependencies.folders.forEach((currentFolder) => {
+    if (currentFolder.name === folderToRemove) {
+      let index = todoDependencies.folders.indexOf(currentFolder)
+      todoDependencies.folders.splice(index, 1)
+      // console.log(index, 'deleteFolder')
+    }
+  })
+}
 
-export { Folder, createFolder, showFolders }
+export { Folder, createFolder, showFolders, deleteFolder }

@@ -68,8 +68,4 @@ function deleteTodo(todo, dueDate, priority) {
   })
 }
 
-// ex
-let note2 = new Todo('Juice', 'Need apple juice', '', 1)
-// console.log(note2)
-
-export { Todo, createTodo, showTodos, showTodo, deleteTodo }
+export { createTodo, showTodos, showTodo, deleteTodo }

@@ -1,7 +1,7 @@
 import './style.css';
 import './reset.css';
-import { Todo, createTodo, showTodos, showTodo, deleteTodo } from './todo.js';
-import { Folder, createFolder, showFolders } from './folder.js';
+import { createTodo, showTodos, showTodo, deleteTodo } from './todo.js';
+import { Folder, createFolder, showFolders, deleteFolder } from './folder.js';
 
 let todoDependencies = (function() {
 
@@ -72,22 +72,14 @@ deleteTodo(
   '12-30-2022',
   1
 )
-// todoDependencies.folders[2].folder.splice(0, 1);
-// console.log(todoDependencies.folders[2].folder, 's7');
 
 // // s8, delete whole folder and its todo's
-// todoDependencies.folders.splice(3, 1);
+deleteFolder('School')
 
 console.log(todoDependencies.folders, 'folders')
 console.log(todoDependencies.defaultFolder, 'default folder')
 
 export { todoDependencies }
-
-// slicing example
-// let example = [1, 2, 3, 4, 5]
-// let index = example.indexOf(3)
-// example.splice(index, 1)
-// console.log(example, 'example')
 
 /**
  * refactor action code
