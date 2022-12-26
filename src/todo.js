@@ -28,8 +28,48 @@ function createTodo(
   })
 }
 
+function showTodo(todo = '') {
+  let todoList = [];
+  if (todo === '') {
+    console.log(todoDependencies.defaultFolder.folder)
+  } else {
+    todoDependencies.defaultFolder.folder.forEach((currentTodo) => {
+      if (currentTodo.title === todo) {
+        todoList.push(currentTodo)
+      }
+    })
+    console.log(todoList)
+  }
+}
+
+function showTodos(folderToOpen = '') {
+  if (folderToOpen === '') {
+    console.log(todoDependencies.defaultFolder.folder)
+  }
+  todoDependencies.folders.forEach((currentFolder) => {
+    if (currentFolder.name === folderToOpen) {
+      console.log(currentFolder.folder)
+    }
+  })
+}
+
+function deleteTodo(todo, dueDate, priority) {
+  todoDependencies.folders.forEach((currentFolder) => {
+    currentFolder.folder.forEach((currentTodo) => {
+      if (
+        currentTodo.title === todo
+        && currentTodo.dueDate === dueDate
+        && currentTodo.priority === priority
+        ) {
+        let index = currentFolder.folder.indexOf(currentTodo)
+        currentFolder.folder.splice(index, 1)
+      }
+    })
+  })
+}
+
 // ex
 let note2 = new Todo('Juice', 'Need apple juice', '', 1)
 // console.log(note2)
 
-export { Todo, createTodo }
+export { Todo, createTodo, showTodos, showTodo, deleteTodo }

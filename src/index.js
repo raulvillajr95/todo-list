@@ -1,7 +1,7 @@
 import './style.css';
 import './reset.css';
-import { Todo, createTodo } from './todo.js';
-import { Folder, createFolder } from './folder.js';
+import { Todo, createTodo, showTodos, showTodo, deleteTodo } from './todo.js';
+import { Folder, createFolder, showFolders } from './folder.js';
 
 let todoDependencies = (function() {
 
@@ -13,12 +13,6 @@ let todoDependencies = (function() {
     defaultFolder,
   }
 })()
-
-function showFolder() {
-  console.log(todoDependencies.folders)
-}
-// ex
-// showFolder()
 
 // s1, create a folder
 createFolder('Groceries')
@@ -42,7 +36,7 @@ createTodo(
 )
 
 // s4, view all folders created
-showFolder()
+showFolders()
 
 // s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
 createFolder('Appliances')
@@ -67,12 +61,17 @@ createTodo(
   1,
   'Appliances'
 )
-// appliences.showTodo()
+showTodos('Appliances')
 
-// // s6, view 1 todo
-// console.log(todoDependencies.folders[2].folder[0], 's6')
+// s6, view 1 todo
+showTodo('Microwave')
 
 // // s7, delete single todo
+deleteTodo(
+  'Shaker',
+  '12-30-2022',
+  1
+)
 // todoDependencies.folders[2].folder.splice(0, 1);
 // console.log(todoDependencies.folders[2].folder, 's7');
 
@@ -84,9 +83,13 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 
 export { todoDependencies }
 
+// slicing example
+// let example = [1, 2, 3, 4, 5]
+// let index = example.indexOf(3)
+// example.splice(index, 1)
+// console.log(example, 'example')
 
 /**
- * add reset.css
  * refactor action code
  *  they need to be simple calls
  * create function that displays multiple folders

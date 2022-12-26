@@ -18,6 +18,10 @@ class Folder{
 
 }
 
+function showFolders() {
+  console.log(todoDependencies.folders)
+}
+
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name))
 }
@@ -29,4 +33,4 @@ folder1.addNote({title: 'juice'})
 // console.log(folder1)
 // folder1.showTodo()
 
-export { Folder, createFolder }
+export { Folder, createFolder, showFolders }
