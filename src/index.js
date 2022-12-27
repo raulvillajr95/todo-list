@@ -1,7 +1,18 @@
 import './style.css';
 import './reset.css';
-import { createTodo, showTodos, showTodo, deleteTodo } from './todo.js';
-import { Folder, createFolder, showFolders, deleteFolder } from './folder.js';
+import {
+  createTodo,
+  showTodos,
+  showTodo,
+  deleteTodo
+} from './todo.js';
+import {
+  Folder,
+  createFolder,
+  showFolders,
+  deleteFolder
+} from './folder.js';
+import { displayHome } from './display.js'
 
 let todoDependencies = (function() {
 
@@ -15,66 +26,63 @@ let todoDependencies = (function() {
 })()
 
 // s1, create a folder
-createFolder('Groceries')
+// createFolder('Groceries')
 
-// s2, create folder, create todo
-createFolder('School')
-createTodo(
-  'Pencils',
-  'No.2 pencils needed for math',
-  '01-08-2023',
-  1,
-  'School'
-)
+// // // s2, create folder, create todo
+// createFolder('School')
+// createTodo(
+//   'Pencils',
+//   'No.2 pencils needed for math',
+//   '01-08-2023',
+//   1,
+//   'School'
+// )
+// // // s3, create todo(adds to default folder)
+// createTodo(
+//   'Gas',
+//   'Grab gas this Tuesday',
+//   '12-27-2022',
+//   2,
+// )
+// // // s4, view all folders created
+// showFolders()
+// // // s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
+// createFolder('Appliances')
+// createTodo(
+//   'Refrigerator',
+//   'Three door fridge',
+//   '12-25-2022',
+//   1,
+//   'Appliances'
+// )
+// createTodo(
+//   'Microwave',
+//   'Small microwave',
+//   '1-10-2022',
+//   1,
+//   'Appliances'
+// )
+// createTodo(
+//   'Shaker',
+//   '1 liter smoothie shaker',
+//   '12-30-2022',
+//   1,
+//   'Appliances'
+// )
+// showTodos('Appliances')
+// // // s6, view 1 todo
+// showTodo('Microwave')
+// // // s7, delete single todo
+// deleteTodo(
+//   'Shaker',
+//   '12-30-2022',
+//   1
+// )
+// // // s8, delete whole folder and its todo's
+// deleteFolder('School')
 
-// s3, create todo(adds to default folder)
-createTodo(
-  'Gas',
-  'Grab gas this Tuesday',
-  '12-27-2022',
-  2,
-)
-
-// s4, view all folders created
-showFolders()
-
-// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
-createFolder('Appliances')
-createTodo(
-  'Refrigerator',
-  'Three door fridge',
-  '12-25-2022',
-  1,
-  'Appliances'
-)
-createTodo(
-  'Microwave',
-  'Small microwave',
-  '1-10-2022',
-  1,
-  'Appliances'
-)
-createTodo(
-  'Shaker',
-  '1 liter smoothie shaker',
-  '12-30-2022',
-  1,
-  'Appliances'
-)
-showTodos('Appliances')
-
-// s6, view 1 todo
-showTodo('Microwave')
-
-// // s7, delete single todo
-deleteTodo(
-  'Shaker',
-  '12-30-2022',
-  1
-)
-
-// // s8, delete whole folder and its todo's
-deleteFolder('School')
+// display test
+displayHome()
 
 console.log(todoDependencies.folders, 'folders')
 console.log(todoDependencies.defaultFolder, 'default folder')
@@ -82,12 +90,11 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
- * create clear page function
  * create function that displays home page,
- *  list of folders as param
+ *  array of folders as param
  * create function that displays folder page,
  *  1 param, folder object
- *    from their grab todo's & title
+ *    from their grab todo's & titles
  * create function that displays note page
  *  1 param, todo object
  *    from their grab title, dueDate, priority, & description
@@ -95,6 +102,9 @@ export { todoDependencies }
  * add dates to note
  *  use date-fns
  *  just date for now, no time
+ * add way to edit
+ *  folder names
+ *  todo names, dueDate, priority, description
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'
