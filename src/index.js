@@ -31,12 +31,10 @@ let todoDependencies = (function() {
 })()
 
 displayHomePage()
-// displayFolderPage('School')
 
 // s1, create a folder ✅
 // createFolder('Groceries')
-
-// // s2, create folder, create todo
+// s2, create folder, create todo ✅
 // createFolder('School')
 // createTodo(
 //   'Pencils',
@@ -45,16 +43,17 @@ displayHomePage()
 //   1,
 //   'School'
 // )
-
-// // // s3, create todo(adds to default folder)
+// s3, create todo(adds to default folder) ✅
 // createTodo(
 //   'Gas',
 //   'Grab gas this Tuesday',
 //   '12-27-2022',
 //   2,
 // )
-// // // s4, view all folders created
+
+// // s4, view all folders created
 // showFolders()
+
 // // // s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
 // createFolder('Appliances')
 // createTodo(
@@ -98,9 +97,6 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
- * create function that displays folder page,
- *  1 param, folder object
- *    from their grab todo's & titles
  * refactor code
  *  display functions can be reusable
  *  like 

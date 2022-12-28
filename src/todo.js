@@ -21,7 +21,9 @@ function createTodo(
     todoDependencies.defaultFolder.folder.push(todo)
   }
   todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === folderToInsert) {
+    if (currentFolder.name === 'Default' && folderToInsert === 'Default') {
+      todoDependencies.defaultFolder.folder.push(todo)
+    } else if (currentFolder.name === folderToInsert) {
       todoDependencies.defaultFolder.folder.push(todo)
       currentFolder.folder.push(todo)
     }

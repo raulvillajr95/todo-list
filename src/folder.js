@@ -58,7 +58,7 @@ function folderAddTodo() {
     )
     // createTodo('title', 'desc', 'dueD', 'prior', 'folder')
     clearDisplay('#list-folder')
-    displayList(todoDependencies.folders[0].folder, 'folder')
+    listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
     newTodoPriority.value = '';
@@ -69,4 +69,47 @@ function folderAddTodo() {
   })
 }
 
-export { Folder, createFolder, showFolders, deleteFolder, folderAddTodo }
+// possibly combine with folderAddTodo
+function homeAddTodo(param) {
+  const todoAddBtn = document.querySelector('#todo-add-home-btn');
+  const currentFolderTitle = document.querySelector('#folder-title')
+
+  const newTodoTitle = document.querySelector('#todo-title-home')
+  const newTodoDueDate = document.querySelector('#todo-duedate-home')
+  const newTodoPriority = document.querySelector('#todo-priority-home')
+  const newTodoDescription = document.querySelector('#todo-description-home')
+
+  todoAddBtn.addEventListener('click', () => {
+    createTodo(
+      `${newTodoTitle.value}`,
+      `${newTodoDescription.value}`,
+      `${newTodoDueDate.value}`,
+      `${newTodoPriority.value}`,
+      'Default'
+    )
+    newTodoTitle.value = '';
+    newTodoDueDate.value = '';
+    newTodoPriority.value = '';
+    newTodoDescription.value = '';
+
+    console.log(todoDependencies.folders, 'folders')
+    console.log(todoDependencies.defaultFolder, 'default folder')
+  })
+}
+
+function listOfTodosToDisplay(folderName, page) {
+  todoDependencies.folders.forEach((currentFolder) => {
+    if (currentFolder.name === folderName) {
+      displayList(currentFolder.folder, page)
+    }
+  })
+}
+
+export { 
+  Folder,
+  createFolder,
+  showFolders,
+  deleteFolder,
+  folderAddTodo,
+  listOfTodosToDisplay
+}

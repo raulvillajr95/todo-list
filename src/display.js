@@ -7,7 +7,8 @@ import {
 } from "./helpers.js"
 import {
   homeFolderFunctionality,
-  folderDivAsButton
+  folderDivAsButton,
+  homeAddTodo
 } from "./home.js";
 import { folderAddTodo } from "./folder.js";
 
@@ -17,12 +18,8 @@ function displayHomePage() {
   displayList(todoDependencies.folders, 'home')
   displayFolderForm()
   homeFolderFunctionality()
+  homeAddTodo()
 }
-
-// function displayTitle() {
-//   loadElemToContainer('#content', 'h1', 'app-title')
-//   addTextToElem('#app-title', 'Todo List')
-// }
 
 function displayTitle(page, title) {
   loadElemToContainer('#content', 'div', `${page}-title-div`)
@@ -79,7 +76,7 @@ function displayTodoForm(page) {
 function displayList(listToDisplay, page) {
   if (page == 'home' && listToDisplay.length == 1) {
     loadElemToContainer('#content', 'div', `list-${page}`)
-  } else if (page == 'folder') {
+  } else if (page == 'folder' && listToDisplay.length < 1) {
     loadElemToContainer('#content', 'div', `list-${page}`)
   }
 
@@ -99,7 +96,6 @@ function displayList(listToDisplay, page) {
     }
     if (page == 'home') {
       folderDivAsButton(name)
-    } else if (page == 'folder') {
     }
   })
 }
@@ -152,5 +148,6 @@ function nameOfListToDisplay(folderName, page) {
 export {
   displayHomePage,
   displayList,
-  displayFolderPage
+  displayFolderPage,
+  nameOfListToDisplay
 }
