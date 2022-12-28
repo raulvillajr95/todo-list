@@ -10,9 +10,14 @@ import {
   Folder,
   createFolder,
   showFolders,
-  deleteFolder
+  deleteFolder,
+  folderAddTodo
 } from './folder.js';
-import { displayHome } from './display.js'
+import {
+  displayHomePage,
+  displayFolderPage
+} from './display.js'
+import { homeFolderFunctionality } from './home.js'
 
 let todoDependencies = (function() {
 
@@ -25,10 +30,13 @@ let todoDependencies = (function() {
   }
 })()
 
-// s1, create a folder
+displayHomePage()
+// displayFolderPage('School')
+
+// s1, create a folder ✅
 // createFolder('Groceries')
 
-// // // s2, create folder, create todo
+// // s2, create folder, create todo
 // createFolder('School')
 // createTodo(
 //   'Pencils',
@@ -37,6 +45,7 @@ let todoDependencies = (function() {
 //   1,
 //   'School'
 // )
+
 // // // s3, create todo(adds to default folder)
 // createTodo(
 //   'Gas',
@@ -82,7 +91,6 @@ let todoDependencies = (function() {
 // deleteFolder('School')
 
 // display test
-displayHome()
 
 console.log(todoDependencies.folders, 'folders')
 console.log(todoDependencies.defaultFolder, 'default folder')
@@ -90,11 +98,12 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
- * create function that displays home page,
- *  array of folders as param
  * create function that displays folder page,
  *  1 param, folder object
  *    from their grab todo's & titles
+ * refactor code
+ *  display functions can be reusable
+ *  like 
  * create function that displays note page
  *  1 param, todo object
  *    from their grab title, dueDate, priority, & description
@@ -105,6 +114,11 @@ export { todoDependencies }
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description
+ * 
+ * bugs:
+ * in todo forms,
+ *  if title empty, don't add todo
+ * adding note inside default page, don't add double todos to default folder
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'

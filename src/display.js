@@ -5,85 +5,137 @@ import {
   addAttributeToElem,
   addTextToElem,
 } from "./helpers.js"
+import {
+  homeFolderFunctionality,
+  folderDivAsButton
+} from "./home.js";
+import { folderAddTodo } from "./folder.js";
 
-function displayHome() {
-  displayTitle()
-  displayTodoForm()
-  displayFolders(todoDependencies.folders)
+function displayHomePage() {
+  displayTitle('home', 'Todo List')
+  displayTodoForm('home')
+  displayList(todoDependencies.folders, 'home')
   displayFolderForm()
+  homeFolderFunctionality()
 }
 
-function displayTitle() {
-  loadElemToContainer('#content', 'h1', 'app-title')
-  addTextToElem('#app-title', 'Todo List')
+// function displayTitle() {
+//   loadElemToContainer('#content', 'h1', 'app-title')
+//   addTextToElem('#app-title', 'Todo List')
+// }
+
+function displayTitle(page, title) {
+  loadElemToContainer('#content', 'div', `${page}-title-div`)
+  if (title !== 'Todo List') {
+    loadElemToContainer(`#${page}-title-div`, 'button', `${page}-back-btn`)
+    addTextToElem(`#${page}-back-btn`,'BACK')
+  }
+  loadElemToContainer(`#${page}-title-div`, 'h1', `${page}-title`)
+  addTextToElem(`#${page}-title`, `${title}`)
 }
 
-function displayTodoForm() {
-  // make priority select, 'low', 'medium', 'high'
-  loadElemToContainer('#content', 'form', 'todo-form-home')
+function displayTodoForm(page) {
+  loadElemToContainer('#content', 'div', `todo-form-${page}`)
 
-  loadElemToContainer('#todo-form-home', 'label', 'todo-title-home-label')
-  addAttributeToElem('#todo-title-home-label', 'for', 'todo-title-home')
-  addTextToElem('#todo-title-home-label', 'Title')
-  loadElemToContainer('#todo-form-home', 'input', 'todo-title-home')
-  addAttributeToElem('#todo-title-home','type','text')
-  addAttributeToElem('#todo-title-home','placeholder','New Todo')
+  loadElemToContainer(`#todo-form-${page}`, 'label', `todo-title-${page}-label`)
+  addAttributeToElem(`#todo-title-${page}-label`, 'for', `todo-title-${page}`)
+  addTextToElem(`#todo-title-${page}-label`, 'Title')
+  loadElemToContainer(`#todo-form-${page}`, 'input', `todo-title-${page}`)
+  addAttributeToElem(`#todo-title-${page}`,'type','text')
+  addAttributeToElem(`#todo-title-${page}`,'placeholder','New Todo')
 
-  loadElemToContainer('#todo-form-home', 'label', 'todo-duedate-home-label')
-  addAttributeToElem('#todo-duedate-home-label', 'for', 'todo-duedate-home')
-  addTextToElem('#todo-duedate-home-label', 'Due date')
-  loadElemToContainer('#todo-form-home', 'input', 'todo-duedate-home')
-  addAttributeToElem('#todo-duedate-home','type','date')
-  addAttributeToElem('#todo-duedate-home','placeholder','Due Date')
+  loadElemToContainer(`#todo-form-${page}`, 'label', `todo-duedate-${page}-label`)
+  addAttributeToElem(`#todo-duedate-${page}-label`, 'for', `todo-duedate-${page}`)
+  addTextToElem(`#todo-duedate-${page}-label`, 'Due date')
+  loadElemToContainer(`#todo-form-${page}`, 'input', `todo-duedate-${page}`)
+  addAttributeToElem(`#todo-duedate-${page}`,'type','date')
+  addAttributeToElem(`#todo-duedate-${page}`,'placeholder','Due Date')
 
-  loadElemToContainer('#todo-form-home', 'label', 'todo-priority-home-label')
-  addAttributeToElem('#todo-priority-home-label', 'for', 'todo-priority-home')
-  addTextToElem('#todo-priority-home-label', 'Priority')
-  loadElemToContainer('#todo-form-home', 'select', 'todo-priority-home')
-  addAttributeToElem('#todo-priority-home','name','todo-priority-home')
-  loadElemToContainer('#todo-priority-home', 'option', 'todo-priority-home-low')
-  addAttributeToElem('#todo-priority-home-low', 'value', '0')
-  addTextToElem('#todo-priority-home-low', 'Low')
-  loadElemToContainer('#todo-priority-home', 'option', 'todo-priority-home-medium')
-  addAttributeToElem('#todo-priority-home-medium', 'value', '1')
-  addTextToElem('#todo-priority-home-medium', 'Medium')
-  loadElemToContainer('#todo-priority-home', 'option', 'todo-priority-home-high')
-  addAttributeToElem('#todo-priority-home-high', 'value', '2')
-  addTextToElem('#todo-priority-home-high', 'High')
+  loadElemToContainer(`#todo-form-${page}`, 'label', `todo-priority-${page}-label`)
+  addAttributeToElem(`#todo-priority-${page}-label`, 'for', `todo-priority-${page}`)
+  addTextToElem(`#todo-priority-${page}-label`, 'Priority')
+  loadElemToContainer(`#todo-form-${page}`, 'select', `todo-priority-${page}`)
+  addAttributeToElem(`#todo-priority-${page}`,'name',`todo-priority-${page}`)
+  loadElemToContainer(`#todo-priority-${page}`, 'option', `todo-priority-${page}-low`)
+  addAttributeToElem(`#todo-priority-${page}-low`, 'value', '0')
+  addTextToElem(`#todo-priority-${page}-low`, 'Low')
+  loadElemToContainer(`#todo-priority-${page}`, 'option', `todo-priority-${page}-medium`)
+  addAttributeToElem(`#todo-priority-${page}-medium`, 'value', '1')
+  addTextToElem(`#todo-priority-${page}-medium`, 'Medium')
+  loadElemToContainer(`#todo-priority-${page}`, 'option', `todo-priority-${page}-high`)
+  addAttributeToElem(`#todo-priority-${page}-high`, 'value', '2')
+  addTextToElem(`#todo-priority-${page}-high`, 'High')
 
-  loadElemToContainer('#todo-form-home', 'label', 'todo-description-home-label')
-  addAttributeToElem('#todo-description-home-label', 'for', 'todo-description-home')
-  addTextToElem('#todo-description-home-label', 'Description')
-  loadElemToContainer('#todo-form-home', 'input', 'todo-description-home')
-  addAttributeToElem('#todo-description-home','placeholder','Description')
+  loadElemToContainer(`#todo-form-${page}`, 'label', `todo-description-${page}-label`)
+  addAttributeToElem(`#todo-description-${page}-label`, 'for', `todo-description-${page}`)
+  addTextToElem(`#todo-description-${page}-label`, 'Description')
+  loadElemToContainer(`#todo-form-${page}`, 'input', `todo-description-${page}`)
+  addAttributeToElem(`#todo-description-${page}`,'placeholder','Description')
 
-  loadElemToContainer('#todo-form-home', 'button', 'todo-add-home')
-  addTextToElem('#todo-add-home', 'ADD')
+  loadElemToContainer(`#todo-form-${page}`, 'button', `todo-add-${page}-btn`)
+  addTextToElem(`#todo-add-${page}-btn`, 'ADD')
 }
 
-function displayFolders(foldersToDisplay) {
-  loadElemToContainer('#content', 'ul', 'folders-home')
-  foldersToDisplay.forEach((folder) => {
-    loadElemToContainer('#folders-home', 'li', `folders-home-${folder.name}`)
-    addTextToElem(`#folders-home-${folder.name}`, `${folder.name}`)
+function displayList(listToDisplay, page) {
+  if (page == 'home' && listToDisplay.length == 1) {
+    loadElemToContainer('#content', 'div', `list-${page}`)
+  } else if (page == 'folder') {
+    loadElemToContainer('#content', 'div', `list-${page}`)
+  }
+
+  listToDisplay.forEach((item) => {
+    let name;
+    if (page == 'home') {
+      name = item.name;
+    } else if (page == 'folder') {
+      name = item.title;
+    }
+    loadElemToContainer(`#list-${page}`, 'div', `list-${page}-${name}-div`)
+    loadElemToContainer(`#list-${page}-${name}-div`, 'span', `list-${page}-${name}-text`)
+    addTextToElem(`#list-${page}-${name}-text`, `${name}`)
+    if (!(item.name == 'Default' && page == 'home')) {
+      loadElemToContainer(`#list-${page}-${name}-div`, 'button', `list-${page}-${name}-del-btn`)
+      addTextToElem(`#list-${page}-${name}-del-btn`, 'DEL')
+    }
+    if (page == 'home') {
+      folderDivAsButton(name)
+    } else if (page == 'folder') {
+    }
   })
 }
 
 function displayFolderForm() {
-  loadElemToContainer('#content', 'form', 'folder-form-home')
+  loadElemToContainer('#content', 'div', 'folder-div-home')
 
-  loadElemToContainer('#folder-form-home', 'label', 'folder-title-home-label')
+  loadElemToContainer('#folder-div-home', 'label', 'folder-title-home-label')
   addAttributeToElem('#folder-title-home-label', 'for', 'folder-title-home')
   addTextToElem('#folder-title-home-label', 'Title')
-  loadElemToContainer('#folder-form-home', 'input', 'folder-title-home')
+  loadElemToContainer('#folder-div-home', 'input', 'folder-title-home')
   addAttributeToElem('#folder-title-home','type','text')
   addAttributeToElem('#folder-title-home','placeholder','New folder')
 
-  loadElemToContainer('#folder-form-home', 'button', 'folder-add-home')
-  addTextToElem('#folder-add-home', 'ADD')
+  loadElemToContainer('#folder-div-home', 'button', 'folder-add-home-btn')
+  addTextToElem('#folder-add-home-btn', 'ADD')
 }
 
+function displayFolderPage(folder) {
+  displayTitle('folder', folder)
+  displayTodoForm('folder')
+  nameOfListToDisplay(folder, 'folder')
+  folderAddTodo()
+}
+
+function nameOfListToDisplay(folderName, page) {
+  todoDependencies.folders.forEach((currentFolder) => {
+    if (currentFolder.name === folderName) {
+      displayList(currentFolder.folder, page)
+    }
+  })
+}
+
+
 /**
+ * add physical delete button next to folders
  * might reuse displayTitle and displayTodoForm for other pages
  *  2 params container and text
  * 
@@ -97,4 +149,8 @@ function displayFolderForm() {
  * on click(folder 'ADD'), load folder display
  */
 
-export { displayHome }
+export {
+  displayHomePage,
+  displayList,
+  displayFolderPage
+}
