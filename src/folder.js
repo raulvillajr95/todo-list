@@ -39,14 +39,14 @@ function deleteFolder(folderToRemove) {
   })
 }
 
-function folderAddTodo() {
-  const todoAddBtn = document.querySelector('#todo-add-folder-btn');
+function pageFormAddTodo(page) {
+  const todoAddBtn = document.querySelector(`#todo-add-${page}-btn`);
   const currentFolderTitle = document.querySelector('#folder-title')
 
-  const newTodoTitle = document.querySelector('#todo-title-folder')
-  const newTodoDueDate = document.querySelector('#todo-duedate-folder')
-  const newTodoPriority = document.querySelector('#todo-priority-folder')
-  const newTodoDescription = document.querySelector('#todo-description-folder')
+  const newTodoTitle = document.querySelector(`#todo-title-${page}`)
+  const newTodoDueDate = document.querySelector(`#todo-duedate-${page}`)
+  const newTodoPriority = document.querySelector(`#todo-priority-${page}`)
+  const newTodoDescription = document.querySelector(`#todo-description-${page}`)
 
   todoAddBtn.addEventListener('click', () => {
     createTodo(
@@ -54,39 +54,12 @@ function folderAddTodo() {
       `${newTodoDescription.value}`,
       `${newTodoDueDate.value}`,
       `${newTodoPriority.value}`,
-      `${currentFolderTitle.textContent}`
+      `${page == 'home' ? 'Default' : currentFolderTitle.textContent}`
     )
-    // createTodo('title', 'desc', 'dueD', 'prior', 'folder')
-    clearDisplay('#list-folder')
-    listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
-    newTodoTitle.value = '';
-    newTodoDueDate.value = '';
-    newTodoPriority.value = '';
-    newTodoDescription.value = '';
-
-    console.log(todoDependencies.folders, 'folders')
-    console.log(todoDependencies.defaultFolder, 'default folder')
-  })
-}
-
-// possibly combine with folderAddTodo
-function homeAddTodo(param) {
-  const todoAddBtn = document.querySelector('#todo-add-home-btn');
-  const currentFolderTitle = document.querySelector('#folder-title')
-
-  const newTodoTitle = document.querySelector('#todo-title-home')
-  const newTodoDueDate = document.querySelector('#todo-duedate-home')
-  const newTodoPriority = document.querySelector('#todo-priority-home')
-  const newTodoDescription = document.querySelector('#todo-description-home')
-
-  todoAddBtn.addEventListener('click', () => {
-    createTodo(
-      `${newTodoTitle.value}`,
-      `${newTodoDescription.value}`,
-      `${newTodoDueDate.value}`,
-      `${newTodoPriority.value}`,
-      'Default'
-    )
+    if (page == 'folder') {
+      clearDisplay('#list-folder')
+      listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
+    }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
     newTodoPriority.value = '';
@@ -110,6 +83,6 @@ export {
   createFolder,
   showFolders,
   deleteFolder,
-  folderAddTodo,
-  listOfTodosToDisplay
+  listOfTodosToDisplay,
+  pageFormAddTodo
 }

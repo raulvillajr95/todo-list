@@ -11,7 +11,6 @@ import {
   createFolder,
   showFolders,
   deleteFolder,
-  folderAddTodo
 } from './folder.js';
 import {
   displayHomePage,

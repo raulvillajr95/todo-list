@@ -5,7 +5,8 @@ import {
   createFolder,
   showFolders,
   deleteFolder,
-  listOfTodosToDisplay
+  listOfTodosToDisplay,
+  pageFormAddTodo
 } from './folder.js';
 import {
   displayFolderPage,
@@ -39,34 +40,7 @@ function folderDivAsButton(folder) {
   })
 }
 
-function homeAddTodo() {
-  const todoAddBtn = document.querySelector('#todo-add-home-btn');
-
-  const newTodoTitle = document.querySelector('#todo-title-home')
-  const newTodoDueDate = document.querySelector('#todo-duedate-home')
-  const newTodoPriority = document.querySelector('#todo-priority-home')
-  const newTodoDescription = document.querySelector('#todo-description-home')
-
-  todoAddBtn.addEventListener('click', () => {
-    createTodo(
-      `${newTodoTitle.value}`,
-      `${newTodoDescription.value}`,
-      `${newTodoDueDate.value}`,
-      `${newTodoPriority.value}`,
-      'Default'
-    )
-    newTodoTitle.value = '';
-    newTodoDueDate.value = '';
-    newTodoPriority.value = '';
-    newTodoDescription.value = '';
-
-    console.log(todoDependencies.folders, 'folders')
-    console.log(todoDependencies.defaultFolder, 'default folder')
-  })
-}
-
 export {
   homeFolderFunctionality,
   folderDivAsButton,
-  homeAddTodo
 }

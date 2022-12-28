@@ -8,9 +8,8 @@ import {
 import {
   homeFolderFunctionality,
   folderDivAsButton,
-  homeAddTodo
 } from "./home.js";
-import { folderAddTodo } from "./folder.js";
+import { pageFormAddTodo } from "./folder.js";
 
 function displayHomePage() {
   displayTitle('home', 'Todo List')
@@ -18,7 +17,7 @@ function displayHomePage() {
   displayList(todoDependencies.folders, 'home')
   displayFolderForm()
   homeFolderFunctionality()
-  homeAddTodo()
+  pageFormAddTodo('home')
 }
 
 function displayTitle(page, title) {
@@ -118,7 +117,7 @@ function displayFolderPage(folder) {
   displayTitle('folder', folder)
   displayTodoForm('folder')
   nameOfListToDisplay(folder, 'folder')
-  folderAddTodo()
+  pageFormAddTodo('folder')
 }
 
 function nameOfListToDisplay(folderName, page) {
