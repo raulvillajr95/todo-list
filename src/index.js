@@ -93,8 +93,7 @@ displayHomePage()
 //   '12-30-2022',
 //   1
 // )
-
-// // s8, delete whole folder and its todo's
+// s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
 
 // display test
@@ -105,11 +104,8 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
- * work on displayList
- *  the forEach might not be working
- * make the folder click in home only the text, not whole div
- * work on folder click DEL
- *  very similar to todo DEL
+ * create function for default folder back button
+ * create function for regular folder back button
  * refactor code
  *  display functions can be reusable
  *  like 
