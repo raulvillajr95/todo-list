@@ -4,7 +4,8 @@ import {
   createTodo,
   showTodos,
   showTodo,
-  deleteTodo
+  deleteTodo,
+  todoObj
 } from './todo.js';
 import {
   Folder,
@@ -14,7 +15,8 @@ import {
 } from './folder.js';
 import {
   displayHomePage,
-  displayFolderPage
+  displayFolderPage,
+  displayTodoPage
 } from './display.js'
 import { homeFolderFunctionality } from './home.js'
 
@@ -30,6 +32,14 @@ let todoDependencies = (function() {
 })()
 
 displayHomePage()
+// createTodo(
+//   'Pencils',
+//   'No.2 pencils needed for math',
+//   '01-08-2023',
+//   1,
+//   ''
+// )
+// displayTodoPage('Pencils')
 
 // s1, create a folder ✅
 // createFolder('Groceries')
@@ -49,11 +59,9 @@ displayHomePage()
 //   '12-27-2022',
 //   2,
 // )
-
-// // s4, view all folders created
+// s4, view all folders created ✅
 // showFolders()
-
-// // // s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
+// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder ✅
 // createFolder('Appliances')
 // createTodo(
 //   'Refrigerator',
@@ -77,8 +85,10 @@ displayHomePage()
 //   'Appliances'
 // )
 // showTodos('Appliances')
-// // // s6, view 1 todo
+
+// // s6, view 1 todo
 // showTodo('Microwave')
+
 // // // s7, delete single todo
 // deleteTodo(
 //   'Shaker',
@@ -114,6 +124,12 @@ export { todoDependencies }
  * in todo forms,
  *  if title empty, don't add todo
  * adding note inside default page, don't add double todos to default folder
+ * when adding folders in home page, you add name with spaces like 'ca sio'
+ * i'm not able to read todos with the same name,
+ *  todoObj reads them all from default folder
+ *  then need to be read from the specific folder
+ *  even then, within a folder you can't have diffirent names 
+ * might need to be able to have same named folders, also todo's
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'

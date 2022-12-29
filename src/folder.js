@@ -59,6 +59,7 @@ function pageFormAddTodo(page) {
     if (page == 'folder') {
       clearDisplay('#list-folder')
       listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
+      console.log(todoDivAsButton())
     }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
@@ -76,6 +77,11 @@ function listOfTodosToDisplay(folderName, page) {
       displayList(currentFolder.folder, page)
     }
   })
+}
+
+function todoDivAsButton() {
+  const listFolder = document.querySelector('#list-folder')
+  console.log(listFolder.children)
 }
 
 export { 

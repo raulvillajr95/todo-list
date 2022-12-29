@@ -70,4 +70,14 @@ function deleteTodo(todo, dueDate, priority) {
   })
 }
 
-export { createTodo, showTodos, showTodo, deleteTodo }
+function todoObj(todo) {
+  let obj;
+  todoDependencies.defaultFolder.folder.forEach((currentTodo) => {
+    if (currentTodo.title === todo) {
+      obj = currentTodo;
+    }
+  })
+  return obj;
+}
+
+export { createTodo, showTodos, showTodo, deleteTodo, todoObj }

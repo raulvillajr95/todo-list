@@ -10,6 +10,10 @@ import {
   folderDivAsButton,
 } from "./home.js";
 import { pageFormAddTodo } from "./folder.js";
+import {
+  showTodo,
+  todoObj
+} from "./todo.js";
 
 function displayHomePage() {
   displayTitle('home', 'Todo List')
@@ -113,7 +117,7 @@ function displayFolderForm() {
   addTextToElem('#folder-add-home-btn', 'ADD')
 }
 
-function displayFolderPage(folder) {
+function displayFolderPage(folder) {  
   displayTitle('folder', folder)
   displayTodoForm('folder')
   nameOfListToDisplay(folder, 'folder')
@@ -126,6 +130,45 @@ function nameOfListToDisplay(folderName, page) {
       displayList(currentFolder.folder, page)
     }
   })
+}
+
+// the todo param can be the full object of the note
+// might have  to add folder param as well
+function displayTodoPage(todoToDisplay) {
+  let todo = todoObj(todoToDisplay)
+
+  displayTitle('todo', todo.title)
+  todoDatePriority(todo.dueDate, todo.priority)
+  displayDescription(todo.description)
+}
+
+function todoDatePriority(dueDate, priorityVal) {
+  loadElemToContainer('#content', 'div', 'todo-info-div')
+
+  loadElemToContainer(`#todo-info-div`, 'h2', `todo-duedate`)
+  addTextToElem(`#todo-duedate`, `${dueDate}`)
+
+  let priority;
+  switch (priorityVal) {
+    case 0:
+      priority = 'low';
+      break;
+    case 1:
+      priority = 'medium';
+      break;
+    case 2:
+      priority = 'high';
+      break;
+    default:
+      break;
+  }
+  loadElemToContainer(`#todo-info-div`, 'h2', `todo-priority`)
+  addTextToElem(`#todo-priority`, `${priority}`)
+}
+
+function displayDescription(description) {
+  loadElemToContainer(`#content`, 'p', `todo-description`)
+  addTextToElem(`#todo-description`, description)
 }
 
 
@@ -148,5 +191,6 @@ export {
   displayHomePage,
   displayList,
   displayFolderPage,
-  nameOfListToDisplay
+  nameOfListToDisplay,
+  displayTodoPage
 }
