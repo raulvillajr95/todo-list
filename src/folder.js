@@ -89,9 +89,8 @@ function todoDivAsButton() {
 
   for (let i = 0; i < listFolder.children.length; i++) {
     listFolder.children[i].children[0].addEventListener('click', () => {
-      // clearDisplay('#content')
-      // displayTodoPage(listFolder.children[i].children[0].textContent)
-      console.log(listFolder.children[i].children[0].textContent)
+      clearDisplay('#content')
+      displayTodoPage(listFolder.children[i].children[0].textContent)
     })
 
     listFolder.children[i].children[1].addEventListener('click', () => {

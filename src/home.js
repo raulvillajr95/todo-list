@@ -15,6 +15,7 @@ import {
   nameOfListToDisplay
 } from './display.js'
 import { createTodo } from "./todo.js";
+import { loadElemToContainer } from "./helpers.js";
 
 function homeFolderFunctionality() {
   const folderAddBtn = document.querySelector('#folder-add-home-btn');
@@ -25,6 +26,7 @@ function homeFolderFunctionality() {
     clearDisplay('#list-home')
     // see wassup here
     displayList(todoDependencies.folders, 'home')
+    folderDivAsButton()
     newFolderInp.value = ''
 
     console.log(todoDependencies.folders, 'folders')
@@ -32,12 +34,34 @@ function homeFolderFunctionality() {
   })
 }
 
-function folderDivAsButton(folder) {
-  let div = document.querySelector(`#list-home-${folder}-div`)
-  div.addEventListener('click', () => {
-    clearDisplay('#content')
-    displayFolderPage(folder)
-  })
+function folderDivAsButton() {
+  const listHome = document.querySelector('#list-home')
+  for (let i = 0; i < listHome.children.length; i++) {
+    listHome.children[i].children[0].addEventListener('click', () => {
+      let folder = listHome.children[i].children[0].textContent;
+      clearDisplay('#content')
+      displayFolderPage(folder)
+    })
+    if (listHome.children[i].children[1] == undefined ) {
+      continue;
+    }
+    listHome.children[i].children[1].addEventListener('click', () => {
+      let folder = listHome.children[i].children[0].textContent
+      deleteFolder(folder)
+      clearDisplay('#content')
+      // delete only #list-home
+      // doesn't display list
+      console.log(listHome.children.length, 'hahahahhahahaha')
+      console.log(todoDependencies.folders.length, 'heee')
+      if (todoDependencies.folders.length >= 2) {
+        loadElemToContainer('#content', 'div', `list-home`)
+      }
+      displayHomePage()
+
+      console.log(todoDependencies.folders, 'folders')
+      console.log(todoDependencies.defaultFolder, 'default folder')
+    })
+  }
 }
 
 export {

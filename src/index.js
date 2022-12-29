@@ -105,6 +105,8 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
+ * work on displayList
+ *  the forEach might not be working
  * make the folder click in home only the text, not whole div
  * work on folder click DEL
  *  very similar to todo DEL

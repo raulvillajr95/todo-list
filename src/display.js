@@ -17,11 +17,19 @@ import {
 
 function displayHomePage() {
   displayTitle('home', 'Todo List')
+  console.log('displayTitle check')
   displayTodoForm('home')
+  console.log('displayTodoForm check')
   displayList(todoDependencies.folders, 'home')
+  console.log('displayList check')
   displayFolderForm()
+  console.log('displayFolderForm check')
   homeFolderFunctionality()
+  console.log('homeFolderFunctionality check')
   pageFormAddTodo('home')
+  console.log('pageFormAddTodo check')
+  folderDivAsButton()
+  console.log('folderDivAsButton check')
 }
 
 function displayTitle(page, title) {
@@ -78,30 +86,41 @@ function displayTodoForm(page) {
 }
 
 function displayList(listToDisplay, page) {
-  if (page == 'home' && listToDisplay.length == 1) {
+  console.log('displayList 1')
+  console.log(listToDisplay.length, 'listToDisplay.length')
+
+  if (page == 'home' && todoDependencies.folders.length == 1) {
+    console.log('just default')
     loadElemToContainer('#content', 'div', `list-${page}`)
   } else if (page == 'folder' && listToDisplay.length < 1) {
+    console.log('just folder')
     loadElemToContainer('#content', 'div', `list-${page}`)
   }
 
+  console.log('displayList 2')
+
   listToDisplay.forEach((item) => {
+    console.log(item, 'displayList')
     let name;
     if (page == 'home') {
+      console.log('home????')
       name = item.name;
     } else if (page == 'folder') {
+      console.log('folder???')
       name = item.title;
     }
+    console.log('continueee????')
     loadElemToContainer(`#list-${page}`, 'div', `list-${page}-${name}-div`)
+    console.log('loaded element??')
     loadElemToContainer(`#list-${page}-${name}-div`, 'span', `list-${page}-${name}-text`)
     addTextToElem(`#list-${page}-${name}-text`, `${name}`)
     if (!(item.name == 'Default' && page == 'home')) {
       loadElemToContainer(`#list-${page}-${name}-div`, 'button', `list-${page}-${name}-del-btn`)
       addTextToElem(`#list-${page}-${name}-del-btn`, 'DEL')
     }
-    if (page == 'home') {
-      folderDivAsButton(name)
-    }
   })
+
+  console.log('displayList 3')
 }
 
 function displayFolderForm() {
