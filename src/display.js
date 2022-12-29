@@ -58,6 +58,7 @@ function displayTodoForm(page) {
   addAttributeToElem(`#todo-priority-${page}`,'name',`todo-priority-${page}`)
   loadElemToContainer(`#todo-priority-${page}`, 'option', `todo-priority-${page}-low`)
   addAttributeToElem(`#todo-priority-${page}-low`, 'value', '0')
+  addAttributeToElem(`#todo-priority-${page}-low`, 'selected', '')
   addTextToElem(`#todo-priority-${page}-low`, 'Low')
   loadElemToContainer(`#todo-priority-${page}`, 'option', `todo-priority-${page}-medium`)
   addAttributeToElem(`#todo-priority-${page}-medium`, 'value', '1')
@@ -132,8 +133,6 @@ function nameOfListToDisplay(folderName, page) {
   })
 }
 
-// the todo param can be the full object of the note
-// might have  to add folder param as well
 function displayTodoPage(todoToDisplay) {
   let todo = todoObj(todoToDisplay)
 
@@ -146,46 +145,25 @@ function todoDatePriority(dueDate, priorityVal) {
   loadElemToContainer('#content', 'div', 'todo-info-div')
 
   loadElemToContainer(`#todo-info-div`, 'h2', `todo-duedate`)
-  addTextToElem(`#todo-duedate`, `${dueDate}`)
+  addTextToElem(`#todo-duedate`, `Due date: ${dueDate}`)
 
   let priority;
-  switch (priorityVal) {
-    case 0:
-      priority = 'low';
-      break;
-    case 1:
-      priority = 'medium';
-      break;
-    case 2:
-      priority = 'high';
-      break;
-    default:
-      break;
-  }
+  if (priorityVal == 0) {
+    priority = 'low';
+  } else if (priorityVal == 1) {
+    priority = 'medium';
+  } else if (priorityVal == 2) {
+    priority = 'high';
+  } 
+
   loadElemToContainer(`#todo-info-div`, 'h2', `todo-priority`)
-  addTextToElem(`#todo-priority`, `${priority}`)
+  addTextToElem(`#todo-priority`, `Priority: ${priority}`)
 }
 
 function displayDescription(description) {
   loadElemToContainer(`#content`, 'p', `todo-description`)
-  addTextToElem(`#todo-description`, description)
+  addTextToElem(`#todo-description`, `Description: ${description}`)
 }
-
-
-/**
- * add physical delete button next to folders
- * might reuse displayTitle and displayTodoForm for other pages
- *  2 params container and text
- * 
- * if reusing, have all reusable displays here
- * create home display module js file
- * create folder display module js file
- * create todo display module js file
- * i might just create my own framework full of dom functions
- * 
- * ideas:
- * on click(folder 'ADD'), load folder display
- */
 
 export {
   displayHomePage,

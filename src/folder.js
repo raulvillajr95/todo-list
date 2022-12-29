@@ -1,7 +1,11 @@
 import { todoDependencies } from "./index.js";
-import { createTodo } from "./todo.js";
+import { createTodo, deleteTodo, showTodo, todoObj } from "./todo.js";
 import { clearDisplay } from "./helpers.js";
-import { displayList } from './display.js'
+import { 
+  displayFolderPage,
+  displayList,
+  displayTodoPage
+} from './display.js'
 
 class Folder{
   constructor(name) {
@@ -59,7 +63,7 @@ function pageFormAddTodo(page) {
     if (page == 'folder') {
       clearDisplay('#list-folder')
       listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
-      console.log(todoDivAsButton())
+      todoDivAsButton()
     }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
@@ -81,7 +85,30 @@ function listOfTodosToDisplay(folderName, page) {
 
 function todoDivAsButton() {
   const listFolder = document.querySelector('#list-folder')
-  console.log(listFolder.children)
+  const folderTitle = document.querySelector('#folder-title')
+
+  for (let i = 0; i < listFolder.children.length; i++) {
+    listFolder.children[i].children[0].addEventListener('click', () => {
+      // clearDisplay('#content')
+      // displayTodoPage(listFolder.children[i].children[0].textContent)
+      console.log(listFolder.children[i].children[0].textContent)
+    })
+
+    listFolder.children[i].children[1].addEventListener('click', () => {
+      let todo = todoObj(listFolder.children[i].children[0].textContent)
+      deleteTodo(
+        todo.title,
+        todo.dueDate,
+        todo.priority
+      )
+      let folder = folderTitle.textContent;
+      clearDisplay('#content')
+      displayFolderPage(folder)
+
+      console.log(todoDependencies.folders, 'folders')
+      console.log(todoDependencies.defaultFolder, 'default folder')
+    })
+  }
 }
 
 export { 

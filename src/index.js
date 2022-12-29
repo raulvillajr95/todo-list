@@ -85,17 +85,16 @@ displayHomePage()
 //   'Appliances'
 // )
 // showTodos('Appliances')
-
-// // s6, view 1 todo
+// s6, view 1 todo ✅
 // showTodo('Microwave')
-
-// // // s7, delete single todo
+// s7, delete single todo ✅
 // deleteTodo(
 //   'Shaker',
 //   '12-30-2022',
 //   1
 // )
-// // // s8, delete whole folder and its todo's
+
+// // s8, delete whole folder and its todo's
 // deleteFolder('School')
 
 // display test
@@ -106,6 +105,9 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
+ * make the folder click in home only the text, not whole div
+ * work on folder click DEL
+ *  very similar to todo DEL
  * refactor code
  *  display functions can be reusable
  *  like 
@@ -128,14 +130,19 @@ export { todoDependencies }
  * i'm not able to read todos with the same name,
  *  todoObj reads them all from default folder
  *  then need to be read from the specific folder
- *  even then, within a folder you can't have diffirent names 
+ *  even then, within a folder you can't have diffirent names
+ *  possibly check with name, dueDate, priority, and desc
+ *    instead of just name
  * might need to be able to have same named folders, also todo's
+ * when clicking on divs, it's the whole div
+ *  it shouldn't include the DEL button
+ * when default todo is added from home page,
+ *  when you click on default folder it gives error
+
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'
  *  preset for library
- * -each 'todo' has a 'title'(string), 'description'(string),
- *  'dueDate'(maybe a Date-fns), 'priority'(maybe a number?)
  * -have folders of 'todo's
  * -have a module file for each thing
  * -ui should be able to:
