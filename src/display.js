@@ -9,27 +9,24 @@ import {
   homeFolderFunctionality,
   folderDivAsButton,
 } from "./home.js";
-import { pageFormAddTodo } from "./folder.js";
+import {
+  pageFormAddTodo,
+  folderBackBtn
+} from "./folder.js";
 import {
   showTodo,
-  todoObj
+  todoBackBtn,
+  todoObj,
 } from "./todo.js";
 
 function displayHomePage() {
   displayTitle('home', 'Todo List')
-  console.log('displayTitle check')
   displayTodoForm('home')
-  console.log('displayTodoForm check')
   displayList(todoDependencies.folders, 'home')
-  console.log('displayList check')
   displayFolderForm()
-  console.log('displayFolderForm check')
   homeFolderFunctionality()
-  console.log('homeFolderFunctionality check')
   pageFormAddTodo('home')
-  console.log('pageFormAddTodo check')
   folderDivAsButton()
-  console.log('folderDivAsButton check')
 }
 
 function displayTitle(page, title) {
@@ -86,32 +83,20 @@ function displayTodoForm(page) {
 }
 
 function displayList(listToDisplay, page) {
-  console.log('displayList 1')
-  console.log(listToDisplay.length, 'listToDisplay.length')
-
   if (page == 'home' && todoDependencies.folders.length == 1) {
-    console.log('just default')
     loadElemToContainer('#content', 'div', `list-${page}`)
   } else if (page == 'folder' && listToDisplay.length < 1) {
-    console.log('just folder')
     loadElemToContainer('#content', 'div', `list-${page}`)
   }
 
-  console.log('displayList 2')
-
   listToDisplay.forEach((item) => {
-    console.log(item, 'displayList')
     let name;
     if (page == 'home') {
-      console.log('home????')
       name = item.name;
     } else if (page == 'folder') {
-      console.log('folder???')
       name = item.title;
     }
-    console.log('continueee????')
     loadElemToContainer(`#list-${page}`, 'div', `list-${page}-${name}-div`)
-    console.log('loaded element??')
     loadElemToContainer(`#list-${page}-${name}-div`, 'span', `list-${page}-${name}-text`)
     addTextToElem(`#list-${page}-${name}-text`, `${name}`)
     if (!(item.name == 'Default' && page == 'home')) {
@@ -119,8 +104,6 @@ function displayList(listToDisplay, page) {
       addTextToElem(`#list-${page}-${name}-del-btn`, 'DEL')
     }
   })
-
-  console.log('displayList 3')
 }
 
 function displayFolderForm() {
@@ -137,11 +120,13 @@ function displayFolderForm() {
   addTextToElem('#folder-add-home-btn', 'ADD')
 }
 
-function displayFolderPage(folder) {  
+function displayFolderPage(folder) {
+  todoDependencies.currentFolder = folder;
   displayTitle('folder', folder)
   displayTodoForm('folder')
   nameOfListToDisplay(folder, 'folder')
   pageFormAddTodo('folder')
+  folderBackBtn()
 }
 
 function nameOfListToDisplay(folderName, page) {
@@ -158,6 +143,7 @@ function displayTodoPage(todoToDisplay) {
   displayTitle('todo', todo.title)
   todoDatePriority(todo.dueDate, todo.priority)
   displayDescription(todo.description)
+  todoBackBtn()
 }
 
 function todoDatePriority(dueDate, priorityVal) {
@@ -189,5 +175,8 @@ export {
   displayList,
   displayFolderPage,
   nameOfListToDisplay,
-  displayTodoPage
+  displayTodoPage,
+  displayTitle,
+  displayTodoForm,
+  displayFolderForm
 }

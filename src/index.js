@@ -25,9 +25,12 @@ let todoDependencies = (function() {
   let defaultFolder = new Folder('Default');
   let folders = [defaultFolder];
 
+  let currentFolder;
+
   return {
     folders,
     defaultFolder,
+    currentFolder,
   }
 })()
 
@@ -96,16 +99,12 @@ displayHomePage()
 // s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
 
-// display test
-
 console.log(todoDependencies.folders, 'folders')
 console.log(todoDependencies.defaultFolder, 'default folder')
 
 export { todoDependencies }
 
 /**
- * create function for default folder back button
- * create function for regular folder back button
  * refactor code
  *  display functions can be reusable
  *  like 
@@ -116,6 +115,7 @@ export { todoDependencies }
  * add dates to note
  *  use date-fns
  *  just date for now, no time
+ * add preselected dueDate as today
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description
@@ -154,8 +154,12 @@ export { todoDependencies }
  * -use localStorage to save to local browser
  * 
  * later:
+ * use 'enter' key to add and stuff
+ * use date-fns library
+ * use localStorage
+ * refactor code & fix bugs
  * add eslint and prettier
- * improve it UI/UX wise
+ * improve it UI/UX wise, heavy on css
  * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank
  */

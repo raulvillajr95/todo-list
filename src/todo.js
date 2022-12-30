@@ -1,4 +1,20 @@
 import { todoDependencies } from "./index.js";
+import { 
+  displayFolderPage,
+  displayTitle,
+  displayTodoForm,
+  nameOfListToDisplay,
+
+} from "./display.js";
+import { 
+  clearDisplay,
+  loadElemToContainer
+} from "./helpers.js";
+import {
+  pageFormAddTodo,
+  folderBackBtn,
+  todoDivAsButton
+} from "./folder.js";
 
 class Todo{
   constructor(title, description, dueDate, priority) {
@@ -80,4 +96,26 @@ function todoObj(todo) {
   return obj;
 }
 
-export { createTodo, showTodos, showTodo, deleteTodo, todoObj }
+function todoBackBtn() {
+  const backBtn = document.querySelector('#todo-back-btn')
+  backBtn.addEventListener('click', () => {
+    clearDisplay('#content')
+    let folder = todoDependencies.currentFolder;
+    displayTitle('folder', folder)
+    displayTodoForm('folder')
+    loadElemToContainer('#content', 'div', 'list-folder')
+    nameOfListToDisplay(folder, 'folder')
+    pageFormAddTodo('folder')
+    folderBackBtn()
+    todoDivAsButton()
+  })
+}
+
+export {
+  createTodo,
+  showTodos,
+  showTodo,
+  deleteTodo,
+  todoObj,
+  todoBackBtn
+}

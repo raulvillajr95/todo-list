@@ -48,10 +48,6 @@ function folderDivAsButton() {
     listHome.children[i].children[1].addEventListener('click', () => {
       let folder = listHome.children[i].children[0].textContent
       deleteFolder(folder)
-      // delete only #list-home
-      // doesn't display list
-      console.log(listHome.children.length, 'hahahahhahahaha')
-      console.log(todoDependencies.folders.length, 'heee')
       if (todoDependencies.folders.length >= 2) {
         clearDisplay('#list-home')
         displayList(todoDependencies.folders, 'home')
@@ -60,9 +56,6 @@ function folderDivAsButton() {
         clearDisplay('#content')
         displayHomePage()
       }
-
-      console.log(todoDependencies.folders, 'folders')
-      console.log(todoDependencies.defaultFolder, 'default folder')
     })
   }
 }

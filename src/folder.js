@@ -1,11 +1,19 @@
 import { todoDependencies } from "./index.js";
 import { createTodo, deleteTodo, showTodo, todoObj } from "./todo.js";
-import { clearDisplay } from "./helpers.js";
+import { clearDisplay, loadElemToContainer } from "./helpers.js";
 import { 
   displayFolderPage,
+  displayHomePage,
   displayList,
-  displayTodoPage
+  displayTodoPage,
+  displayTitle,
+  displayTodoForm,
+  displayFolderForm,
 } from './display.js'
+import { 
+  homeFolderFunctionality,
+  folderDivAsButton
+} from "./home.js";
 
 class Folder{
   constructor(name) {
@@ -103,11 +111,28 @@ function todoDivAsButton() {
       let folder = folderTitle.textContent;
       clearDisplay('#content')
       displayFolderPage(folder)
-
-      console.log(todoDependencies.folders, 'folders')
-      console.log(todoDependencies.defaultFolder, 'default folder')
     })
   }
+}
+
+function folderBackBtn() {
+  const backBtn = document.querySelector('#folder-back-btn');
+  backBtn.addEventListener('click', () => {
+    clearDisplay('#content')
+    if (todoDependencies.folders.length == 1) {
+      displayHomePage()
+    } else {
+      console.log(todoDependencies.folders.length, 'folders length')
+      displayTitle('home', 'Todo List')
+      displayTodoForm('home')
+      loadElemToContainer('#content', 'div', 'list-home')
+      displayList(todoDependencies.folders, 'home')
+      displayFolderForm()
+      homeFolderFunctionality()
+      pageFormAddTodo('home')
+      folderDivAsButton()
+    }
+  })
 }
 
 export { 
@@ -116,5 +141,7 @@ export {
   showFolders,
   deleteFolder,
   listOfTodosToDisplay,
-  pageFormAddTodo
+  pageFormAddTodo,
+  folderBackBtn,
+  todoDivAsButton
 }
