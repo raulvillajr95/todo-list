@@ -7,6 +7,7 @@ module.exports = {
     'airbnb-base',
     'prettier'
   ],
+  plugins: ["prettier"],
   overrides: [
   ],
   parserOptions: {
@@ -14,5 +15,10 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'prettier/prettier': 'error',
+    'no-unused-vars': 'warn',
+    'no-console': 'off',
+    'func-names': 'off',
+    'object-shorthand': 'off',
   },
 };

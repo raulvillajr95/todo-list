@@ -2,7 +2,7 @@ function clearDisplay(element) {
   const elem = document.querySelector(element);
   const childrenCount = elem.children.length;
   for (let i = 0; i < childrenCount; i += 1) {
-    elem.children[0].remove()
+    elem.children[0].remove();
   }
 }
 
@@ -23,9 +23,4 @@ function addTextToElem(element, text) {
   elem.textContent = text;
 }
 
-export {
-  clearDisplay,
-  loadElemToContainer,
-  addAttributeToElem,
-  addTextToElem,
-}
+export { clearDisplay, loadElemToContainer, addAttributeToElem, addTextToElem };

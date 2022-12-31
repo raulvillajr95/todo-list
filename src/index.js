@@ -1,10 +1,9 @@
 import './style.css';
 import './reset.css';
-import { Folder } from './folder.js';
-import { displayHomePage } from './display.js';
+import { Folder } from './folder';
+import { displayHomePage } from './display';
 
 const todoDependencies = (() => {
-
   const defaultFolder = new Folder('Default');
   const folders = [defaultFolder];
 
@@ -14,10 +13,10 @@ const todoDependencies = (() => {
     folders,
     defaultFolder,
     currentFolder,
-  }
-})()
+  };
+})();
 
-displayHomePage()
+displayHomePage();
 // createTodo(
 //   'Pencils',
 //   'No.2 pencils needed for math',
@@ -82,10 +81,15 @@ displayHomePage()
 // s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
 
-export { todoDependencies }
+// export { todoDependencies }
+export { todoDependencies };
 
 /**
  * add eslint and maybe prettier
+ *  main errors:
+ *    dependency cycle
+ *    import format
+ * create a function that checks if div exists through id
  * need a way to know if todo is added from home when clicking on default
  *  maybe mess with home add btn
  *  or default folder div
@@ -93,7 +97,7 @@ export { todoDependencies }
  *      add a 'list-folder' div??
  * refactor code
  *  display functions can be reusable
- *  like 
+ *  like
  * create function that displays note page
  *  1 param, todo object
  *    from their grab title, dueDate, priority, & description
@@ -105,7 +109,7 @@ export { todoDependencies }
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description
- * 
+ *
  * Bugs:
  * in todo forms,
  *  if title empty, don't add todo
@@ -125,8 +129,9 @@ export { todoDependencies }
  * when in folder and I add todo's
  *  extra 'list-folder' divs are added
  * when multiple todos deleted in folder,
- *  last one won't delete
- * 
+ *  can only delete 1
+ *  all other become unclickable
+ *
  * notes:
  * -todos need to be objects, kinda like the 'books'
  *  preset for library
@@ -141,7 +146,7 @@ export { todoDependencies }
  * -modeled liked iOS Reminders but simpler
  * -use date-fns library
  * -use localStorage to save to local browser
- * 
+ *
  * later:
  * use 'enter' key to add and stuff
  * use date-fns library
