@@ -1,4 +1,4 @@
-import { todoDependencies } from "./index.js";
+import { todoDependencies } from './index.js';
 import {
   clearDisplay,
   loadElemToContainer,
@@ -11,7 +11,8 @@ import {
 } from "./home.js";
 import {
   pageFormAddTodo,
-  folderBackBtn
+  folderBackBtn,
+  todoDivAsButton,
 } from "./folder.js";
 import {
   showTodo,
@@ -83,15 +84,20 @@ function displayTodoForm(page) {
 }
 
 function displayList(listToDisplay, page) {
+  console.log('displayList 1')
+  console.log(todoDependencies.currentFolder, 'currentFolder')
+  console.log(todoDependencies.defaultFolder.folder.length, 'defaultFolder length')
   if (page == 'home' && todoDependencies.folders.length == 1) {
     loadElemToContainer('#content', 'div', `list-${page}`)
   } else if (page == 'folder' && listToDisplay.length < 1) {
+    loadElemToContainer('#content', 'div', `list-${page}`)
+  } else if (todoDependencies.currentFolder == 'Default') {
     loadElemToContainer('#content', 'div', `list-${page}`)
   }
 
   listToDisplay.forEach((item) => {
     let name;
-    if (page == 'home') {
+    if (page === 'home') {
       name = item.name;
     } else if (page == 'folder') {
       name = item.title;
@@ -125,7 +131,9 @@ function displayFolderPage(folder) {
   displayTitle('folder', folder)
   displayTodoForm('folder')
   nameOfListToDisplay(folder, 'folder')
+  console.log('dp 1')
   pageFormAddTodo('folder')
+  console.log('dp 2')
   folderBackBtn()
 }
 

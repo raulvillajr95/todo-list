@@ -105,6 +105,12 @@ console.log(todoDependencies.defaultFolder, 'default folder')
 export { todoDependencies }
 
 /**
+ * add eslint and maybe prettier
+ * need a way to know if todo is added from home when clicking on default
+ *  maybe mess with home add btn
+ *  or default folder div
+ *    when clicked, if default is the only folder && there's 1 todo,
+ *      add a 'list-folder' div??
  * refactor code
  *  display functions can be reusable
  *  like 
@@ -120,7 +126,7 @@ export { todoDependencies }
  *  folder names
  *  todo names, dueDate, priority, description
  * 
- * bugs:
+ * Bugs:
  * in todo forms,
  *  if title empty, don't add todo
  * adding note inside default page, don't add double todos to default folder
@@ -135,8 +141,11 @@ export { todoDependencies }
  * when clicking on divs, it's the whole div
  *  it shouldn't include the DEL button
  * when default todo is added from home page,
- *  when you click on default folder it gives error
-
+ *  then you click on default folder, todos don't have clicks
+ * when in folder and I add todo's
+ *  extra 'list-folder' divs are added
+ * when multiple todos deleted in folder,
+ *  last one won't delete
  * 
  * notes:
  * -todos need to be objects, kinda like the 'books'
@@ -158,7 +167,6 @@ export { todoDependencies }
  * use date-fns library
  * use localStorage
  * refactor code & fix bugs
- * add eslint and prettier
  * improve it UI/UX wise, heavy on css
  * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank

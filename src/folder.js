@@ -51,6 +51,7 @@ function deleteFolder(folderToRemove) {
   })
 }
 
+// check this out for non functioning todo's
 function pageFormAddTodo(page) {
   const todoAddBtn = document.querySelector(`#todo-add-${page}-btn`);
   const currentFolderTitle = document.querySelector('#folder-title')
@@ -72,6 +73,9 @@ function pageFormAddTodo(page) {
       clearDisplay('#list-folder')
       listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
       todoDivAsButton()
+      console.log('FOLDER')
+    } else if (page == 'home') {
+      console.log('HOME')
     }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
