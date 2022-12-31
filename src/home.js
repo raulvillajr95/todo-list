@@ -1,21 +1,14 @@
 import { todoDependencies } from "./index.js";
 import { clearDisplay } from "./helpers.js";
 import {
-  Folder,
   createFolder,
-  showFolders,
   deleteFolder,
-  listOfTodosToDisplay,
-  pageFormAddTodo
 } from './folder.js';
 import {
   displayFolderPage,
   displayHomePage,
   displayList,
-  nameOfListToDisplay
 } from './display.js'
-import { createTodo } from "./todo.js";
-import { loadElemToContainer } from "./helpers.js";
 
 function homeFolderFunctionality() {
   const folderAddBtn = document.querySelector('#folder-add-home-btn');

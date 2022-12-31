@@ -1,6 +1,5 @@
 import { todoDependencies } from './index.js';
 import {
-  clearDisplay,
   loadElemToContainer,
   addAttributeToElem,
   addTextToElem,
@@ -12,10 +11,8 @@ import {
 import {
   pageFormAddTodo,
   folderBackBtn,
-  todoDivAsButton,
 } from "./folder.js";
 import {
-  showTodo,
   todoBackBtn,
   todoObj,
 } from "./todo.js";
@@ -84,14 +81,11 @@ function displayTodoForm(page) {
 }
 
 function displayList(listToDisplay, page) {
-  console.log('displayList 1')
-  console.log(todoDependencies.currentFolder, 'currentFolder')
-  console.log(todoDependencies.defaultFolder.folder.length, 'defaultFolder length')
-  if (page == 'home' && todoDependencies.folders.length == 1) {
+  if (page === 'home' && todoDependencies.folders.length === 1) {
     loadElemToContainer('#content', 'div', `list-${page}`)
-  } else if (page == 'folder' && listToDisplay.length < 1) {
+  } else if (page === 'folder' && listToDisplay.length < 1) {
     loadElemToContainer('#content', 'div', `list-${page}`)
-  } else if (todoDependencies.currentFolder == 'Default') {
+  } else if (todoDependencies.currentFolder === 'Default') {
     loadElemToContainer('#content', 'div', `list-${page}`)
   }
 
@@ -131,9 +125,7 @@ function displayFolderPage(folder) {
   displayTitle('folder', folder)
   displayTodoForm('folder')
   nameOfListToDisplay(folder, 'folder')
-  console.log('dp 1')
   pageFormAddTodo('folder')
-  console.log('dp 2')
   folderBackBtn()
 }
 
@@ -161,11 +153,11 @@ function todoDatePriority(dueDate, priorityVal) {
   addTextToElem(`#todo-duedate`, `Due date: ${dueDate}`)
 
   let priority;
-  if (priorityVal == 0) {
+  if (priorityVal === 0) {
     priority = 'low';
-  } else if (priorityVal == 1) {
+  } else if (priorityVal === 1) {
     priority = 'medium';
-  } else if (priorityVal == 2) {
+  } else if (priorityVal === 2) {
     priority = 'high';
   } 
 

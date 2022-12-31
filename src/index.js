@@ -1,29 +1,12 @@
 import './style.css';
 import './reset.css';
-import {
-  createTodo,
-  showTodos,
-  showTodo,
-  deleteTodo,
-  todoObj
-} from './todo.js';
-import {
-  Folder,
-  createFolder,
-  showFolders,
-  deleteFolder,
-} from './folder.js';
-import {
-  displayHomePage,
-  displayFolderPage,
-  displayTodoPage
-} from './display.js'
-import { homeFolderFunctionality } from './home.js'
+import { Folder } from './folder.js';
+import { displayHomePage } from './display.js';
 
-let todoDependencies = (function() {
+const todoDependencies = (() => {
 
-  let defaultFolder = new Folder('Default');
-  let folders = [defaultFolder];
+  const defaultFolder = new Folder('Default');
+  const folders = [defaultFolder];
 
   let currentFolder;
 
@@ -98,9 +81,6 @@ displayHomePage()
 // )
 // s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
-
-console.log(todoDependencies.folders, 'folders')
-console.log(todoDependencies.defaultFolder, 'default folder')
 
 export { todoDependencies }
 

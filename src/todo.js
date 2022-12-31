@@ -1,6 +1,5 @@
 import { todoDependencies } from "./index.js";
 import { 
-  displayFolderPage,
   displayTitle,
   displayTodoForm,
   nameOfListToDisplay,
@@ -32,7 +31,7 @@ function createTodo(
   priority,
   folderToInsert = ''
 ) {
-  let todo = new Todo(title, description, dueDate, priority)
+  const todo = new Todo(title, description, dueDate, priority)
   if (folderToInsert === '') {
     todoDependencies.defaultFolder.folder.push(todo)
   }
@@ -47,7 +46,7 @@ function createTodo(
 }
 
 function showTodo(todo = '') {
-  let todoList = [];
+  const todoList = [];
   if (todo === '') {
     console.log(todoDependencies.defaultFolder.folder)
   } else {
@@ -79,7 +78,7 @@ function deleteTodo(todo, dueDate, priority) {
         && currentTodo.dueDate === dueDate
         && currentTodo.priority === priority
         ) {
-        let index = currentFolder.folder.indexOf(currentTodo)
+        const index = currentFolder.folder.indexOf(currentTodo)
         currentFolder.folder.splice(index, 1)
       }
     })
@@ -100,7 +99,7 @@ function todoBackBtn() {
   const backBtn = document.querySelector('#todo-back-btn')
   backBtn.addEventListener('click', () => {
     clearDisplay('#content')
-    let folder = todoDependencies.currentFolder;
+    const folder = todoDependencies.currentFolder;
     displayTitle('folder', folder)
     displayTodoForm('folder')
     loadElemToContainer('#content', 'div', 'list-folder')

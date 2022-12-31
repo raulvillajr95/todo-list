@@ -1,5 +1,5 @@
 import { todoDependencies } from "./index.js";
-import { createTodo, deleteTodo, showTodo, todoObj } from "./todo.js";
+import { createTodo, deleteTodo, todoObj } from "./todo.js";
 import { clearDisplay, loadElemToContainer } from "./helpers.js";
 import { 
   displayFolderPage,
@@ -24,13 +24,6 @@ class Folder{
   addNote(note){
     this.folder.push(note)
   }
-
-  showTodo(){
-    this.folder.forEach((todo) => {
-      console.log(todo)
-    })
-  }
-
 }
 
 function showFolders() {
@@ -46,7 +39,6 @@ function deleteFolder(folderToRemove) {
     if (currentFolder.name === folderToRemove) {
       let index = todoDependencies.folders.indexOf(currentFolder)
       todoDependencies.folders.splice(index, 1)
-      // console.log(index, 'deleteFolder')
     }
   })
 }
@@ -73,17 +65,11 @@ function pageFormAddTodo(page) {
       clearDisplay('#list-folder')
       listOfTodosToDisplay(currentFolderTitle.textContent, 'folder')
       todoDivAsButton()
-      console.log('FOLDER')
-    } else if (page == 'home') {
-      console.log('HOME')
     }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
     newTodoPriority.value = '';
     newTodoDescription.value = '';
-
-    console.log(todoDependencies.folders, 'folders')
-    console.log(todoDependencies.defaultFolder, 'default folder')
   })
 }
 
@@ -126,7 +112,6 @@ function folderBackBtn() {
     if (todoDependencies.folders.length == 1) {
       displayHomePage()
     } else {
-      console.log(todoDependencies.folders.length, 'folders length')
       displayTitle('home', 'Todo List')
       displayTodoForm('home')
       loadElemToContainer('#content', 'div', 'list-home')
