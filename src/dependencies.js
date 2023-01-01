@@ -1,12 +1,8 @@
-class Folder {
-  constructor(name) {
-    this.name = name;
-    this.folder = [];
-  }
-}
-
 const todoDependencies = (() => {
-  const defaultFolder = new Folder('Default');
+  const defaultFolder = {
+    name: 'Default',
+    folder: [],
+  };
   const folders = [defaultFolder];
 
   let currentFolder;

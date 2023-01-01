@@ -1,30 +1,24 @@
 import './style.css';
 import './reset.css';
-import { Folder } from './folder';
-import { displayHomePage } from './display';
+import todoDependencies from './dependencies';
+import { displayTitle, displayTodoForm, displayFolderForm } from './helpers';
+import { displayList } from './display-helpers';
+import { homeFolderFunctionality, folderDivAsButton } from './home';
+import { pageFormAddTodo } from './folder-actions';
 
-const todoDependencies = (() => {
-  const defaultFolder = new Folder('Default');
-  const folders = [defaultFolder];
-
-  let currentFolder;
-
-  return {
-    folders,
-    defaultFolder,
-    currentFolder,
-  };
-})();
+function displayHomePage() {
+  displayTitle('home', 'Todo List');
+  displayTodoForm('home');
+  displayList(todoDependencies.folders, 'home');
+  displayFolderForm();
+  homeFolderFunctionality();
+  pageFormAddTodo('home');
+  folderDivAsButton();
+}
 
 displayHomePage();
-// createTodo(
-//   'Pencils',
-//   'No.2 pencils needed for math',
-//   '01-08-2023',
-//   1,
-//   ''
-// )
-// displayTodoPage('Pencils')
+
+export default displayHomePage;
 
 // s1, create a folder ✅
 // createFolder('Groceries')
@@ -81,14 +75,15 @@ displayHomePage();
 // s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
 
-// export { todoDependencies }
-export { todoDependencies };
-
 /**
+ * work on 'used before defined'
+ * work on cycle dependencies
  * add eslint and maybe prettier
  *  main errors:
  *    dependency cycle
  *    import format
+ * refactor code to not use outside sources
+ * - if anything, only todo dependencies
  * create a function that checks if div exists through id
  * need a way to know if todo is added from home when clicking on default
  *  maybe mess with home add btn
