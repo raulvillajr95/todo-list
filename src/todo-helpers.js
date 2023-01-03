@@ -22,31 +22,6 @@ function createTodo(
   });
 }
 
-function showTodo(todo = '') {
-  const todoList = [];
-  if (todo === '') {
-    console.log(todoDependencies.defaultFolder.folder);
-  } else {
-    todoDependencies.defaultFolder.folder.forEach((currentTodo) => {
-      if (currentTodo.title === todo) {
-        todoList.push(currentTodo);
-      }
-    });
-    console.log(todoList);
-  }
-}
-
-function showTodos(folderToOpen = '') {
-  if (folderToOpen === '') {
-    console.log(todoDependencies.defaultFolder.folder);
-  }
-  todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === folderToOpen) {
-      console.log(currentFolder.folder);
-    }
-  });
-}
-
 function deleteTodo(todo, dueDate, priority) {
   todoDependencies.folders.forEach((currentFolder) => {
     currentFolder.folder.forEach((currentTodo) => {
@@ -72,4 +47,4 @@ function todoObj(todo) {
   return obj;
 }
 
-export { createTodo, showTodo, showTodos, deleteTodo, todoObj };
+export { createTodo, deleteTodo, todoObj };

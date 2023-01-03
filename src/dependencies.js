@@ -1,8 +1,7 @@
+import Folder from './folder';
+
 const todoDependencies = (() => {
-  const defaultFolder = {
-    name: 'Default',
-    folder: [],
-  };
+  const defaultFolder = new Folder('Default');
   const folders = [defaultFolder];
 
   let currentFolder;
