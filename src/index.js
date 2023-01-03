@@ -1,24 +1,89 @@
 import './style.css';
 import './reset.css';
 import todoDependencies from './dependencies';
-import { displayTitle, displayTodoForm, displayFolderForm } from './helpers';
-import { displayList } from './display-helpers';
-import { homeFolderFunctionality, folderDivAsButton } from './home';
-import { pageFormAddTodo } from './folder-actions';
+import {
+  displayTitle,
+  displayTodoForm,
+  displayFolderForm,
+  clearDisplay,
+} from './helpers';
+import { displayList, nameOfListToDisplay } from './display-helpers';
+import { deleteFolder, createFolder } from './folder-helpers';
+import pageFormAddTodo from './folder-actions';
+import folderBackBtn from './folder-back-btn';
 
-function displayHomePage() {
-  displayTitle('home', 'Todo List');
-  displayTodoForm('home');
-  displayList(todoDependencies.folders, 'home');
-  displayFolderForm();
-  homeFolderFunctionality();
-  pageFormAddTodo('home');
-  folderDivAsButton();
+function folderDivAsButton() {
+  const listHome = document.querySelector('#list-home');
+  for (let i = 0; i < listHome.children.length; i += 1) {
+    listHome.children[i].children[0].addEventListener('click', () => {
+      const folder = listHome.children[i].children[0].textContent;
+      clearDisplay('#content');
+      todoDependencies.currentFolder = folder;
+      displayTitle('folder', folder);
+      displayTodoForm('folder');
+      nameOfListToDisplay(folder, 'folder');
+      pageFormAddTodo('folder'); // not in good modules
+      folderBackBtn(); // not in good modules// not in good modules
+    });
+    if (listHome.children[i].children[1] !== undefined) {
+      listHome.children[i].children[1].addEventListener('click', () => {
+        const folder = listHome.children[i].children[0].textContent;
+        deleteFolder(folder);
+        if (todoDependencies.folders.length >= 2) {
+          clearDisplay('#list-home');
+          displayList(todoDependencies.folders, 'home');
+          folderDivAsButton(); // not in good modules
+        } else {
+          clearDisplay('#content');
+          displayTitle('home', 'Todo List');
+          displayTodoForm('home');
+          displayList(todoDependencies.folders, 'home');
+          displayFolderForm();
+          const folderAddBtn = document.querySelector('#folder-add-home-btn');
+          const newFolderInp = document.querySelector('#folder-title-home');
+
+          folderAddBtn.addEventListener('click', () => {
+            createFolder(newFolderInp.value);
+            clearDisplay('#list-home');
+            // see wassup here
+            displayList(todoDependencies.folders, 'home');
+            folderDivAsButton(); // not in good modules
+            newFolderInp.value = '';
+
+            console.log(todoDependencies.folders, 'folders');
+            console.log(todoDependencies.defaultFolder, 'default folder');
+          });
+          pageFormAddTodo('home');
+          folderDivAsButton(); // not in good modules
+        }
+      });
+    }
+  }
 }
 
-displayHomePage();
+// Display Home Page
+displayTitle('home', 'Todo List');
+displayTodoForm('home');
+displayList(todoDependencies.folders, 'home');
+displayFolderForm();
+const folderAddBtn = document.querySelector('#folder-add-home-btn');
+const newFolderInp = document.querySelector('#folder-title-home');
 
-export default displayHomePage;
+folderAddBtn.addEventListener('click', () => {
+  createFolder(newFolderInp.value);
+  clearDisplay('#list-home');
+  // see wassup here
+  displayList(todoDependencies.folders, 'home');
+  folderDivAsButton(); // not in good modules
+  newFolderInp.value = '';
+
+  console.log(todoDependencies.folders, 'folders');
+  console.log(todoDependencies.defaultFolder, 'default folder');
+});
+pageFormAddTodo('home');
+folderDivAsButton(); // not in good modules
+
+export default folderDivAsButton;
 
 // s1, create a folder ✅
 // createFolder('Groceries')
@@ -76,8 +141,11 @@ export default displayHomePage;
 // deleteFolder('School')
 
 /**
- * work on 'used before defined'
  * work on cycle dependencies
+ *  get rid of functions that are needed
+ *    specially if they're only used a few times
+ *    just duplicat content
+ * rename module to make sense
  * add eslint and maybe prettier
  *  main errors:
  *    dependency cycle

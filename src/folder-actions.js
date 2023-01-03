@@ -2,35 +2,55 @@ import todoDependencies from './dependencies';
 import { createTodo, deleteTodo, todoObj } from './todo-helpers';
 import {
   clearDisplay,
-  loadElemToContainer,
   displayTitle,
   displayTodoForm,
-  displayFolderForm,
+  todoDatePriority,
+  displayDescription,
+  loadElemToContainer,
 } from './helpers';
-import { displayFolderPage, displayTodoPage } from './display';
-import { displayList } from './display-helpers';
-import { homeFolderFunctionality, folderDivAsButton } from './home';
-import displayHomePage from './index';
 import { listOfTodosToDisplay } from './folder-helpers';
+import { nameOfListToDisplay } from './display-helpers';
+import folderBackBtn from './folder-back-btn';
 
-function todoDivAsButton() {
-  const listFolder = document.querySelector('#list-folder');
-  const folderTitle = document.querySelector('#folder-title');
+function todoBackBtn() {
+  const backBtn = document.querySelector('#todo-back-btn');
+  backBtn.addEventListener('click', () => {
+    clearDisplay('#content');
+    const folder = todoDependencies.currentFolder;
+    displayTitle('folder', folder);
+    displayTodoForm('folder');
+    loadElemToContainer('#content', 'div', 'list-folder');
+    //
+    nameOfListToDisplay(folder, 'folder');
+    pageFormAddTodo('folder'); // not in good modules
+    folderBackBtn(); // not in good modules
+    const listFolder = document.querySelector('#list-folder');
+    const folderTitle = document.querySelector('#folder-title');
 
-  for (let i = 0; i < listFolder.children.length; i += 1) {
-    listFolder.children[i].children[0].addEventListener('click', () => {
-      clearDisplay('#content');
-      displayTodoPage(listFolder.children[i].children[0].textContent);
-    });
+    for (let i = 0; i < listFolder.children.length; i += 1) {
+      listFolder.children[i].children[0].addEventListener('click', () => {
+        clearDisplay('#content');
+        const todo = todoObj(listFolder.children[i].children[0].textContent);
+        displayTitle('todo', todo.title);
+        todoDatePriority(todo.dueDate, todo.priority);
+        displayDescription(todo.description);
+        todoBackBtn(); // not in good modules
+      });
 
-    listFolder.children[i].children[1].addEventListener('click', () => {
-      const todo = todoObj(listFolder.children[i].children[0].textContent);
-      deleteTodo(todo.title, todo.dueDate, todo.priority);
-      const folder = folderTitle.textContent;
-      clearDisplay('#content');
-      displayFolderPage(folder);
-    });
-  }
+      listFolder.children[i].children[1].addEventListener('click', () => {
+        const todo = todoObj(listFolder.children[i].children[0].textContent);
+        deleteTodo(todo.title, todo.dueDate, todo.priority);
+        const folderTxt = folderTitle.textContent;
+        clearDisplay('#content');
+        todoDependencies.currentFolder = folderTxt;
+        displayTitle('folder', folderTxt);
+        displayTodoForm('folder');
+        nameOfListToDisplay(folderTxt, 'folder');
+        pageFormAddTodo('folder'); // not in good modules
+        folderBackBtn(); // not in good modules
+      });
+    }
+  });
 }
 
 // check this out for non functioning todo's
@@ -56,7 +76,32 @@ function pageFormAddTodo(page) {
     if (page === 'folder') {
       clearDisplay('#list-folder');
       listOfTodosToDisplay(currentFolderTitle.textContent, 'folder');
-      todoDivAsButton();
+      const listFolder = document.querySelector('#list-folder');
+      const folderTitle = document.querySelector('#folder-title');
+
+      for (let i = 0; i < listFolder.children.length; i += 1) {
+        listFolder.children[i].children[0].addEventListener('click', () => {
+          clearDisplay('#content');
+          const todo = todoObj(listFolder.children[i].children[0].textContent);
+          displayTitle('todo', todo.title);
+          todoDatePriority(todo.dueDate, todo.priority);
+          displayDescription(todo.description);
+          todoBackBtn(); // not in good modules
+        });
+
+        listFolder.children[i].children[1].addEventListener('click', () => {
+          const todo = todoObj(listFolder.children[i].children[0].textContent);
+          deleteTodo(todo.title, todo.dueDate, todo.priority);
+          const folder = folderTitle.textContent;
+          clearDisplay('#content');
+          todoDependencies.currentFolder = folder;
+          displayTitle('folder', folder);
+          displayTodoForm('folder');
+          nameOfListToDisplay(folder, 'folder');
+          pageFormAddTodo('folder'); // not in good modules
+          folderBackBtn(); // not in good modules
+        });
+      }
     }
     newTodoTitle.value = '';
     newTodoDueDate.value = '';
@@ -65,23 +110,4 @@ function pageFormAddTodo(page) {
   });
 }
 
-function folderBackBtn() {
-  const backBtn = document.querySelector('#folder-back-btn');
-  backBtn.addEventListener('click', () => {
-    clearDisplay('#content');
-    if (todoDependencies.folders.length === 1) {
-      displayHomePage();
-    } else {
-      displayTitle('home', 'Todo List');
-      displayTodoForm('home');
-      loadElemToContainer('#content', 'div', 'list-home');
-      displayList(todoDependencies.folders, 'home');
-      displayFolderForm();
-      homeFolderFunctionality();
-      pageFormAddTodo('home');
-      folderDivAsButton();
-    }
-  });
-}
-
-export { pageFormAddTodo, folderBackBtn, todoDivAsButton };
+export default pageFormAddTodo;
