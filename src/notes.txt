@@ -1,4 +1,4 @@
-// s1, create a folder
+// s1, create a folder ✅
 // createFolder('Groceries')
 // s2, create folder, create todo
 // createFolder('School')
@@ -9,16 +9,16 @@
 //   1,
 //   'School'
 // )
-// s3, create todo(adds to default folder) ✅
+// s3, create todo(adds to default folder)
 // createTodo(
 //   'Gas',
 //   'Grab gas this Tuesday',
 //   '12-27-2022',
 //   2,
 // )
-// s4, view all folders created ✅
+// s4, view all folders created
 // showFolders()
-// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder ✅
+// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
 // createFolder('Appliances')
 // createTodo(
 //   'Refrigerator',

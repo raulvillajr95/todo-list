@@ -15,10 +15,10 @@ function deleteFolder(folderToRemove) {
   });
 }
 
-function listOfTodosToDisplay(folderName, page) {
+function listOfTodosToDisplay(folderName) {
   todoDependencies.folders.forEach((currentFolder) => {
     if (currentFolder.name === folderName) {
-      displayList(currentFolder.folder, page);
+      displayList(currentFolder.folder, 'folder');
     }
   });
 }
