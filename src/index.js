@@ -10,24 +10,35 @@ import { listOfTodosToDisplay } from './folder-helpers';
 // homePage();
 
 // Folder page,(manual name for now)
+// Maybe make these 3 lines a function
 displayTitle('folder', 'Default');
 displayTodoForm('folder');
 listOfTodosToDisplay('Default');
 
 // Create todo
+// Either make whole piece a function or add to Folder Page
 const todoAddFolderBtn = document.querySelector('#todo-add-folder-btn');
 todoAddFolderBtn.addEventListener('click', () => {
   const todoTitleFolder = document.querySelector('#todo-title-folder');
+  const todoDuedateFolder = document.querySelector('#todo-duedate-folder');
+  const todoPriorityFolder = document.querySelector('#todo-priority-folder');
+  const todoDescriptionFolder = document.querySelector(
+    '#todo-description-folder'
+  );
+  // Manu
   createTodo(
     todoTitleFolder.value,
-    'No.2 pencils needed for math',
-    '01-08-2023',
-    1,
+    todoDescriptionFolder.value,
+    todoDuedateFolder.value,
+    todoPriorityFolder.value,
     'Default'
   );
   clearDisplay('#list-folder');
   listOfTodosToDisplay('Default');
   todoTitleFolder.value = '';
+  todoDuedateFolder.value = '';
+  todoPriorityFolder.value = '';
+  todoDescriptionFolder.value = '';
 
   // Test logs
   console.log(todoDependencies.defaultFolder, 'default folders');
