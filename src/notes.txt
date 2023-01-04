@@ -122,6 +122,9 @@
  * -modeled liked iOS Reminders but simpler
  * -use date-fns library
  * -use localStorage to save to local browser
+ * -OG Uncontaminated files: dependencies.js, display-helpers.js,
+ *  folder-helpers.js, folder.js, helpers.js, todo-helpers.js,
+ *  todo.js
  *
  * ideas:
  * -if restarting, every can be it's own module
