@@ -5,10 +5,12 @@ import TodoList from './test';
 
 // Testing...
 const app = new TodoList();
+app.keys();
+// app.phone('phone2');
 
 // Home Page
 // homePage();
-app.home();
+// app.home();
 
 // Folder Page
 // folderPage('Default');
