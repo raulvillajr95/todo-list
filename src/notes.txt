@@ -54,15 +54,8 @@
 // deleteFolder('School')
 
 /**
- * work on cycle dependencies
- *  get rid of functions that are needed
- *    specially if they're only used a few times
- *    just duplicat content
- * rename module to make sense
- * add eslint and maybe prettier
- *  main errors:
- *    dependency cycle
- *    import format
+ * just need to get rid of homePage & folderPage cycle dependency
+ * -then s2 is done
  * refactor code to not use outside sources
  * - if anything, only todo dependencies
  * create a function that checks if div exists through id

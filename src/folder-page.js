@@ -1,6 +1,8 @@
 import { displayTitle, displayTodoForm, clearDisplay } from './helpers';
 import { listOfTodosToDisplay } from './folder-helpers';
 import { createTodo } from './todo-helpers';
+// import todoDependencies from './dependencies'; used for test clg's
+import app from '.';
 
 // Folder page,(manual name for now)
 function folderPage(folder) {
@@ -30,6 +32,16 @@ function folderPage(folder) {
     todoDuedateFolder.value = '';
     todoPriorityFolder.value = '';
     todoDescriptionFolder.value = '';
+  });
+
+  // Back button
+  const folderBackBtn = document.querySelector('#folder-back-btn');
+  folderBackBtn.addEventListener('click', () => {
+    console.log('yayo');
+    // homePage();
+
+    // testing...
+    app.home();
   });
 }
 

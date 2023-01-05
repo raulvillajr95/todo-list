@@ -7,9 +7,10 @@ import {
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder } from './folder-helpers';
-import folderPage from './folder-page';
+import app from '.';
 
 function homePage() {
+  clearDisplay('#content');
   displayTitle('home', 'Todo List');
   displayTodoForm('home');
   displayList(todoDependencies.folders, 'home');
@@ -31,7 +32,10 @@ function homePage() {
       listHome.children[i].children[0].addEventListener('click', () => {
         const folderClicked = listHome.children[i].children[0].textContent;
         clearDisplay('#content');
-        folderPage(folderClicked);
+        // folderPage(folderClicked);
+
+        // testing...
+        app.folder(folderClicked);
       });
     }
   });
@@ -43,7 +47,10 @@ function homePage() {
     listHome.children[i].children[0].addEventListener('click', () => {
       const folderClicked = listHome.children[i].children[0].textContent;
       clearDisplay('#content');
-      folderPage(folderClicked);
+      // folderPage(folderClicked);
+
+      // testing...
+      app.folder(folderClicked);
     });
   }
 }
