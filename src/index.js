@@ -1,22 +1,16 @@
 import './style.css';
 import './reset.css';
 import todoDependencies from './dependencies';
-import TodoList from './test';
+import TodoList from './todo-list';
 
-// Testing...
 const app = new TodoList();
-app.keys();
-// app.phone('phone2');
 
 // Home Page
-// homePage();
-// app.home();
+app.homePage();
 
 // Folder Page
-// folderPage('Default');
+// app.folderPage('Default');
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');
 console.log(todoDependencies.folders, 'folders');
-
-export default app;

@@ -7,31 +7,10 @@ import {
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
-// import app from '.';
 import { createTodo } from './todo-helpers';
 
-/**
- * tries to remove cycle dependency:
- * extract folderBackBtn from folder-page to here
- * create a homePage copy here, call it homePageCopy
- *
- * combine home-page into a class??
- *  have homePage & folderPage as methods??
- *  right here in todo, create a few functions
- *  where homePage() & folder page go, I can use this.start(), this.folder..etc.
- */
-
 class TodoList {
-  // Testing...
-  keys() {
-    this.phone('shoes');
-  }
-
-  phone(item) {
-    console.log(item);
-  }
-
-  home() {
+  homePage() {
     clearDisplay('#content');
     displayTitle('home', 'Todo List');
     displayTodoForm('home');
@@ -54,10 +33,7 @@ class TodoList {
         listHome.children[i].children[0].addEventListener('click', () => {
           const folderClicked = listHome.children[i].children[0].textContent;
           clearDisplay('#content');
-          // folderPage(folderClicked);
-
-          // testing...
-          this.folder(folderClicked);
+          this.folderPage(folderClicked);
         });
       }
     });
@@ -69,15 +45,12 @@ class TodoList {
       listHome.children[i].children[0].addEventListener('click', () => {
         const folderClicked = listHome.children[i].children[0].textContent;
         clearDisplay('#content');
-        // folderPage(folderClicked);
-
-        // testing...
-        this.folder(folderClicked);
+        this.folderPage(folderClicked);
       });
     }
   }
 
-  folder(folderName) {
+  folderPage(folderName) {
     displayTitle('folder', folderName);
     displayTodoForm('folder');
     listOfTodosToDisplay(folderName);
@@ -112,10 +85,7 @@ class TodoList {
     const folderBackBtn = document.querySelector('#folder-back-btn');
     folderBackBtn.addEventListener('click', () => {
       console.log('yayo');
-      // homePage();
-
-      // testing...
-      this.home();
+      this.homePage();
     });
   }
 }
