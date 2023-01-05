@@ -7,6 +7,7 @@ import {
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder } from './folder-helpers';
+import folderPage from './folder-page';
 
 function homePage() {
   displayTitle('home', 'Todo List');
@@ -20,28 +21,29 @@ function homePage() {
     const folderTitleHome = document.querySelector('#folder-title-home');
     createFolder(folderTitleHome.value);
     clearDisplay('#list-home');
-
     displayList(todoDependencies.folders, 'home');
     folderTitleHome.value = '';
 
-    // testing...
     // Click on folders in home page, after folder add btn
     const listHome = document.querySelector('#list-home');
     for (let i = 0; i < listHome.children.length; i += 1) {
-      console.log(listHome.children[i].children[0]);
-      listHome.children[i].addEventListener('click', () => {
-        console.log(listHome.children[i].children[0].textContent);
+      // Click on letters, enter folder page
+      listHome.children[i].children[0].addEventListener('click', () => {
+        const folderClicked = listHome.children[i].children[0].textContent;
+        clearDisplay('#content');
+        folderPage(folderClicked);
       });
     }
   });
 
-  // testing...
   // Click on folders in home page, after first homePage load
   const listHome = document.querySelector('#list-home');
   for (let i = 0; i < listHome.children.length; i += 1) {
-    console.log(listHome.children[i].children[0]);
-    listHome.children[i].addEventListener('click', () => {
-      console.log(listHome.children[i].children[0].textContent);
+    // Click on letters, enter folder page
+    listHome.children[i].children[0].addEventListener('click', () => {
+      const folderClicked = listHome.children[i].children[0].textContent;
+      clearDisplay('#content');
+      folderPage(folderClicked);
     });
   }
 }
