@@ -1,7 +1,6 @@
 import { displayTitle, displayTodoForm, clearDisplay } from './helpers';
 import { listOfTodosToDisplay } from './folder-helpers';
 import { createTodo } from './todo-helpers';
-import todoDependencies from './dependencies';
 
 // Folder page,(manual name for now)
 function folderPage(folder) {
@@ -18,13 +17,12 @@ function folderPage(folder) {
     const todoDescriptionFolder = document.querySelector(
       '#todo-description-folder'
     );
-    // Manual for now
     createTodo(
       todoTitleFolder.value,
       todoDescriptionFolder.value,
       todoDuedateFolder.value,
       todoPriorityFolder.value,
-      'Default'
+      folder
     );
     clearDisplay('#list-folder');
     listOfTodosToDisplay('Default');
