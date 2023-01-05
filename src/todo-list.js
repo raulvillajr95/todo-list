@@ -7,7 +7,7 @@ import {
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
-import { createTodo } from './todo-helpers';
+import { createTodo, todoObj } from './todo-helpers';
 
 class TodoList {
   // Home page
@@ -37,9 +37,6 @@ class TodoList {
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
-
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -81,7 +78,17 @@ class TodoList {
     displayTodoForm('folder');
     listOfTodosToDisplay(folderName);
 
-    // Create todo
+    // Give todo's click functionality, within folder page
+    const listFolderDiv = document.querySelector('#list-folder');
+    for (let i = 0; i < listFolderDiv.children.length; i += 1) {
+      listFolderDiv.children[i].children[0].addEventListener('click', () => {
+        // console.log(listFolderDiv.children[i].children[0].textContent);
+        const todoClicked = listFolderDiv.children[i].children[0].textContent;
+        console.log(todoObj(todoClicked));
+      });
+    }
+
+    // Create todo, within folder page
     const todoAddFolderBtn = document.querySelector('#todo-add-folder-btn');
     todoAddFolderBtn.addEventListener('click', () => {
       const todoTitleFolder = document.querySelector('#todo-title-folder');
@@ -99,12 +106,21 @@ class TodoList {
         todoPriorityFolder.value,
         folderName
       );
-      clearDisplay('#list-folder');
-      listOfTodosToDisplay('Default');
       todoTitleFolder.value = '';
       todoDuedateFolder.value = '';
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
+      clearDisplay('#list-folder');
+      listOfTodosToDisplay(folderName);
+      // Give todo's click functionality, within folder page
+      // const listFolderDiv = document.querySelector('#list-folder');
+      for (let i = 0; i < listFolderDiv.children.length; i += 1) {
+        listFolderDiv.children[i].children[0].addEventListener('click', () => {
+          // console.log(listFolderDiv.children[i].children[0].textContent);
+          const todoClicked = listFolderDiv.children[i].children[0].textContent;
+          console.log(todoObj(todoClicked));
+        });
+      }
     });
 
     // Back button
@@ -113,6 +129,9 @@ class TodoList {
       this.homePage();
     });
   }
+
+  // Todo Page(manual info for now)
+  // maybe a todoPage() method here
 }
 
 export default TodoList;
