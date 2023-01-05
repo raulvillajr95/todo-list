@@ -21,16 +21,17 @@ import { createTodo } from './todo-helpers';
  *  where homePage() & folder page go, I can use this.start(), this.folder..etc.
  */
 
-function TodoList() {
+class TodoList {
   // Testing...
-  const keys = () => {
+  keys() {
     this.phone('shoes');
-  };
-  const phone = (item) => {
-    console.log(item);
-  };
+  }
 
-  const home = () => {
+  phone(item) {
+    console.log(item);
+  }
+
+  home() {
     clearDisplay('#content');
     displayTitle('home', 'Todo List');
     displayTodoForm('home');
@@ -74,9 +75,9 @@ function TodoList() {
         this.folder(folderClicked);
       });
     }
-  };
+  }
 
-  const folder = (folderName) => {
+  folder(folderName) {
     displayTitle('folder', folderName);
     displayTodoForm('folder');
     listOfTodosToDisplay(folderName);
@@ -116,14 +117,7 @@ function TodoList() {
       // testing...
       this.home();
     });
-  };
-
-  return {
-    home,
-    folder,
-    phone,
-    keys,
-  };
+  }
 }
 
 export default TodoList;
