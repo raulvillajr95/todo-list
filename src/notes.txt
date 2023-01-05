@@ -1,6 +1,6 @@
 // s1, create a folder ✅
 // createFolder('Groceries')
-// s2, create folder, create todo
+// s2, create folder, create todo ✅
 // createFolder('School')
 // createTodo(
 //   'Pencils',
