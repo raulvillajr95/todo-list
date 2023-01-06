@@ -93,16 +93,13 @@ class TodoList {
       });
     }
 
-    // Testing... folder todo DEL
+    // Folder todo's DEL btn
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
       listFolderDiv.children[i].children[1].addEventListener('click', () => {
         const todoClicked = listFolderDiv.children[i].children[0].textContent;
         const todoAsObj = todoObj(todoClicked);
-        // this.todoPage(todoObj(todoClicked));
-        console.log(todoAsObj.title);
         deleteTodo(todoAsObj.title, todoAsObj.dueDate, todoAsObj.priority);
         const folderTitle = document.querySelector('#folder-title');
-        console.log(folderTitle.textContent);
         this.folderPage(folderTitle.textContent);
       });
     }
