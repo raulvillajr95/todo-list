@@ -9,7 +9,7 @@ import {
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
-import { createTodo, todoObj } from './todo-helpers';
+import { createTodo, todoObj, deleteTodo } from './todo-helpers';
 
 class TodoList {
   constructor() {
@@ -90,6 +90,20 @@ class TodoList {
       listFolderDiv.children[i].children[0].addEventListener('click', () => {
         const todoClicked = listFolderDiv.children[i].children[0].textContent;
         this.todoPage(todoObj(todoClicked));
+      });
+    }
+
+    // Testing... folder todo DEL
+    for (let i = 0; i < listFolderDiv.children.length; i += 1) {
+      listFolderDiv.children[i].children[1].addEventListener('click', () => {
+        const todoClicked = listFolderDiv.children[i].children[0].textContent;
+        const todoAsObj = todoObj(todoClicked);
+        // this.todoPage(todoObj(todoClicked));
+        console.log(todoAsObj.title);
+        deleteTodo(todoAsObj.title, todoAsObj.dueDate, todoAsObj.priority);
+        const folderTitle = document.querySelector('#folder-title');
+        console.log(folderTitle.textContent);
+        this.folderPage(folderTitle.textContent);
       });
     }
 

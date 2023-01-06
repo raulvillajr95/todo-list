@@ -42,7 +42,7 @@
 //   'Appliances'
 // )
 // showTodos('Appliances')
-// s6, view 1 todo
+// s6, view 1 todo ✅
 // showTodo('Microwave')
 // s7, delete single todo
 // deleteTodo(
