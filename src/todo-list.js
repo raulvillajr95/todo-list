@@ -8,7 +8,11 @@ import {
   displayDescription,
 } from './helpers';
 import { displayList } from './display-helpers';
-import { createFolder, listOfTodosToDisplay } from './folder-helpers';
+import {
+  createFolder,
+  listOfTodosToDisplay,
+  deleteFolder,
+} from './folder-helpers';
 import { createTodo, todoObj, deleteTodo } from './todo-helpers';
 
 class TodoList {
@@ -73,6 +77,24 @@ class TodoList {
         const folderClicked = listHome.children[i].children[0].textContent;
         this.folderPage(folderClicked);
       });
+    }
+
+    // Home folders DEL btn
+    const listHomeDiv = document.querySelector('#list-home');
+    for (let i = 0; i < listHomeDiv.children.length; i += 1) {
+      if (listHomeDiv.children[i].children[0].textContent !== 'Default') {
+        listHomeDiv.children[i].children[1].addEventListener('click', () => {
+          const folderRemoveName =
+            listHomeDiv.children[i].children[0].textContent;
+          console.log(folderRemoveName);
+          deleteFolder(folderRemoveName);
+          this.homePage();
+
+          // Just test logging results
+          console.log(todoDependencies.defaultFolder, 'default folders');
+          console.log(todoDependencies.folders, 'folders');
+        });
+      }
     }
   }
 
