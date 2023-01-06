@@ -10,7 +10,6 @@ import {
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
 import { createTodo, todoObj } from './todo-helpers';
-// import todoPage from './todo-page';
 
 class TodoList {
   constructor() {
@@ -134,9 +133,7 @@ class TodoList {
     });
   }
 
-  // Todo Page(manual info for now)
-  // maybe a todoPage() method here
-  // try this.folder for folder name
+  // Todo Page
   todoPage(currentObj) {
     clearDisplay('#content');
     displayTitle('todo', currentObj.title);
@@ -146,9 +143,7 @@ class TodoList {
     // Back button, within todo page
     const todoBackBtn = document.querySelector('#todo-back-btn');
     todoBackBtn.addEventListener('click', () => {
-      console.log('first');
-      // need folder name to call folderPage(folderName)
-      this.folderPage('Default');
+      this.folderPage(this.folder);
     });
   }
 }
