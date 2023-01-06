@@ -124,6 +124,7 @@
  *
  * later:
  * use 'enter' key to add and stuff
+ * fix bugs, handle errors, etc.
  * use date-fns library
  * use localStorage
  * refactor code & fix bugs

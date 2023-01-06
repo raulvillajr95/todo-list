@@ -4,13 +4,19 @@ import {
   displayTitle,
   displayTodoForm,
   clearDisplay,
+  todoDatePriority,
+  displayDescription,
 } from './helpers';
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
 import { createTodo, todoObj } from './todo-helpers';
-import todoPage from './todo-page';
+// import todoPage from './todo-page';
 
 class TodoList {
+  constructor() {
+    this.folder = '';
+  }
+
   // Home page
   homePage() {
     clearDisplay('#content');
@@ -73,6 +79,7 @@ class TodoList {
 
   // Folder page
   folderPage(folderName) {
+    this.folder = folderName;
     clearDisplay('#content');
     displayTitle('folder', folderName);
     displayTodoForm('folder');
@@ -83,9 +90,7 @@ class TodoList {
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
       listFolderDiv.children[i].children[0].addEventListener('click', () => {
         const todoClicked = listFolderDiv.children[i].children[0].textContent;
-        console.log(todoObj(todoClicked));
-        todoPage(todoObj(todoClicked));
-        // right here I can add todoPage() with obj param
+        this.todoPage(todoObj(todoClicked));
       });
     }
 
@@ -117,14 +122,12 @@ class TodoList {
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
           const todoClicked = listFolderDiv.children[i].children[0].textContent;
-          console.log(todoObj(todoClicked));
-          todoPage(todoObj(todoClicked));
-          // right here I can add todoPage() with obj param
+          this.todoPage(todoObj(todoClicked));
         });
       }
     });
 
-    // Back button
+    // Back button, within folder page
     const folderBackBtn = document.querySelector('#folder-back-btn');
     folderBackBtn.addEventListener('click', () => {
       this.homePage();
@@ -133,6 +136,21 @@ class TodoList {
 
   // Todo Page(manual info for now)
   // maybe a todoPage() method here
+  // try this.folder for folder name
+  todoPage(currentObj) {
+    clearDisplay('#content');
+    displayTitle('todo', currentObj.title);
+    todoDatePriority(currentObj.description, currentObj.priority);
+    displayDescription(currentObj.description);
+
+    // Back button, within todo page
+    const todoBackBtn = document.querySelector('#todo-back-btn');
+    todoBackBtn.addEventListener('click', () => {
+      console.log('first');
+      // need folder name to call folderPage(folderName)
+      this.folderPage('Default');
+    });
+  }
 }
 
 export default TodoList;

@@ -5,6 +5,7 @@ import {
   clearDisplay,
 } from './helpers';
 
+// Todo Page
 function todoPage(currentObj) {
   clearDisplay('#content');
   displayTitle('todo', currentObj.title);
