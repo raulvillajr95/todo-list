@@ -1,15 +1,15 @@
-import { displayTitle, todoDatePriority, displayDescription } from './helpers';
+import {
+  displayTitle,
+  todoDatePriority,
+  displayDescription,
+  clearDisplay,
+} from './helpers';
 
-function todoPage() {
-  const todoObj = {
-    description: 'Small microwave',
-    dueDate: '2023-01-10',
-    priority: 1,
-    title: 'Microwave',
-  };
-  displayTitle('todo', todoObj.title);
-  todoDatePriority(todoObj.description, todoObj.priority);
-  displayDescription(todoObj.description);
+function todoPage(currentObj) {
+  clearDisplay('#content');
+  displayTitle('todo', currentObj.title);
+  todoDatePriority(currentObj.description, currentObj.priority);
+  displayDescription(currentObj.description);
 }
 
 export default todoPage;

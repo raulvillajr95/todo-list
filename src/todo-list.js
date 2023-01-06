@@ -8,6 +8,7 @@ import {
 import { displayList } from './display-helpers';
 import { createFolder, listOfTodosToDisplay } from './folder-helpers';
 import { createTodo, todoObj } from './todo-helpers';
+import todoPage from './todo-page';
 
 class TodoList {
   // Home page
@@ -54,7 +55,6 @@ class TodoList {
         // Click on letters, enter folder page
         listHome.children[i].children[0].addEventListener('click', () => {
           const folderClicked = listHome.children[i].children[0].textContent;
-          clearDisplay('#content');
           this.folderPage(folderClicked);
         });
       }
@@ -66,7 +66,6 @@ class TodoList {
       // Click on letters, enter folder page
       listHome.children[i].children[0].addEventListener('click', () => {
         const folderClicked = listHome.children[i].children[0].textContent;
-        clearDisplay('#content');
         this.folderPage(folderClicked);
       });
     }
@@ -74,6 +73,7 @@ class TodoList {
 
   // Folder page
   folderPage(folderName) {
+    clearDisplay('#content');
     displayTitle('folder', folderName);
     displayTodoForm('folder');
     listOfTodosToDisplay(folderName);
@@ -82,9 +82,10 @@ class TodoList {
     const listFolderDiv = document.querySelector('#list-folder');
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
       listFolderDiv.children[i].children[0].addEventListener('click', () => {
-        // console.log(listFolderDiv.children[i].children[0].textContent);
         const todoClicked = listFolderDiv.children[i].children[0].textContent;
         console.log(todoObj(todoClicked));
+        todoPage(todoObj(todoClicked));
+        // right here I can add todoPage() with obj param
       });
     }
 
@@ -113,12 +114,12 @@ class TodoList {
       clearDisplay('#list-folder');
       listOfTodosToDisplay(folderName);
       // Give todo's click functionality, within folder page
-      // const listFolderDiv = document.querySelector('#list-folder');
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
-          // console.log(listFolderDiv.children[i].children[0].textContent);
           const todoClicked = listFolderDiv.children[i].children[0].textContent;
           console.log(todoObj(todoClicked));
+          todoPage(todoObj(todoClicked));
+          // right here I can add todoPage() with obj param
         });
       }
     });
