@@ -65,10 +65,6 @@ class TodoList {
         listHome.children[i].children[0].addEventListener('click', () => {
           const folderClicked = listHome.children[i].children[0].textContent;
           this.folderPage(folderClicked);
-
-          // Just test logging results
-          console.log(todoDependencies.defaultFolder, 'default folders');
-          console.log(todoDependencies.folders, 'folders');
         });
       }
 
@@ -81,17 +77,9 @@ class TodoList {
               listHomeDiv.children[i].children[0].textContent;
             deleteFolder(folderRemoveName);
             this.homePage();
-
-            // Just test logging results
-            console.log(todoDependencies.defaultFolder, 'default folders');
-            console.log(todoDependencies.folders, 'folders');
           });
         }
       }
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
     });
 
     // Click on folders in home page, after first homePage load
@@ -113,10 +101,6 @@ class TodoList {
             listHomeDiv.children[i].children[0].textContent;
           deleteFolder(folderRemoveName);
           this.homePage();
-
-          // Just test logging results
-          console.log(todoDependencies.defaultFolder, 'default folders');
-          console.log(todoDependencies.folders, 'folders');
         });
       }
     }
@@ -147,10 +131,6 @@ class TodoList {
         deleteTodo(todoAsObj.title, todoAsObj.dueDate, todoAsObj.priority);
         const folderTitle = document.querySelector('#folder-title');
         this.folderPage(folderTitle.textContent);
-
-        // Just test logging results
-        console.log(todoDependencies.defaultFolder, 'default folders');
-        console.log(todoDependencies.folders, 'folders');
       });
     }
 

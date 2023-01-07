@@ -50,7 +50,7 @@
 //   '12-30-2022',
 //   1
 // )
-// s8, delete whole folder and its todo's
+// s8, delete whole folder and its todo's ✅
 // deleteFolder('School')
 
 /**
