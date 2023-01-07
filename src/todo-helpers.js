@@ -48,4 +48,10 @@ function todoObj(todo) {
   return obj;
 }
 
-export { createTodo, deleteTodo, todoObj };
+function defaultTodoName() {
+  // returns string 'Todo' + (number of todo's + 1)
+  const numberOfTodos = todoDependencies.defaultFolder.folder.length;
+  return `Todo${numberOfTodos + 1}`;
+}
+
+export { createTodo, deleteTodo, todoObj, defaultTodoName };

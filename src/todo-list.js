@@ -14,7 +14,12 @@ import {
   listOfTodosToDisplay,
   deleteFolder,
 } from './folder-helpers';
-import { createTodo, todoObj, deleteTodo } from './todo-helpers';
+import {
+  createTodo,
+  todoObj,
+  deleteTodo,
+  defaultTodoName,
+} from './todo-helpers';
 
 class TodoList {
   constructor() {
@@ -39,17 +44,21 @@ class TodoList {
         '#todo-description-home'
       );
       createTodo(
-        todoTitleHome.value,
+        todoTitleHome.value ? todoTitleHome.value : defaultTodoName(),
         todoDescriptionHome.value,
         todoDuedateHome.value
           ? format(parseISO(todoDuedateHome.value), 'PP')
           : format(new Date(), 'PP'),
-        todoPriorityHome.value
+        todoPriorityHome.value ? todoPriorityHome.value : '0'
       );
       todoTitleHome.value = '';
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -149,18 +158,23 @@ class TodoList {
         '#todo-description-folder'
       );
       createTodo(
-        todoTitleFolder.value,
+        todoTitleFolder.value ? todoTitleFolder.value : defaultTodoName(),
         todoDescriptionFolder.value,
         todoDuedateFolder.value
           ? format(parseISO(todoDuedateFolder.value), 'PP')
           : format(new Date(), 'PP'),
-        todoPriorityFolder.value,
+        todoPriorityFolder.value ? todoPriorityFolder.value : '0',
         folderName
       );
       todoTitleFolder.value = '';
       todoDuedateFolder.value = '';
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
+
       clearDisplay('#list-folder');
       listOfTodosToDisplay(folderName);
       // Open todo from folder page
