@@ -41,17 +41,15 @@ class TodoList {
       createTodo(
         todoTitleHome.value,
         todoDescriptionHome.value,
-        format(parseISO(todoDuedateHome.value), 'PP'),
+        todoDuedateHome.value
+          ? format(parseISO(todoDuedateHome.value), 'PP')
+          : format(new Date(), 'PP'),
         todoPriorityHome.value
       );
       todoTitleHome.value = '';
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -153,7 +151,9 @@ class TodoList {
       createTodo(
         todoTitleFolder.value,
         todoDescriptionFolder.value,
-        format(parseISO(todoDuedateFolder.value), 'PP'),
+        todoDuedateFolder.value
+          ? format(parseISO(todoDuedateFolder.value), 'PP')
+          : format(new Date(), 'PP'),
         todoPriorityFolder.value,
         folderName
       );

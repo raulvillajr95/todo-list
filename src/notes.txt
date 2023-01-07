@@ -54,13 +54,14 @@
 // deleteFolder('School')
 
 /**
- * change date format with date-fns
  * set defaults if empty
  *  for folders, do 'Folder#'
  *    get number of folders
- *  for todos, do 'Todo#'
- *    get number of todo's
- *  for date get todays date with date-fns
+ *  for todos,
+ *    title, do 'Todo#'
+ *      get number of todo's
+ *    description, ''
+ *  etc. defaults for all forms
  * add dueDate to todo list view,
  *  so title and dueDate
  * add way to edit
@@ -88,6 +89,7 @@
  * when multiple todos deleted in folder,
  *  can only delete 1
  *  all other become unclickable
+ * todo DEL button doesnt work when in default folder
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

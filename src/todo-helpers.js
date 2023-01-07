@@ -1,11 +1,12 @@
+import { format } from 'date-fns';
 import todoDependencies from './dependencies';
 import Todo from './todo';
 
 function createTodo(
   title,
-  description,
-  dueDate,
-  priority,
+  description = '',
+  dueDate = format(new Date(), 'PP'),
+  priority = 0,
   folderToInsert = ''
 ) {
   const todo = new Todo(title, description, dueDate, priority);

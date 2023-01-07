@@ -32,35 +32,8 @@ app.homePage();
 // Todo Page
 // app.todoPage(todoObj('Microwave'));
 
-// changing date example
-// const date = '2022-12-25'; // format(parseISO(date), 'PP')
-console.log(format(new Date(), 'p'));
-
-// // Testing priority for todoDatePriority
-// const priorityVal = 1;
-// let priority = '';
-// if (priorityVal === 0) {
-//   priority = 'low';
-// } else if (priorityVal === 1) {
-//   priority = 'medium';
-// } else if (priorityVal === 2) {
-//   priority = 'high';
-// }
-function priorityTranslation(value) {
-  let priority = ';';
-  if (value === 0) {
-    priority = 'low';
-  } else if (value === 1) {
-    priority = 'medium';
-  } else if (value === 2) {
-    priority = 'high';
-  }
-  return priority;
-}
-console.log('im here');
-// console.log(priority, 'priority');
-// console.log(priorityVal, 'priorityVal');
-console.log(priorityTranslation(1));
+// default date example
+console.log(format(new Date(), 'PP'));
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');

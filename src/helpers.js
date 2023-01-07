@@ -152,9 +152,6 @@ function todoDatePriority(dueDate, priorityVal) {
   } else if (priorityVal === '2') {
     priority = 'high';
   }
-  console.log('im here');
-  console.log(priority, 'priority');
-  console.log(priorityVal, 'priorityVal');
 
   loadElemToContainer(`#todo-info-div`, 'h2', `todo-priority`);
   addTextToElem(`#todo-priority`, `Priority: ${priority}`);
