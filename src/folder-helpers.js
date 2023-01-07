@@ -1,7 +1,8 @@
 import Folder from './folder';
 import todoDependencies from './dependencies';
-import { displayList } from './display-helpers';
+import { listElemExists } from './display-helpers';
 import { deleteTodo } from './todo-helpers';
+import { loadElemToContainer, addTextToElem } from './helpers';
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
@@ -29,7 +30,42 @@ function deleteFolder(folderToRemove) {
 function listOfTodosToDisplay(folderName) {
   todoDependencies.folders.forEach((currentFolder) => {
     if (currentFolder.name === folderName) {
-      displayList(currentFolder.folder, 'folder');
+      if (!listElemExists('folder')) {
+        loadElemToContainer('#content', 'div', `list-folder`);
+      }
+
+      for (let i = 0; i < currentFolder.folder.length; i += 1) {
+        const item = currentFolder.folder[i];
+
+        loadElemToContainer(
+          `#list-folder`,
+          'div',
+          `list-folder-${item.title}-div`
+        );
+        loadElemToContainer(
+          `#list-folder-${item.title}-div`,
+          'span',
+          `list-folder-${item.title}-text`
+        );
+        addTextToElem(`#list-folder-${item.title}-text`, `${item.title}`);
+
+        // Might need to rework DEL for deletion
+        loadElemToContainer(
+          `#list-folder-${item.title}-div`,
+          'span',
+          `list-folder-${item.title}-duedate`
+        );
+        addTextToElem(`#list-folder-${item.title}-duedate`, `${item.dueDate}`);
+
+        if (!(item.name === 'Default' && 'folder' === 'home')) {
+          loadElemToContainer(
+            `#list-folder-${item.title}-div`,
+            'button',
+            `list-folder-${item.title}-del-btn`
+          );
+          addTextToElem(`#list-folder-${item.title}-del-btn`, 'DEL');
+        }
+      }
     }
   });
 }
@@ -38,7 +74,6 @@ function defaultFolderName() {
   // returns string 'Folder' + (number of folders + 1)
   const numberOfFolders = todoDependencies.folders.length;
   return `Folder${numberOfFolders}`;
-  // return todoDependencies.folders.length;
 }
 
 export { createFolder, deleteFolder, listOfTodosToDisplay, defaultFolderName };

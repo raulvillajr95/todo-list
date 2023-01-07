@@ -46,4 +46,4 @@ function nameOfListToDisplay(folderName, page) {
   });
 }
 
-export { displayList, nameOfListToDisplay };
+export { displayList, nameOfListToDisplay, listElemExists };

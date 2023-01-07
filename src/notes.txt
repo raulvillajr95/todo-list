@@ -54,9 +54,6 @@
 // deleteFolder('School')
 
 /**
- * set defaults if empty
- *  for folders, do 'Folder#'
- *    get number of folders
  * add dueDate to todo list view,
  *  so title and dueDate
  * add way to edit

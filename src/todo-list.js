@@ -56,10 +56,6 @@ class TodoList {
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -72,10 +68,6 @@ class TodoList {
       clearDisplay('#list-home');
       displayList(todoDependencies.folders, 'home');
       folderTitleHome.value = '';
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
 
       // Click on folders in home page, after folder add btn
       const listHome = document.querySelector('#list-home');
@@ -144,7 +136,7 @@ class TodoList {
 
     // Folder todo's DEL btn
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
-      listFolderDiv.children[i].children[1].addEventListener('click', () => {
+      listFolderDiv.children[i].children[2].addEventListener('click', () => {
         const todoClicked = listFolderDiv.children[i].children[0].textContent;
         const todoAsObj = todoObj(todoClicked);
         deleteTodo(todoAsObj.title, todoAsObj.dueDate, todoAsObj.priority);
@@ -177,10 +169,6 @@ class TodoList {
       todoDuedateFolder.value = '';
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
 
       clearDisplay('#list-folder');
       listOfTodosToDisplay(folderName);
