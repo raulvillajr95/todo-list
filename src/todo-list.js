@@ -1,3 +1,4 @@
+import { format, parseISO } from 'date-fns';
 import todoDependencies from './dependencies';
 import {
   displayFolderForm,
@@ -40,13 +41,17 @@ class TodoList {
       createTodo(
         todoTitleHome.value,
         todoDescriptionHome.value,
-        todoDuedateHome.value,
+        format(parseISO(todoDuedateHome.value), 'PP'),
         todoPriorityHome.value
       );
       todoTitleHome.value = '';
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -148,7 +153,7 @@ class TodoList {
       createTodo(
         todoTitleFolder.value,
         todoDescriptionFolder.value,
-        todoDuedateFolder.value,
+        format(parseISO(todoDuedateFolder.value), 'PP'),
         todoPriorityFolder.value,
         folderName
       );
@@ -178,7 +183,7 @@ class TodoList {
   todoPage(currentObj) {
     clearDisplay('#content');
     displayTitle('todo', currentObj.title);
-    todoDatePriority(currentObj.description, currentObj.priority);
+    todoDatePriority(currentObj.dueDate, currentObj.priority);
     displayDescription(currentObj.description);
 
     // Back button, within todo page

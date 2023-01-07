@@ -54,28 +54,15 @@
 // deleteFolder('School')
 
 /**
- * Folders:
- * -deleting folder should delete its todos from default
- *    might be able to do this with a loop through Default folder
- * refactor code to not use outside sources
- * - if anything, only todo dependencies
- * create a function that checks if div exists through id
- * need a way to know if todo is added from home when clicking on default
- *  maybe mess with home add btn
- *  or default folder div
- *    when clicked, if default is the only folder && there's 1 todo,
- *      add a 'list-folder' div??
- * refactor code
- *  display functions can be reusable
- *  like
- * create function that displays note page
- *  1 param, todo object
- *    from their grab title, dueDate, priority, & description
- * have a the same s8 sequence, but with ui
- * add dates to note
- *  use date-fns
- *  just date for now, no time
- * add preselected dueDate as today
+ * change date format with date-fns
+ * set defaults if empty
+ *  for folders, do 'Folder#'
+ *    get number of folders
+ *  for todos, do 'Todo#'
+ *    get number of todo's
+ *  for date get todays date with date-fns
+ * add dueDate to todo list view,
+ *  so title and dueDate
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description
@@ -116,12 +103,11 @@
  * -modeled liked iOS Reminders but simpler
  * -use date-fns library
  * -use localStorage to save to local browser
+ *
+ * ideas:
  * -OG Uncontaminated files: dependencies.js, display-helpers.js,
  *  folder-helpers.js, folder.js, helpers.js, todo-helpers.js,
  *  todo.js
- *
- * ideas:
- * -if restarting, every can be it's own module
  *
  * later:
  * use 'enter' key to add and stuff
