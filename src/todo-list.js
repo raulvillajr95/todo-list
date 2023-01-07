@@ -13,6 +13,7 @@ import {
   createFolder,
   listOfTodosToDisplay,
   deleteFolder,
+  defaultFolderName,
 } from './folder-helpers';
 import {
   createTodo,
@@ -65,10 +66,16 @@ class TodoList {
     const folderAddHomeBtn = document.querySelector('#folder-add-home-btn');
     folderAddHomeBtn.addEventListener('click', () => {
       const folderTitleHome = document.querySelector('#folder-title-home');
-      createFolder(folderTitleHome.value);
+      createFolder(
+        folderTitleHome.value ? folderTitleHome.value : defaultFolderName()
+      );
       clearDisplay('#list-home');
       displayList(todoDependencies.folders, 'home');
       folderTitleHome.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
 
       // Click on folders in home page, after folder add btn
       const listHome = document.querySelector('#list-home');

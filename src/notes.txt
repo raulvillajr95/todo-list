@@ -105,6 +105,8 @@
  * -OG Uncontaminated files: dependencies.js, display-helpers.js,
  *  folder-helpers.js, folder.js, helpers.js, todo-helpers.js,
  *  todo.js
+ * -might be able to remove the specific id names
+ *    it's a step forward in allowing spaces in titles
  *
  * later:
  * use 'enter' key to add and stuff

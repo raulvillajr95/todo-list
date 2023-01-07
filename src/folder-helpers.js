@@ -34,4 +34,11 @@ function listOfTodosToDisplay(folderName) {
   });
 }
 
-export { createFolder, deleteFolder, listOfTodosToDisplay };
+function defaultFolderName() {
+  // returns string 'Folder' + (number of folders + 1)
+  const numberOfFolders = todoDependencies.folders.length;
+  return `Folder${numberOfFolders}`;
+  // return todoDependencies.folders.length;
+}
+
+export { createFolder, deleteFolder, listOfTodosToDisplay, defaultFolderName };
