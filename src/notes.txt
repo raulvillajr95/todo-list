@@ -54,8 +54,9 @@
 // deleteFolder('School')
 
 /**
- * just need to get rid of homePage & folderPage cycle dependency
- * -then s2 is done
+ * Folders:
+ * -deleting folder should delete its todos from default
+ *    might be able to do this with a loop through Default folder
  * refactor code to not use outside sources
  * - if anything, only todo dependencies
  * create a function that checks if div exists through id
