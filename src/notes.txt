@@ -55,6 +55,7 @@
 
 /**
  * add folder choice(<select>) within home page
+ *  needa also make it appear before 'add' button
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description

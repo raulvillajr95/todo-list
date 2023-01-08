@@ -4,7 +4,7 @@ import './reset.css';
 import todoDependencies from './dependencies';
 import TodoList from './todo-list';
 // import { createTodo, todoObj } from './todo-helpers';
-import { createFolder, defaultFolderName } from './folder-helpers';
+// import { createFolder, defaultFolderName } from './folder-helpers';
 
 const app = new TodoList();
 
@@ -13,9 +13,9 @@ const app = new TodoList();
 // createTodo('Microwave', 'Small microwave', '2023-01-10', 1);
 // createTodo('Shaker', '1 liter smoothie shaker', '2022-12-30', 1);
 // // Manual folders
-createFolder('Groceries');
-createFolder('Liquour');
-createFolder('Waters');
+// createFolder('Groceries');
+// createFolder('Liquour');
+// createFolder('Waters');
 // Manual folders & todos
 // createFolder('Groceries');
 // createTodo('Kale', '2lbs of kale', '2022-12-25', 1, 'Groceries');

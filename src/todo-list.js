@@ -33,7 +33,6 @@ class TodoList {
     clearDisplay('#content');
     displayTitle('home', 'Todo List');
     displayTodoForm('home');
-    // Testing...display folder select
     displayFolderSelect(todoDependencies.folders);
     displayList(todoDependencies.folders, 'home');
     displayFolderForm();
@@ -47,14 +46,17 @@ class TodoList {
       const todoDescriptionHome = document.querySelector(
         '#todo-description-home'
       );
+      const todoFolderHome = document.querySelector('#todo-folder-home');
       createTodo(
         todoTitleHome.value ? todoTitleHome.value : defaultTodoName(),
         todoDescriptionHome.value,
         todoDuedateHome.value
           ? format(parseISO(todoDuedateHome.value), 'PP')
           : format(new Date(), 'PP'),
-        todoPriorityHome.value ? todoPriorityHome.value : '0'
+        todoPriorityHome.value ? todoPriorityHome.value : '0',
+        todoFolderHome.value
       );
+      console.log(todoFolderHome.value, 'dd');
       todoTitleHome.value = '';
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
@@ -70,8 +72,7 @@ class TodoList {
       );
       clearDisplay('#list-home');
       displayList(todoDependencies.folders, 'home');
-      // Testing... update select after adding folder
-      // clearDisplay();
+      // Remove folder label and select before updating
       document.querySelector('#todo-folder-home-label').remove();
       document.querySelector('#todo-folder-home').remove();
       displayFolderSelect(todoDependencies.folders);
@@ -178,16 +179,10 @@ class TodoList {
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
 
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
-
       clearDisplay('#list-folder');
       listOfTodosToDisplay(folderName);
       // Open todo from folder page
-      console.log('first');
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
-        console.log('second');
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
           const todoClicked = listFolderDiv.children[i].children[0].textContent;
           this.todoPage(todoObj(todoClicked));
