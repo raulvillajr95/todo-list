@@ -1,5 +1,9 @@
 import todoDependencies from './dependencies';
-import { loadElemToContainer, addTextToElem } from './helpers';
+import {
+  loadElemToContainer,
+  addTextToElem,
+  addAttributeToElem,
+} from './helpers';
 
 function listElemExists(page) {
   const contentDiv = document.querySelector('#content');
@@ -46,4 +50,37 @@ function nameOfListToDisplay(folderName, page) {
   });
 }
 
-export { displayList, nameOfListToDisplay, listElemExists };
+// Testing...
+// might need to move this to to-do list as method??
+// or change folder add btn to delete all of home page instead of only clearing list-home
+// or just clear the 'select' part
+function displayFolderSelect(folder) {
+  // the select goes here
+  // the options go in the loop
+  loadElemToContainer(`#todo-form-home`, 'label', `todo-folder-home-label`);
+  addAttributeToElem(`#todo-folder-home-label`, 'for', `todo-folder-home`);
+  addTextToElem(`#todo-folder-home-label`, 'Folder');
+  loadElemToContainer(`#todo-form-home`, 'select', `todo-folder-home`);
+  addAttributeToElem(`#todo-folder-home`, 'name', `todo-folder-home`);
+  for (let i = 0; i < folder.length; i += 1) {
+    console.log(folder[i], `${folder[i].name} folderselect`);
+    loadElemToContainer(
+      `#todo-folder-home`,
+      'option',
+      `todo-folder-home-${folder[i].name}`
+    );
+    addAttributeToElem(
+      `#todo-folder-home-${folder[i].name}`,
+      'value',
+      `${folder[i].name}`
+    );
+    addTextToElem(`#todo-folder-home-${folder[i].name}`, `${folder[i].name}`);
+  }
+}
+
+export {
+  displayList,
+  nameOfListToDisplay,
+  listElemExists,
+  displayFolderSelect,
+};

@@ -8,7 +8,7 @@ import {
   todoDatePriority,
   displayDescription,
 } from './helpers';
-import { displayList } from './display-helpers';
+import { displayList, displayFolderSelect } from './display-helpers';
 import {
   createFolder,
   listOfTodosToDisplay,
@@ -29,9 +29,12 @@ class TodoList {
 
   // Home page
   homePage() {
+    // Home page elements
     clearDisplay('#content');
     displayTitle('home', 'Todo List');
     displayTodoForm('home');
+    // Testing...display folder select
+    displayFolderSelect(todoDependencies.folders);
     displayList(todoDependencies.folders, 'home');
     displayFolderForm();
 
@@ -67,6 +70,11 @@ class TodoList {
       );
       clearDisplay('#list-home');
       displayList(todoDependencies.folders, 'home');
+      // Testing... update select after adding folder
+      // clearDisplay();
+      document.querySelector('#todo-folder-home-label').remove();
+      document.querySelector('#todo-folder-home').remove();
+      displayFolderSelect(todoDependencies.folders);
       folderTitleHome.value = '';
 
       // Click on folders in home page, after folder add btn
@@ -125,7 +133,7 @@ class TodoList {
     displayTodoForm('folder');
     listOfTodosToDisplay(folderName);
 
-    // Give todo's click functionality, within folder page
+    // Open todo from folder page
     const listFolderDiv = document.querySelector('#list-folder');
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
       listFolderDiv.children[i].children[0].addEventListener('click', () => {
@@ -170,13 +178,30 @@ class TodoList {
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
 
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
+
       clearDisplay('#list-folder');
       listOfTodosToDisplay(folderName);
       // Open todo from folder page
+      console.log('first');
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
+        console.log('second');
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
           const todoClicked = listFolderDiv.children[i].children[0].textContent;
           this.todoPage(todoObj(todoClicked));
+        });
+      }
+
+      // Folder todo's DEL btn
+      for (let i = 0; i < listFolderDiv.children.length; i += 1) {
+        listFolderDiv.children[i].children[2].addEventListener('click', () => {
+          const todoClicked = listFolderDiv.children[i].children[0].textContent;
+          const todoAsObj = todoObj(todoClicked);
+          deleteTodo(todoAsObj.title, todoAsObj.dueDate, todoAsObj.priority);
+          const folderTitle = document.querySelector('#folder-title');
+          this.folderPage(folderTitle.textContent);
         });
       }
     });

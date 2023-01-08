@@ -54,17 +54,13 @@
 // deleteFolder('School')
 
 /**
- * add dueDate to todo list view,
- *  so title and dueDate
+ * add folder choice(<select>) within home page
  * add way to edit
  *  folder names
  *  todo names, dueDate, priority, description
  *
  * Bugs:
- * in todo forms,
- *  if title empty, don't add todo
- * adding note inside default page, don't add double todos to default folder
- * when adding folders in home page, you add name with spaces like 'ca sio'
+ * when adding folders in home page, you can't add name with spaces like 'ca sio'
  * i'm not able to read todos with the same name,
  *  todoObj reads them all from default folder
  *  then need to be read from the specific folder
@@ -72,16 +68,6 @@
  *  possibly check with name, dueDate, priority, and desc
  *    instead of just name
  * might need to be able to have same named folders, also todo's
- * when clicking on divs, it's the whole div
- *  it shouldn't include the DEL button
- * when default todo is added from home page,
- *  then you click on default folder, todos don't have clicks
- * when in folder and I add todo's
- *  extra 'list-folder' divs are added
- * when multiple todos deleted in folder,
- *  can only delete 1
- *  all other become unclickable
- * todo DEL button doesnt work when in default folder
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
@@ -102,13 +88,12 @@
  * -OG Uncontaminated files: dependencies.js, display-helpers.js,
  *  folder-helpers.js, folder.js, helpers.js, todo-helpers.js,
  *  todo.js
- * -might be able to remove the specific id names
+ * -might be able to remove the specific id names for certain things
  *    it's a step forward in allowing spaces in titles
  *
  * later:
  * use 'enter' key to add and stuff
  * fix bugs, handle errors, etc.
- * use date-fns library
  * use localStorage
  * refactor code & fix bugs
  * improve it UI/UX wise, heavy on css

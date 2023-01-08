@@ -68,6 +68,7 @@ function displayTodoForm(page) {
   addAttributeToElem(`#todo-duedate-${page}`, 'type', 'date');
   addAttributeToElem(`#todo-duedate-${page}`, 'placeholder', 'Due Date');
 
+  // Priority select
   loadElemToContainer(
     `#todo-form-${page}`,
     'label',
