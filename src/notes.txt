@@ -54,8 +54,7 @@
 // deleteFolder('School')
 
 /**
- * add way to edit
- *  todo name, dueDate, priority, description
+ * fix bugs
  *
  * Bugs:
  * when adding folders in home page, you can't add name with spaces like 'ca sio'
@@ -67,6 +66,7 @@
  *    instead of just name
  * might need to be able to have same named folders, also todo's
  * priority not displaying on todo page
+ * date not formatted in todo page
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

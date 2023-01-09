@@ -81,21 +81,7 @@ function displayTodoEditPage(obj) {
   addAttributeToElem(`#todo-edit-duedate`, 'type', 'date');
   addAttributeToElem(`#todo-edit-duedate`, 'value', `${obj.dueDate}`);
 
-  // loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
-  // addAttributeToElem(
-  //   '#todo-edit-page-priority-label',
-  //   'for',
-  //   'todo-edit-priority'
-  // );
-  // addTextToElem('#todo-edit-page-priority-label', 'Priority:');
-  // loadElemToContainer(`#content`, 'input', `todo-edit-priority`);
-  // addAttributeToElem(`#todo-edit-priority`, 'type', 'number');
-  // addAttributeToElem(`#todo-edit-priority`, 'min', '0');
-  // addAttributeToElem(`#todo-edit-priority`, 'max', '2');
-  // addAttributeToElem(`#todo-edit-priority`, 'required', '');
-  // addAttributeToElem(`#todo-edit-priority`, 'value', `${obj.priority}`);
-
-  // Testing...set a select priority, but using for loop
+  // Set a select priority
   loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
   addAttributeToElem(
     '#todo-edit-page-priority-label',

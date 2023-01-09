@@ -246,10 +246,28 @@ class TodoList {
     displayTodoEditPage(objToEdit);
 
     // Edit page 'SAVE' btn
+    const todoEditTitle = document.querySelector('#todo-edit-title');
+    const todoEditDuedate = document.querySelector('#todo-edit-duedate');
+    const todoEditPriority = document.querySelector('#todo-edit-priority');
+    const todoEditDescription = document.querySelector(
+      '#todo-edit-description'
+    );
     const todoEditPageSaveBtn = document.querySelector(
       '#todo-edit-page-save-btn'
     );
     todoEditPageSaveBtn.addEventListener('click', () => {
+      console.log(todoEditTitle.value);
+      console.log(todoEditDuedate.value);
+      console.log(todoEditPriority.value);
+      console.log(todoEditDescription.value);
+      objToEdit.title = todoEditTitle.value;
+      objToEdit.dueDate = format(parseISO(todoEditDuedate.value), 'PP');
+      objToEdit.priority = todoEditPriority.value;
+      objToEdit.description = todoEditDescription.value;
+      console.log(objToEdit);
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
       this.todoPage(objToEdit);
     });
   }
