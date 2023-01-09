@@ -54,11 +54,8 @@
 // deleteFolder('School')
 
 /**
- * add folder choice(<select>) within home page
- *  needa also make it appear before 'add' button
  * add way to edit
- *  folder names
- *  todo names, dueDate, priority, description
+ *  todo name, dueDate, priority, description
  *
  * Bugs:
  * when adding folders in home page, you can't add name with spaces like 'ca sio'
@@ -69,6 +66,7 @@
  *  possibly check with name, dueDate, priority, and desc
  *    instead of just name
  * might need to be able to have same named folders, also todo's
+ * priority not displaying on todo page
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

@@ -39,6 +39,7 @@ function displayTitle(page, title) {
   loadElemToContainer(`#${page}-title-div`, 'h1', `${page}-title`);
   addTextToElem(`#${page}-title`, `${title}`);
 }
+// Might modify it
 function displayTodoForm(page) {
   loadElemToContainer('#content', 'div', `todo-form-${page}`);
 
@@ -123,8 +124,11 @@ function displayTodoForm(page) {
   );
   addAttributeToElem(`#todo-description-${page}`, 'placeholder', 'Description');
 
-  loadElemToContainer(`#todo-form-${page}`, 'button', `todo-add-${page}-btn`);
-  addTextToElem(`#todo-add-${page}-btn`, 'ADD');
+  // adding 'add' btn automatically only to folder pages
+  if (page !== 'home') {
+    loadElemToContainer(`#todo-form-${page}`, 'button', `todo-add-${page}-btn`);
+    addTextToElem(`#todo-add-${page}-btn`, 'ADD');
+  }
 }
 function displayFolderForm() {
   loadElemToContainer('#content', 'div', 'folder-div-home');
@@ -162,6 +166,12 @@ function displayDescription(description) {
   addTextToElem(`#todo-description`, `Description: ${description}`);
 }
 
+// Add 'ADD' btn in home page
+function formAddBtn(page) {
+  loadElemToContainer(`#todo-form-${page}`, 'button', `todo-add-${page}-btn`);
+  addTextToElem(`#todo-add-${page}-btn`, 'ADD');
+}
+
 export {
   clearDisplay,
   loadElemToContainer,
@@ -172,4 +182,5 @@ export {
   displayFolderForm,
   todoDatePriority,
   displayDescription,
+  formAddBtn,
 };

@@ -7,8 +7,13 @@ import {
   clearDisplay,
   todoDatePriority,
   displayDescription,
+  formAddBtn,
 } from './helpers';
-import { displayList, displayFolderSelect } from './display-helpers';
+import {
+  displayList,
+  displayFolderSelect,
+  displayTodoEditBtn,
+} from './display-helpers';
 import {
   createFolder,
   listOfTodosToDisplay,
@@ -20,6 +25,7 @@ import {
   todoObj,
   deleteTodo,
   defaultTodoName,
+  displayTodoEditPage,
 } from './todo-helpers';
 
 class TodoList {
@@ -34,6 +40,7 @@ class TodoList {
     displayTitle('home', 'Todo List');
     displayTodoForm('home');
     displayFolderSelect(todoDependencies.folders);
+    formAddBtn('home');
     displayList(todoDependencies.folders, 'home');
     displayFolderForm();
 
@@ -75,7 +82,9 @@ class TodoList {
       // Remove folder label and select before updating
       document.querySelector('#todo-folder-home-label').remove();
       document.querySelector('#todo-folder-home').remove();
+      document.querySelector('#todo-add-home-btn').remove();
       displayFolderSelect(todoDependencies.folders);
+      formAddBtn('home');
       folderTitleHome.value = '';
 
       // Click on folders in home page, after folder add btn
@@ -214,11 +223,34 @@ class TodoList {
     displayTitle('todo', currentObj.title);
     todoDatePriority(currentObj.dueDate, currentObj.priority);
     displayDescription(currentObj.description);
+    displayTodoEditBtn();
 
     // Back button, within todo page
     const todoBackBtn = document.querySelector('#todo-back-btn');
     todoBackBtn.addEventListener('click', () => {
       this.folderPage(this.folder);
+    });
+
+    // Edit button, within todo page
+    const todoEditBtn = document.querySelector('#todo-edit-btn');
+    todoEditBtn.addEventListener('click', () => {
+      this.todoEditPage();
+    });
+  }
+
+  // Todo edit page
+  todoEditPage() {
+    const todoTitle = document.querySelector('#todo-title');
+    const objToEdit = todoObj(todoTitle.textContent);
+    clearDisplay('#content');
+    displayTodoEditPage(objToEdit);
+
+    // Edit page 'SAVE' btn
+    const todoEditPageSaveBtn = document.querySelector(
+      '#todo-edit-page-save-btn'
+    );
+    todoEditPageSaveBtn.addEventListener('click', () => {
+      this.todoPage(objToEdit);
     });
   }
 }

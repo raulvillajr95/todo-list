@@ -71,9 +71,15 @@ function displayFolderSelect(folder) {
   }
 }
 
+function displayTodoEditBtn() {
+  loadElemToContainer('#content', 'button', 'todo-edit-btn');
+  addTextToElem('#todo-edit-btn', 'EDIT');
+}
+
 export {
   displayList,
   nameOfListToDisplay,
   listElemExists,
   displayFolderSelect,
+  displayTodoEditBtn,
 };

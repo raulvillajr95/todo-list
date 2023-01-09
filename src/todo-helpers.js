@@ -1,5 +1,10 @@
 import { format } from 'date-fns';
 import todoDependencies from './dependencies';
+import {
+  loadElemToContainer,
+  addTextToElem,
+  addAttributeToElem,
+} from './helpers';
 import Todo from './todo';
 
 function createTodo(
@@ -54,4 +59,89 @@ function defaultTodoName() {
   return `Todo${numberOfTodos + 1}`;
 }
 
-export { createTodo, deleteTodo, todoObj, defaultTodoName };
+// Testing...adding todo edit page
+function displayTodoEditPage(obj) {
+  console.log(obj, 'obj');
+
+  loadElemToContainer('#content', 'label', 'todo-edit-page-title-label');
+  addAttributeToElem('#todo-edit-page-title-label', 'for', 'todo-edit-title');
+  addTextToElem('#todo-edit-page-title-label', 'Title:');
+  loadElemToContainer(`#content`, 'input', `todo-edit-title`);
+  addAttributeToElem(`#todo-edit-title`, 'type', 'text');
+  addAttributeToElem(`#todo-edit-title`, 'value', `${obj.title}`);
+
+  loadElemToContainer('#content', 'label', 'todo-edit-page-duedate-label');
+  addAttributeToElem(
+    '#todo-edit-page-duedate-label',
+    'for',
+    'todo-edit-duedate'
+  );
+  addTextToElem('#todo-edit-page-duedate-label', 'Due date:');
+  loadElemToContainer(`#content`, 'input', `todo-edit-duedate`);
+  addAttributeToElem(`#todo-edit-duedate`, 'type', 'date');
+  addAttributeToElem(`#todo-edit-duedate`, 'value', `${obj.dueDate}`);
+
+  // loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
+  // addAttributeToElem(
+  //   '#todo-edit-page-priority-label',
+  //   'for',
+  //   'todo-edit-priority'
+  // );
+  // addTextToElem('#todo-edit-page-priority-label', 'Priority:');
+  // loadElemToContainer(`#content`, 'input', `todo-edit-priority`);
+  // addAttributeToElem(`#todo-edit-priority`, 'type', 'number');
+  // addAttributeToElem(`#todo-edit-priority`, 'min', '0');
+  // addAttributeToElem(`#todo-edit-priority`, 'max', '2');
+  // addAttributeToElem(`#todo-edit-priority`, 'required', '');
+  // addAttributeToElem(`#todo-edit-priority`, 'value', `${obj.priority}`);
+
+  // Testing...set a select priority, but using for loop
+  loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
+  addAttributeToElem(
+    '#todo-edit-page-priority-label',
+    'for',
+    'todo-edit-priority'
+  );
+  addTextToElem('#todo-edit-page-priority-label', 'Priority:');
+  loadElemToContainer(`#content`, 'select', `todo-edit-priority`);
+  addAttributeToElem(`#todo-edit-priority`, 'name', `todo-edit-priority`);
+  const priorityLevels = ['Low', 'Medium', 'High'];
+  for (let i = 0; i < 3; i += 1) {
+    loadElemToContainer(
+      `#todo-edit-priority`,
+      'option',
+      `todo-edit-priority-${priorityLevels[i].toLowerCase()}`
+    );
+    addAttributeToElem(
+      `#todo-edit-priority-${priorityLevels[i].toLowerCase()}`,
+      'value',
+      `${i}`
+    );
+    addTextToElem(
+      `#todo-edit-priority-${priorityLevels[i].toLowerCase()}`,
+      `${priorityLevels[i]}`
+    );
+  }
+
+  loadElemToContainer('#content', 'label', 'todo-edit-page-description-label');
+  addAttributeToElem(
+    '#todo-edit-page-description-label',
+    'for',
+    'todo-edit-description'
+  );
+  addTextToElem('#todo-edit-page-description-label', 'Description:');
+  loadElemToContainer(`#content`, 'input', `todo-edit-description`);
+  addAttributeToElem(`#todo-edit-description`, 'type', 'text');
+  addAttributeToElem(`#todo-edit-description`, 'value', `${obj.description}`);
+
+  loadElemToContainer('#content', 'button', 'todo-edit-page-save-btn');
+  addTextToElem('#todo-edit-page-save-btn', 'SAVE');
+}
+
+export {
+  createTodo,
+  deleteTodo,
+  todoObj,
+  defaultTodoName,
+  displayTodoEditPage,
+};

@@ -3,14 +3,14 @@ import './reset.css';
 // import { format, parseISO } from 'date-fns';
 import todoDependencies from './dependencies';
 import TodoList from './todo-list';
-// import { createTodo, todoObj } from './todo-helpers';
+import { createTodo, todoObj } from './todo-helpers';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 
 const app = new TodoList();
 
 // Manual Todo's
 // createTodo('Refrigerator', 'Three door fridge', '2022-12-25', 1);
-// createTodo('Microwave', 'Small microwave', '2023-01-10', 1);
+createTodo('Microwave', 'Small microwave', '2023-01-10', 1);
 // createTodo('Shaker', '1 liter smoothie shaker', '2022-12-30', 1);
 // // Manual folders
 // createFolder('Groceries');
@@ -24,13 +24,13 @@ const app = new TodoList();
 // createTodo('Lighter', 'a fancy big flame lighter', '2022-12-30', 1, 'Liquour');
 // createFolder('Waters');
 // Home Page
-app.homePage();
+// app.homePage();
 
 // Folder Page
 // app.folderPage('Default');
 
 // Todo Page
-// app.todoPage(todoObj('Microwave'));
+app.todoPage(todoObj('Microwave'));
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');
