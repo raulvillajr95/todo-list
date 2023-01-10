@@ -54,7 +54,11 @@
 // deleteFolder('School')
 
 /**
+ * fix format bug
+ * clean up code
  * fix bugs
+ * start on 'localStorage'
+ * use 'enter' key to add and stuff
  *
  * Bugs:
  * when adding folders in home page, you can't add name with spaces like 'ca sio'
@@ -65,8 +69,7 @@
  *  possibly check with name, dueDate, priority, and desc
  *    instead of just name
  * might need to be able to have same named folders, also todo's
- * priority not displaying on todo page
- * date not formatted in todo page
+ * format from 'Jan 1, 2022' to '01-01-2022', from todo page to edit page
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
@@ -91,11 +94,8 @@
  *    it's a step forward in allowing spaces in titles
  *
  * later:
- * use 'enter' key to add and stuff
- * fix bugs, handle errors, etc.
- * use localStorage
- * refactor code & fix bugs
  * improve it UI/UX wise, heavy on css
+ * change color based on priorities
  * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank
  */

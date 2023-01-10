@@ -79,7 +79,11 @@ function displayTodoEditPage(obj) {
   addTextToElem('#todo-edit-page-duedate-label', 'Due date:');
   loadElemToContainer(`#content`, 'input', `todo-edit-duedate`);
   addAttributeToElem(`#todo-edit-duedate`, 'type', 'date');
-  addAttributeToElem(`#todo-edit-duedate`, 'value', `${obj.dueDate}`);
+  addAttributeToElem(
+    `#todo-edit-duedate`,
+    'value',
+    `${format(new Date(obj.dueDate), 'y-LL-dd')}`
+  );
 
   // Set a select priority
   loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
@@ -91,6 +95,8 @@ function displayTodoEditPage(obj) {
   addTextToElem('#todo-edit-page-priority-label', 'Priority:');
   loadElemToContainer(`#content`, 'select', `todo-edit-priority`);
   addAttributeToElem(`#todo-edit-priority`, 'name', `todo-edit-priority`);
+  // addAttributeToElem(`#todo-edit-priority`, 'value', `${obj.priority}`);
+  console.log(obj.priority);
   const priorityLevels = ['Low', 'Medium', 'High'];
   for (let i = 0; i < 3; i += 1) {
     loadElemToContainer(
@@ -103,6 +109,13 @@ function displayTodoEditPage(obj) {
       'value',
       `${i}`
     );
+    if (i.toString() === obj.priority) {
+      addAttributeToElem(
+        `#todo-edit-priority-${priorityLevels[i].toLowerCase()}`,
+        'selected',
+        `${i}`
+      );
+    }
     addTextToElem(
       `#todo-edit-priority-${priorityLevels[i].toLowerCase()}`,
       `${priorityLevels[i]}`
