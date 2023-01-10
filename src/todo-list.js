@@ -44,8 +44,7 @@ class TodoList {
     displayList(todoDependencies.folders, 'home');
     displayFolderForm();
 
-    // Add todo to 'Default' folder from home page
-    console.log('add button 1');
+    // Add todo to desired folder from home page
     const todoAddHomeBtn = document.querySelector('#todo-add-home-btn');
     todoAddHomeBtn.addEventListener('click', () => {
       const todoTitleHome = document.querySelector('#todo-title-home');
@@ -64,14 +63,16 @@ class TodoList {
         todoPriorityHome.value ? todoPriorityHome.value : '0',
         todoFolderHome.value
       );
+      console.log(todoFolderHome.value);
       todoTitleHome.value = '';
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
-    // Just test logging results
-    console.log(todoDependencies.defaultFolder, 'default folders');
-    console.log(todoDependencies.folders, 'folders');
 
     // Home Folder Add Button, maybe make this a function
     const folderAddHomeBtn = document.querySelector('#folder-add-home-btn');
@@ -80,47 +81,10 @@ class TodoList {
       createFolder(
         folderTitleHome.value ? folderTitleHome.value : defaultFolderName()
       );
-      // clearDisplay('#list-home');
-      // displayList(todoDependencies.folders, 'home');
-      // // Remove folder label and select before updating
-      // document.querySelector('#todo-folder-home-label').remove();
-      // document.querySelector('#todo-folder-home').remove();
-      // document.querySelector('#todo-add-home-btn').remove();
-      // displayFolderSelect(todoDependencies.folders);
-      // formAddBtn('home');
-      // folderTitleHome.value = '';
-
-      // Testing... renewing whole page instead of just parts because of all the repetitive code
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
       this.homePage();
-
-      // Testing...
-      // Add todo to 'Default' folder from home page
-      // console.log('add button 2');
-      // console.log(todoAddHomeBtn);
-      // const todoAddHomeBtn2 = document.querySelector('#todo-add-home-btn');
-      // todoAddHomeBtn2.addEventListener('click', () => {
-      //   console.log('add button 3');
-      //   const todoTitleHome = document.querySelector('#todo-title-home');
-      //   const todoDuedateHome = document.querySelector('#todo-duedate-home');
-      //   const todoPriorityHome = document.querySelector('#todo-priority-home');
-      //   const todoDescriptionHome = document.querySelector(
-      //     '#todo-description-home'
-      //   );
-      //   const todoFolderHome = document.querySelector('#todo-folder-home');
-      //   createTodo(
-      //     todoTitleHome.value ? todoTitleHome.value : defaultTodoName(),
-      //     todoDescriptionHome.value,
-      //     todoDuedateHome.value
-      //       ? format(parseISO(todoDuedateHome.value), 'PP')
-      //       : format(new Date(), 'PP'),
-      //     todoPriorityHome.value ? todoPriorityHome.value : '0',
-      //     todoFolderHome.value
-      //   );
-      //   todoTitleHome.value = '';
-      //   todoDuedateHome.value = '';
-      //   todoPriorityHome.value = '';
-      //   todoDescriptionHome.value = '';
-      // });
 
       // Click on folders in home page, after folder add btn
       const listHome = document.querySelector('#list-home');

@@ -59,10 +59,8 @@ function defaultTodoName() {
   return `Todo${numberOfTodos + 1}`;
 }
 
-// Testing...adding todo edit page
+// Add todo edit page
 function displayTodoEditPage(obj) {
-  console.log(obj, 'obj');
-
   loadElemToContainer('#content', 'label', 'todo-edit-page-title-label');
   addAttributeToElem('#todo-edit-page-title-label', 'for', 'todo-edit-title');
   addTextToElem('#todo-edit-page-title-label', 'Title:');
@@ -95,8 +93,6 @@ function displayTodoEditPage(obj) {
   addTextToElem('#todo-edit-page-priority-label', 'Priority:');
   loadElemToContainer(`#content`, 'select', `todo-edit-priority`);
   addAttributeToElem(`#todo-edit-priority`, 'name', `todo-edit-priority`);
-  // addAttributeToElem(`#todo-edit-priority`, 'value', `${obj.priority}`);
-  console.log(obj.priority);
   const priorityLevels = ['Low', 'Medium', 'High'];
   for (let i = 0; i < 3; i += 1) {
     loadElemToContainer(

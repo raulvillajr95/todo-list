@@ -1,6 +1,6 @@
 import './style.css';
 import './reset.css';
-import { format, parseISO } from 'date-fns';
+// import { format, parseISO } from 'date-fns';
 import todoDependencies from './dependencies';
 import TodoList from './todo-list';
 // import { createTodo, todoObj } from './todo-helpers';
@@ -31,12 +31,6 @@ app.homePage();
 
 // Todo Page
 // app.todoPage(todoObj('Microwave'));
-
-const exampleDate = 'Jan 1, 2023';
-
-const newFormat = format(new Date(exampleDate), 'y-LL-dd');
-
-console.log(newFormat);
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');

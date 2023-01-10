@@ -54,14 +54,20 @@
 // deleteFolder('School')
 
 /**
- * fix format bug
- * clean up code
+ * redo sequences
+ *  todos 'data-todo' then todo name
+ *    also 'data-todo-id' then todo id in number
+ *      keep track of id it somewhere
+ *  todos 'data-folder' = todo folder name
+ *    also 'data-folder-id' = folder id in number
+ *      keep track of id it somewhere
  * fix bugs
  * start on 'localStorage'
- * use 'enter' key to add and stuff
  *
  * Bugs:
- * when adding folders in home page, you can't add name with spaces like 'ca sio'
+ * when adding folders or todos,
+ *  you can't add name with spaces like 'ca sio'
+ *  might be fixed with adding 'dataset' attribute instead of foldername id
  * i'm not able to read todos with the same name,
  *  todoObj reads them all from default folder
  *  then need to be read from the specific folder
@@ -69,7 +75,6 @@
  *  possibly check with name, dueDate, priority, and desc
  *    instead of just name
  * might need to be able to have same named folders, also todo's
- * format from 'Jan 1, 2022' to '01-01-2022', from todo page to edit page
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
@@ -96,6 +101,7 @@
  * later:
  * improve it UI/UX wise, heavy on css
  * change color based on priorities
+ * use 'enter' key to add and stuff
  * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank
  */

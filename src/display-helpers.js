@@ -57,16 +57,22 @@ function displayFolderSelect(folder) {
   loadElemToContainer(`#todo-form-home`, 'select', `todo-folder-home`);
   addAttributeToElem(`#todo-folder-home`, 'name', `todo-folder-home`);
   for (let i = 0; i < folder.length; i += 1) {
+    console.log('dfs 1');
     loadElemToContainer(
       `#todo-folder-home`,
       'option',
       `todo-folder-home-${folder[i].name}`
     );
+    console.log('dfs 2');
     addAttributeToElem(
       `#todo-folder-home-${folder[i].name}`,
       'value',
       `${folder[i].name}`
     );
+    // Testing... add dataset attribute
+    addAttributeToElem(`#todo-folder-home`, 'data-folder', 'default folder');
+
+    console.log('dfs 3');
     addTextToElem(`#todo-folder-home-${folder[i].name}`, `${folder[i].name}`);
   }
 }

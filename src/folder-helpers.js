@@ -49,7 +49,6 @@ function listOfTodosToDisplay(folderName) {
         );
         addTextToElem(`#list-folder-${item.title}-text`, `${item.title}`);
 
-        // Might need to rework DEL for deletion
         loadElemToContainer(
           `#list-folder-${item.title}-div`,
           'span',
