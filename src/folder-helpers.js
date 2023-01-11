@@ -61,8 +61,25 @@ function listOfTodosToDisplay(folderId) {
 }
 
 function defaultFolderName() {
-  // returns string 'Folder' + folderId
+  // returns string 'Folder' + folderCount
   return `Folder${Folder.folderCount}`;
 }
 
-export { createFolder, deleteFolder, listOfTodosToDisplay, defaultFolderName };
+// Testing...grabbing full folder obj from id
+function folderObj(folderId) {
+  let obj;
+  todoDependencies.folders.forEach((currentFolder) => {
+    if (currentFolder.folderId === folderId) {
+      obj = currentFolder;
+    }
+  });
+  return obj;
+}
+
+export {
+  createFolder,
+  deleteFolder,
+  listOfTodosToDisplay,
+  defaultFolderName,
+  folderObj,
+};

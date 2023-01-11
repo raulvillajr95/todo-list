@@ -51,14 +51,13 @@ function todoObj(todoId) {
 }
 
 function defaultTodoName() {
-  // returns string 'Todo' + (number of todo's + 1)
   // returns string 'Todo' + todoCount
-  // const numberOfTodos = todoDependencies.defaultFolder.folder.length;
   return `Todo${Todo.todoCount}`;
 }
 
 // Add todo edit page
 function displayTodoEditPage(obj) {
+  // Edit todo title
   loadElemToContainer('#content', 'label', 'todo-edit-page-title-label');
   addAttributeToElem('#todo-edit-page-title-label', 'for', 'todo-edit-title');
   addTextToElem('#todo-edit-page-title-label', 'Title:');
@@ -66,6 +65,7 @@ function displayTodoEditPage(obj) {
   addAttributeToElem(`#todo-edit-title`, 'type', 'text');
   addAttributeToElem(`#todo-edit-title`, 'value', `${obj.title}`);
 
+  // Edit todo dueDate
   loadElemToContainer('#content', 'label', 'todo-edit-page-duedate-label');
   addAttributeToElem(
     '#todo-edit-page-duedate-label',
@@ -81,7 +81,7 @@ function displayTodoEditPage(obj) {
     `${format(new Date(obj.dueDate), 'y-LL-dd')}`
   );
 
-  // Set a select priority
+  // Edit todo priority
   loadElemToContainer('#content', 'label', 'todo-edit-page-priority-label');
   addAttributeToElem(
     '#todo-edit-page-priority-label',
@@ -116,6 +116,7 @@ function displayTodoEditPage(obj) {
     );
   }
 
+  // Edit todo description
   loadElemToContainer('#content', 'label', 'todo-edit-page-description-label');
   addAttributeToElem(
     '#todo-edit-page-description-label',

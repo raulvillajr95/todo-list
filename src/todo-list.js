@@ -19,6 +19,7 @@ import {
   listOfTodosToDisplay,
   deleteFolder,
   defaultFolderName,
+  folderObj,
 } from './folder-helpers';
 import {
   createTodo,
@@ -134,9 +135,10 @@ class TodoList {
   // Folder page
   folderPage(folderId) {
     this.folder = folderId;
+    const folder = folderObj(folderId);
     clearDisplay('#content');
-    // Display title not the id number
-    displayTitle('folder', folderId);
+    console.log(folder, 'folderPage folderId');
+    displayTitle('folder', folder.name);
     displayTodoForm('folder');
     listOfTodosToDisplay(folderId);
 
