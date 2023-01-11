@@ -1,11 +1,11 @@
 class Folder {
+  static folderCount = 0;
+
   constructor(name) {
     this.name = name;
     this.folder = [];
-  }
-
-  addNote(note) {
-    this.folder.push(note);
+    this.folderId = Folder.folderCount;
+    Folder.folderCount += 1;
   }
 }
 

@@ -12,30 +12,27 @@ function createTodo(
   description = '',
   dueDate = format(new Date(), 'PP'),
   priority = 0,
-  folderToInsert = ''
+  folderId = 0
 ) {
   const todo = new Todo(title, description, dueDate, priority);
-  if (folderToInsert === '') {
-    todoDependencies.defaultFolder.folder.push(todo);
-  }
   todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === 'Default' && folderToInsert === 'Default') {
+    if (folderId === 0) {
       todoDependencies.defaultFolder.folder.push(todo);
-    } else if (currentFolder.name === folderToInsert) {
+    } else if (currentFolder.folderId === folderId) {
       todoDependencies.defaultFolder.folder.push(todo);
       currentFolder.folder.push(todo);
     }
   });
+
+  // Just test logging results
+  console.log(todoDependencies.defaultFolder, 'default folders');
+  console.log(todoDependencies.folders, 'folders');
 }
 
-function deleteTodo(todo, dueDate, priority) {
+function deleteTodo(todoId) {
   todoDependencies.folders.forEach((currentFolder) => {
     currentFolder.folder.forEach((currentTodo) => {
-      if (
-        currentTodo.title === todo &&
-        currentTodo.dueDate === dueDate &&
-        currentTodo.priority === priority
-      ) {
+      if (currentTodo.todoId === todoId) {
         const index = currentFolder.folder.indexOf(currentTodo);
         currentFolder.folder.splice(index, 1);
       }
@@ -43,10 +40,10 @@ function deleteTodo(todo, dueDate, priority) {
   });
 }
 
-function todoObj(todo) {
+function todoObj(todoId) {
   let obj;
   todoDependencies.defaultFolder.folder.forEach((currentTodo) => {
-    if (currentTodo.title === todo) {
+    if (currentTodo.todoId === todoId) {
       obj = currentTodo;
     }
   });
@@ -55,8 +52,9 @@ function todoObj(todo) {
 
 function defaultTodoName() {
   // returns string 'Todo' + (number of todo's + 1)
-  const numberOfTodos = todoDependencies.defaultFolder.folder.length;
-  return `Todo${numberOfTodos + 1}`;
+  // returns string 'Todo' + todoCount
+  // const numberOfTodos = todoDependencies.defaultFolder.folder.length;
+  return `Todo${Todo.todoCount}`;
 }
 
 // Add todo edit page

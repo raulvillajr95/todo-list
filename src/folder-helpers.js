@@ -6,19 +6,19 @@ import { loadElemToContainer, addTextToElem } from './helpers';
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
+
+  // Just test logging results
+  console.log(todoDependencies.defaultFolder, 'default folders');
+  console.log(todoDependencies.folders, 'folders');
 }
 
-function deleteFolder(folderToRemove) {
+function deleteFolder(folderId) {
   todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === folderToRemove) {
+    if (currentFolder.folderId === folderId) {
       // Delete todos from Default too
       const folderLength = currentFolder.folder.length;
       for (let i = 0; i < folderLength; i += 1) {
-        deleteTodo(
-          currentFolder.folder[0].title,
-          currentFolder.folder[0].dueDate,
-          currentFolder.folder[0].priority
-        );
+        deleteTodo(currentFolder.folder[0].todoId);
       }
 
       const index = todoDependencies.folders.indexOf(currentFolder);
@@ -27,9 +27,9 @@ function deleteFolder(folderToRemove) {
   });
 }
 
-function listOfTodosToDisplay(folderName) {
+function listOfTodosToDisplay(folderId) {
   todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === folderName) {
+    if (currentFolder.folderId === folderId) {
       if (!listElemExists('folder')) {
         loadElemToContainer('#content', 'div', `list-folder`);
       }
@@ -40,39 +40,29 @@ function listOfTodosToDisplay(folderName) {
         loadElemToContainer(
           `#list-folder`,
           'div',
-          `list-folder-${item.title}-div`
+          `list-folder-${item.todoId}-div`
         );
         loadElemToContainer(
-          `#list-folder-${item.title}-div`,
+          `#list-folder-${item.todoId}-div`,
           'span',
-          `list-folder-${item.title}-text`
+          `list-folder-${item.todoId}-text`
         );
-        addTextToElem(`#list-folder-${item.title}-text`, `${item.title}`);
+        addTextToElem(`#list-folder-${item.todoId}-text`, `${item.todoId}`);
 
         loadElemToContainer(
-          `#list-folder-${item.title}-div`,
+          `#list-folder-${item.todoId}-div`,
           'span',
-          `list-folder-${item.title}-duedate`
+          `list-folder-${item.todoId}-duedate`
         );
-        addTextToElem(`#list-folder-${item.title}-duedate`, `${item.dueDate}`);
-
-        if (!(item.name === 'Default' && 'folder' === 'home')) {
-          loadElemToContainer(
-            `#list-folder-${item.title}-div`,
-            'button',
-            `list-folder-${item.title}-del-btn`
-          );
-          addTextToElem(`#list-folder-${item.title}-del-btn`, 'DEL');
-        }
+        addTextToElem(`#list-folder-${item.todoId}-duedate`, `${item.dueDate}`);
       }
     }
   });
 }
 
 function defaultFolderName() {
-  // returns string 'Folder' + (number of folders + 1)
-  const numberOfFolders = todoDependencies.folders.length;
-  return `Folder${numberOfFolders}`;
+  // returns string 'Folder' + folderId
+  return `Folder${Folder.folderCount}`;
 }
 
 export { createFolder, deleteFolder, listOfTodosToDisplay, defaultFolderName };

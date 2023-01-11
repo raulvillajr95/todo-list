@@ -19,14 +19,14 @@ const app = new TodoList();
 // Manual folders & todos
 // createFolder('Groceries');
 // createTodo('Kale', '2lbs of kale', '2022-12-25', 1, 'Groceries');
-// createTodo('Chili', 'a 32oz bottle of valentina', '2023-01-10', 1, 'Groceries');
+// createTodo('Chili', 'aB 32oz bottle of valentina', '2023-01-10', 1, 'Groceries');
 // createFolder('Liquour');
 // createTodo('Lighter', 'a fancy big flame lighter', '2022-12-30', 1, 'Liquour');
 // createFolder('Waters');
 // Home Page
 app.homePage();
 
-// Folder Page
+// Folder Page`
 // app.folderPage('Default');
 
 // Todo Page

@@ -1,4 +1,3 @@
-import todoDependencies from './dependencies';
 import {
   loadElemToContainer,
   addTextToElem,
@@ -18,36 +17,35 @@ function displayList(listToDisplay, page) {
   for (let i = 0; i < listToDisplay.length; i += 1) {
     const item = listToDisplay[i];
 
+    let id;
     let name;
+    let dataName;
     if (page === 'home') {
+      id = item.folderId;
       name = item.name;
+      dataName = 'data-folder-id';
     } else if (page === 'folder') {
+      id = item.todoId;
       name = item.title;
+      dataName = 'data-todo-id';
     }
-    loadElemToContainer(`#list-${page}`, 'div', `list-${page}-${name}-div`);
+    loadElemToContainer(`#list-${page}`, 'div', `list-${page}-${id}-div`);
     loadElemToContainer(
-      `#list-${page}-${name}-div`,
+      `#list-${page}-${id}-div`,
       'span',
-      `list-${page}-${name}-text`
+      `list-${page}-${id}-text`
     );
-    addTextToElem(`#list-${page}-${name}-text`, `${name}`);
-    if (!(item.name === 'Default' && page === 'home')) {
+    addAttributeToElem(`#list-${page}-${id}-text`, `${dataName}`, `${id}`);
+    addTextToElem(`#list-${page}-${id}-text`, `${name}`);
+    if (!(item.folderId === 0 && page === 'home')) {
       loadElemToContainer(
-        `#list-${page}-${name}-div`,
+        `#list-${page}-${id}-div`,
         'button',
-        `list-${page}-${name}-del-btn`
+        `list-${page}-${id}-del-btn`
       );
-      addTextToElem(`#list-${page}-${name}-del-btn`, 'DEL');
+      addTextToElem(`#list-${page}-${id}-del-btn`, 'DEL');
     }
   }
-}
-
-function nameOfListToDisplay(folderName, page) {
-  todoDependencies.folders.forEach((currentFolder) => {
-    if (currentFolder.name === folderName) {
-      displayList(currentFolder.folder, page);
-    }
-  });
 }
 
 function displayFolderSelect(folder) {
@@ -57,23 +55,20 @@ function displayFolderSelect(folder) {
   loadElemToContainer(`#todo-form-home`, 'select', `todo-folder-home`);
   addAttributeToElem(`#todo-folder-home`, 'name', `todo-folder-home`);
   for (let i = 0; i < folder.length; i += 1) {
-    console.log('dfs 1');
     loadElemToContainer(
       `#todo-folder-home`,
       'option',
-      `todo-folder-home-${folder[i].name}`
+      `todo-folder-home-${folder[i].folderId}`
     );
-    console.log('dfs 2');
     addAttributeToElem(
-      `#todo-folder-home-${folder[i].name}`,
+      `#todo-folder-home-${folder[i].folderId}`,
       'value',
+      `${folder[i].folderId}`
+    );
+    addTextToElem(
+      `#todo-folder-home-${folder[i].folderId}`,
       `${folder[i].name}`
     );
-    // Testing... add dataset attribute
-    addAttributeToElem(`#todo-folder-home`, 'data-folder', 'default folder');
-
-    console.log('dfs 3');
-    addTextToElem(`#todo-folder-home-${folder[i].name}`, `${folder[i].name}`);
   }
 }
 
@@ -82,10 +77,4 @@ function displayTodoEditBtn() {
   addTextToElem('#todo-edit-btn', 'EDIT');
 }
 
-export {
-  displayList,
-  nameOfListToDisplay,
-  listElemExists,
-  displayFolderSelect,
-  displayTodoEditBtn,
-};
+export { displayList, listElemExists, displayFolderSelect, displayTodoEditBtn };
