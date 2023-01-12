@@ -28,6 +28,7 @@ import {
   defaultTodoName,
   displayTodoEditPage,
 } from './todo-helpers';
+import { populateDependencies } from './local-storage';
 
 class TodoList {
   constructor() {
@@ -36,6 +37,7 @@ class TodoList {
 
   // Home page
   homePage() {
+    populateDependencies();
     // Home page elements
     clearDisplay('#content');
     displayTitle('home', 'Todo List');

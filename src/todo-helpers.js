@@ -6,6 +6,7 @@ import {
   addAttributeToElem,
 } from './helpers';
 import Todo from './todo';
+import { populateStorage } from './local-storage';
 
 function createTodo(
   title,
@@ -23,6 +24,7 @@ function createTodo(
       currentFolder.folder.push(todo);
     }
   });
+  populateStorage();
 }
 
 function deleteTodo(todoId) {
@@ -34,6 +36,7 @@ function deleteTodo(todoId) {
       }
     });
   });
+  populateStorage();
 }
 
 function todoObj(todoId) {

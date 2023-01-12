@@ -7,9 +7,11 @@ import {
   addTextToElem,
   addAttributeToElem,
 } from './helpers';
+import { populateStorage } from './local-storage';
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
+  populateStorage();
 }
 
 function deleteFolder(folderId) {
@@ -25,6 +27,7 @@ function deleteFolder(folderId) {
       todoDependencies.folders.splice(index, 1);
     }
   });
+  populateStorage();
 }
 
 function listOfTodosToDisplay(folderId) {

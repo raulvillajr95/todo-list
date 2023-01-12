@@ -41,7 +41,7 @@ function populateStorage() {
     );
     localStorage.setItem('folders', JSON.stringify(todoDependencies.folders));
 
-    console.log(localStorage);
+    console.log(localStorage, 'HERE');
     console.log(todoDependencies);
   } else {
     // app.homepage() but with todoDepencies info

@@ -29,7 +29,7 @@ const app = new TodoList();
 // Home Page
 app.homePage();
 // On start, populate todoDependencies with localStorage info???
-populateDependencies();
+// populateDependencies();
 
 // Folder Page`
 // app.folderPage('Default');
@@ -44,4 +44,5 @@ populateDependencies();
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');
 console.log(todoDependencies.folders, 'folders');
+console.log(todoDependencies, 'dependencies');
 console.log(window.localStorage, 'localStorage');

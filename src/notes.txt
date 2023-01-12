@@ -64,6 +64,7 @@
  *  might give it its own module
  *  every time it's called, run a populateStorage()??
  *    grabbing info from todo dependencies, and folder/todo ids
+ *  possibly make both todoDepencies consts a function, return normals
  * improve UI/UX wise, heavy on css
  *
  * Bugs:
