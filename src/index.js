@@ -5,8 +5,9 @@ import todoDependencies from './dependencies';
 import TodoList from './todo-list';
 // import { createTodo, todoObj } from './todo-helpers';
 // import { createFolder, defaultFolderName } from './folder-helpers';
-import Folder from './folder';
-import Todo from './todo';
+// import Folder from './folder';
+// import Todo from './todo';
+import { populateStorage, populateDependencies } from './local-storage';
 
 const app = new TodoList();
 
@@ -27,47 +28,18 @@ const app = new TodoList();
 // createFolder('Waters');
 // Home Page
 app.homePage();
-
-// Checking if localStorage is available
-function storageAvailable(type) {
-  let storage;
-  try {
-    storage = window[type];
-    const x = '___storage_test__';
-    storage.setItem(x, x);
-    storage.removeItem(x);
-    return true;
-  } catch (e) {
-    return (
-      e instanceof DOMException &&
-      (e.code === 22 ||
-        e.code === 1014 ||
-        e.name === 'QuotaExceededError' ||
-        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-      storage &&
-      storage.length !== 0
-    );
-  }
-}
-
-// Make changes to storage
-function populateStorage() {
-  if (storageAvailable('localStorage')) {
-    // app.homePage() but with localStorage info;
-    localStorage.setItem('folderCount', Folder.folderCount);
-    localStorage.setItem('folderCount', Folder.folderCount);
-    localStorage.setItem('todoCount', Todo.todoCount);
-  } else {
-    // app.homepage() but with todoDepencies info
-    console.log('not good');
-  }
-}
+// On start, populate todoDependencies with localStorage info???
+populateDependencies();
 
 // Folder Page`
 // app.folderPage('Default');
 
 // Todo Page
 // app.todoPage(todoObj('Microwave'));
+
+// Testing... localstorage
+// populateStorage();
+// populateDependencies();
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');

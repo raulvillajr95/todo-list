@@ -64,6 +64,7 @@
  *  might give it its own module
  *  every time it's called, run a populateStorage()??
  *    grabbing info from todo dependencies, and folder/todo ids
+ * improve UI/UX wise, heavy on css
  *
  * Bugs:
  *
@@ -90,7 +91,6 @@
  *    it's a step forward in allowing spaces in titles
  *
  * later:
- * improve it UI/UX wise, heavy on css
  * change color based on priorities
  * use 'enter' key to add and stuff
  * remove dev mode
