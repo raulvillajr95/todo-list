@@ -10,10 +10,6 @@ import {
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
-
-  // Just test logging results
-  console.log(todoDependencies.defaultFolder, 'default folders');
-  console.log(todoDependencies.folders, 'folders');
 }
 
 function deleteFolder(folderId) {

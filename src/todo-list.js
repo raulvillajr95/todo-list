@@ -174,7 +174,6 @@ class TodoList {
       const todoDescriptionFolder = document.querySelector(
         '#todo-description-folder'
       );
-      console.log('todo yuh');
       createTodo(
         todoTitleFolder.value ? todoTitleFolder.value : defaultTodoName(),
         todoDescriptionFolder.value,

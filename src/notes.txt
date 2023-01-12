@@ -54,31 +54,18 @@
 // deleteFolder('School')
 
 /**
- * redo sequences(first console, then ui)
- * - it's nearly the same thing but identified by id
- *  todos 'data-todo' then todo name
- *    also 'data-todo-id' then todo id in number
- *      keep track of id it somewhere
- *  todos 'data-folder' = todo folder name
- *    also 'data-folder-id' = folder id in number
- *      keep track of id it somewhere
- * possibly create a function 'retrieveObj(type, id)'
- *  returns folders or todos, like retrieveObj('folder', 1)
- * fix bugs
  * start on 'localStorage'
  *  the folder/todo id's would be continous from last visit
+ *  pretty much have todoDependencies on there
+ *    it knows when things are created/deleted
+ *  if data aint there on load, app usually crashed
+ *    create a fix for that(similar to try/except?)
+ *  I can duplicate todoDependencies, the function would be purely based off of localStorage
+ *  might give it its own module
+ *  every time it's called, run a populateStorage()??
+ *    grabbing info from todo dependencies, and folder/todo ids
  *
  * Bugs:
- * when adding folders or todos,
- *  you can't add name with spaces like 'ca sio'
- *  might be fixed with adding 'dataset' attribute instead of foldername id
- * i'm not able to read todos with the same name,
- *  todoObj reads them all from default folder
- *  then need to be read from the specific folder
- *  even then, within a folder you can't have diffirent names
- *  possibly check with name, dueDate, priority, and desc
- *    instead of just name
- * might need to be able to have same named folders, also todo's
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

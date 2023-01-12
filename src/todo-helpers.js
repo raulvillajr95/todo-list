@@ -23,10 +23,6 @@ function createTodo(
       currentFolder.folder.push(todo);
     }
   });
-
-  // Just test logging results
-  console.log(todoDependencies.defaultFolder, 'default folders');
-  console.log(todoDependencies.folders, 'folders');
 }
 
 function deleteTodo(todoId) {
