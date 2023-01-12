@@ -2,7 +2,11 @@ import Folder from './folder';
 import todoDependencies from './dependencies';
 import { listElemExists } from './display-helpers';
 import { deleteTodo } from './todo-helpers';
-import { loadElemToContainer, addTextToElem } from './helpers';
+import {
+  loadElemToContainer,
+  addTextToElem,
+  addAttributeToElem,
+} from './helpers';
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
@@ -47,7 +51,12 @@ function listOfTodosToDisplay(folderId) {
           'span',
           `list-folder-${item.todoId}-text`
         );
-        addTextToElem(`#list-folder-${item.todoId}-text`, `${item.todoId}`);
+        addAttributeToElem(
+          `#list-folder-${item.todoId}-text`,
+          'data-todo-id',
+          `${item.todoId}`
+        );
+        addTextToElem(`#list-folder-${item.todoId}-text`, `${item.title}`);
 
         loadElemToContainer(
           `#list-folder-${item.todoId}-div`,
@@ -55,6 +64,20 @@ function listOfTodosToDisplay(folderId) {
           `list-folder-${item.todoId}-duedate`
         );
         addTextToElem(`#list-folder-${item.todoId}-duedate`, `${item.dueDate}`);
+
+        // Display 'DEL' btn
+        // Add data todo id's
+        loadElemToContainer(
+          `#list-folder-${item.todoId}-div`,
+          'button',
+          `list-folder-${item.todoId}-del-btn`
+        );
+        addAttributeToElem(
+          `#list-folder-${item.todoId}-del-btn`,
+          'data-todo-id',
+          `${item.todoId}`
+        );
+        addTextToElem(`#list-folder-${item.todoId}-del-btn`, 'DEL');
       }
     }
   });
@@ -65,7 +88,6 @@ function defaultFolderName() {
   return `Folder${Folder.folderCount}`;
 }
 
-// Testing...grabbing full folder obj from id
 function folderObj(folderId) {
   let obj;
   todoDependencies.folders.forEach((currentFolder) => {

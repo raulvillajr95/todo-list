@@ -77,9 +77,6 @@ class TodoList {
       createFolder(
         folderTitleHome.value ? folderTitleHome.value : defaultFolderName()
       );
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'yuuhh');
-      console.log(todoDependencies.folders, 'folders');
       this.homePage();
 
       // Click on folders in home page, after folder add btn
@@ -87,8 +84,10 @@ class TodoList {
       for (let i = 0; i < listHome.children.length; i += 1) {
         // Click on letters, enter folder page
         listHome.children[i].children[0].addEventListener('click', () => {
-          const folderClicked = listHome.children[i].children[0].textContent;
-          this.folderPage(folderClicked);
+          const folderId = Number(
+            listHome.children[i].children[0].dataset.folderId
+          );
+          this.folderPage(folderId);
         });
       }
 
@@ -97,10 +96,9 @@ class TodoList {
       for (let i = 0; i < listHomeDiv.children.length; i += 1) {
         if (listHomeDiv.children[i].children[0].textContent !== 'Default') {
           listHomeDiv.children[i].children[1].addEventListener('click', () => {
-            // Needs work, get the actual id number
             const folderRemoveId =
-              listHomeDiv.children[i].children[0].textContent;
-            deleteFolder(folderRemoveId);
+              listHomeDiv.children[i].children[0].dataset.folderId;
+            deleteFolder(Number(folderRemoveId));
             this.homePage();
           });
         }
@@ -112,8 +110,10 @@ class TodoList {
     for (let i = 0; i < listHome.children.length; i += 1) {
       // Click on letters, enter folder page
       listHome.children[i].children[0].addEventListener('click', () => {
-        const folderClicked = listHome.children[i].children[0];
-        this.folderPage(Number(folderClicked.dataset.folderId));
+        const folderId = Number(
+          listHome.children[i].children[0].dataset.folderId
+        );
+        this.folderPage(folderId);
       });
     }
 
@@ -122,10 +122,9 @@ class TodoList {
     for (let i = 0; i < listHomeDiv.children.length; i += 1) {
       if (listHomeDiv.children[i].children[0].textContent !== 'Default') {
         listHomeDiv.children[i].children[1].addEventListener('click', () => {
-          // Needs work, get the actual id number
           const folderRemoveId =
-            listHomeDiv.children[i].children[0].textContent;
-          deleteFolder(folderRemoveId);
+            listHomeDiv.children[i].children[0].dataset.folderId;
+          deleteFolder(Number(folderRemoveId));
           this.homePage();
         });
       }
@@ -137,36 +136,30 @@ class TodoList {
     this.folder = folderId;
     const folder = folderObj(folderId);
     clearDisplay('#content');
-    console.log(folder, 'folderPage folderId');
     displayTitle('folder', folder.name);
     displayTodoForm('folder');
-    listOfTodosToDisplay(folderId);
+    listOfTodosToDisplay(folder.folderId);
 
     // Open todo from folder page
-    console.log('try 1');
     const listFolderDiv = document.querySelector('#list-folder');
-    console.log('try 2');
-    console.log(listFolderDiv);
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
-      console.log('try 3');
       listFolderDiv.children[i].children[0].addEventListener('click', () => {
-        // Modify to get todo id
-        const todoId = listFolderDiv.children[i].children[0].textContent;
+        const todoId = Number(
+          listFolderDiv.children[i].children[0].dataset.todoId
+        );
         this.todoPage(todoObj(todoId));
       });
     }
 
-    console.log('try 4');
-
     // Folder todo's DEL btn
     for (let i = 0; i < listFolderDiv.children.length; i += 1) {
       listFolderDiv.children[i].children[2].addEventListener('click', () => {
-        // Modify to get todo id
-        const todoId = listFolderDiv.children[i].children[0].textContent;
+        const todoId = Number(
+          listFolderDiv.children[i].children[0].dataset.todoId
+        );
         const todoAsObj = todoObj(todoId);
         deleteTodo(todoAsObj.todoId);
-        const folderTitle = document.querySelector('#folder-title');
-        this.folderPage(folderTitle.textContent);
+        this.folderPage(this.folder);
       });
     }
 
@@ -201,8 +194,9 @@ class TodoList {
       // Open todo from folder page
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
-          // Modify to get todo id
-          const todoId = listFolderDiv.children[i].children[0].textContent;
+          const todoId = Number(
+            listFolderDiv.children[i].children[0].dataset.todoId
+          );
           this.todoPage(todoObj(todoId));
         });
       }
@@ -210,12 +204,12 @@ class TodoList {
       // Folder todo's DEL btn
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
         listFolderDiv.children[i].children[2].addEventListener('click', () => {
-          // Modify to get todo id
-          const todoId = listFolderDiv.children[i].children[0].textContent;
+          const todoId = Number(
+            listFolderDiv.children[i].children[0].dataset.todoId
+          );
           const todoAsObj = todoObj(todoId);
           deleteTodo(todoAsObj.todoId);
-          const folderTitle = document.querySelector('#folder-title');
-          this.folderPage(folderTitle.textContent);
+          this.folderPage(this.folder);
         });
       }
     });
@@ -244,17 +238,15 @@ class TodoList {
     // Edit button, within todo page
     const todoEditBtn = document.querySelector('#todo-edit-btn');
     todoEditBtn.addEventListener('click', () => {
-      this.todoEditPage();
+      this.todoEditPage(currentObj);
     });
   }
 
   // Todo edit page
-  todoEditPage() {
-    // Modify to get todo id
-    const todoId = document.querySelector('#todo-title');
-    const objToEdit = todoObj(todoId);
+  todoEditPage(currentTodo) {
+    const objToEdit = currentTodo;
     clearDisplay('#content');
-    displayTodoEditPage(objToEdit);
+    displayTodoEditPage(currentTodo);
 
     // Edit page 'SAVE' btn
     const todoEditTitle = document.querySelector('#todo-edit-title');
@@ -271,7 +263,7 @@ class TodoList {
       objToEdit.dueDate = format(parseISO(todoEditDuedate.value), 'PP');
       objToEdit.priority = todoEditPriority.value;
       objToEdit.description = todoEditDescription.value;
-      this.todoPage(objToEdit);
+      this.todoPage(currentTodo);
     });
   }
 }
