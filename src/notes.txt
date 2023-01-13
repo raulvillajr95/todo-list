@@ -54,18 +54,12 @@
 // deleteFolder('School')
 
 /**
- * start on 'localStorage'
- *  the folder/todo id's would be continous from last visit
- *  pretty much have todoDependencies on there
- *    it knows when things are created/deleted
- *  if data aint there on load, app usually crashed
- *    create a fix for that(similar to try/except?)
- *  I can duplicate todoDependencies, the function would be purely based off of localStorage
- *  might give it its own module
- *  every time it's called, run a populateStorage()??
- *    grabbing info from todo dependencies, and folder/todo ids
- *  possibly make both todoDepencies consts a function, return normals
  * improve UI/UX wise, heavy on css
+ *  first placement of content
+ *  then details
+ *    colors, gradients
+ *    physical details
+ *    icons
  *
  * Bugs:
  *
@@ -94,6 +88,7 @@
  * later:
  * change color based on priorities
  * use 'enter' key to add and stuff
+ * clean up code, clg's and random stuff that's commented out
  * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank
  */

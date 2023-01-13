@@ -7,7 +7,7 @@ import TodoList from './todo-list';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 // import Folder from './folder';
 // import Todo from './todo';
-import { populateStorage, populateDependencies } from './local-storage';
+// import { populateStorage, populateDependencies } from './local-storage';
 
 const app = new TodoList();
 

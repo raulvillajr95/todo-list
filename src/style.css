@@ -1,0 +1,134 @@
+/* Desktop Home */
+
+/* Desktop Folder */
+
+/* Desktop Todo */
+
+/* Desktop Edit Todo */
+
+/* Tablet */
+@media only screen and (max-width: 56em) {
+  /* Desktop Home */
+
+  /* Desktop Folder */
+
+  /* Desktop Todo */
+
+  /* Desktop Edit Todo */
+}
+
+/* Mobile */
+@media only screen and (max-width: 38em) {
+  /* Desktop Home */
+  #home-title-div {
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  #todo-form-home {
+    height: 36vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  #todo-title-home-label,
+  #todo-duedate-home-label,
+  #todo-priority-home-label,
+  #todo-description-home-label,
+  #todo-folder-home-label {
+    display: none;
+  }
+  #todo-title-home,
+  #todo-duedate-home,
+  #todo-priority-home,
+  #todo-description-home,
+  #todo-folder-home {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  #todo-title-home {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+  #todo-duedate-home {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  #todo-priority-home {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  #todo-description-home {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  #todo-folder-home {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+  #todo-add-home-btn {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    font-size: 1.2rem;
+  }
+  #list-home {
+    margin-bottom: 9vh;
+  }
+  #list-home > div {
+    height: 9vh;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    border: 1px solid rgb(162, 162, 162);
+  }
+  #list-home > div > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #folder-div-home {
+    height: 9vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+  }
+  #folder-title-home-label {
+    display: none;
+  }
+  #folder-title-home {
+    text-align: center;
+  }
+
+  /* Desktop Folder */
+
+  /* Desktop Todo */
+
+  /* Desktop Edit Todo */
+}
+
+/* Super small phones */
+@media only screen and (max-width: 22em) {
+  /* Desktop Home */
+
+  /* Desktop Folder */
+
+  /* Desktop Todo */
+
+  /* Desktop Edit Todo */
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Desktop Home */
+
+  /* Desktop Folder */
+
+  /* Desktop Todo */
+
+  /* Desktop Edit Todo */
+}
