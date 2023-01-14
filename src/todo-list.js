@@ -28,10 +28,6 @@ import {
   defaultTodoName,
   displayTodoEditPage,
 } from './todo-helpers';
-<<<<<<< HEAD
-=======
-// import { populateDependencies, populateStorage } from './local-storage';
->>>>>>> a0fc889305232fea3fd5e4ab801ab3a23c5ffe59
 
 class TodoList {
   constructor() {
@@ -40,10 +36,6 @@ class TodoList {
 
   // Home page
   homePage() {
-<<<<<<< HEAD
-=======
-    // populateDependencies();
->>>>>>> a0fc889305232fea3fd5e4ab801ab3a23c5ffe59
     // Home page elements
     clearDisplay('#content');
     displayTitle('home', 'Todo List');

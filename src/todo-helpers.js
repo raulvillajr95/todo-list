@@ -18,11 +18,9 @@ function createTodo(
   todoDependencies.folders.forEach((currentFolder) => {
     if (folderId === 0) {
       todoDependencies.defaultFolder.folder.push(todo);
-      populateStorage();
     } else if (currentFolder.folderId === folderId) {
       todoDependencies.defaultFolder.folder.push(todo);
       currentFolder.folder.push(todo);
-      populateStorage();
     }
   });
 }
