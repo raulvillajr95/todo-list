@@ -62,6 +62,8 @@
  *    icons
  *
  * Bugs:
+ *  when using localStorage, todos in folder page not adding properly
+ *    try small examples, like with little objects in index.js
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

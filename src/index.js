@@ -1,4 +1,4 @@
-import './style.css';
+// import './style.css';
 import './reset.css';
 // import { format, parseISO } from 'date-fns';
 import todoDependencies from './dependencies';
@@ -7,7 +7,7 @@ import TodoList from './todo-list';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 // import Folder from './folder';
 // import Todo from './todo';
-// import { populateStorage, populateDependencies } from './local-storage';
+import { populateStorage, populateDependencies } from './local-storage';
 
 const app = new TodoList();
 
@@ -27,6 +27,8 @@ const app = new TodoList();
 // createTodo('Lighter', 'a fancy big flame lighter', '2022-12-30', 1, 'Liquour');
 // createFolder('Waters');
 // Home Page
+// localStorage.clear();
+populateDependencies();
 app.homePage();
 // On start, populate todoDependencies with localStorage info???
 // populateDependencies();
@@ -36,10 +38,6 @@ app.homePage();
 
 // Todo Page
 // app.todoPage(todoObj('Microwave'));
-
-// Testing... localstorage
-// populateStorage();
-// populateDependencies();
 
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');

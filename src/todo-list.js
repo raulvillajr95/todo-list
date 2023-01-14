@@ -28,7 +28,7 @@ import {
   defaultTodoName,
   displayTodoEditPage,
 } from './todo-helpers';
-import { populateDependencies } from './local-storage';
+// import { populateDependencies, populateStorage } from './local-storage';
 
 class TodoList {
   constructor() {
@@ -37,7 +37,7 @@ class TodoList {
 
   // Home page
   homePage() {
-    populateDependencies();
+    // populateDependencies();
     // Home page elements
     clearDisplay('#content');
     displayTitle('home', 'Todo List');
@@ -165,7 +165,7 @@ class TodoList {
       });
     }
 
-    // Create todo, within folder page
+    // Create todo, within folder page(ADD btn)
     const todoAddFolderBtn = document.querySelector('#todo-add-folder-btn');
     todoAddFolderBtn.addEventListener('click', () => {
       const todoTitleFolder = document.querySelector('#todo-title-folder');
@@ -185,12 +185,15 @@ class TodoList {
         todoPriorityFolder.value ? todoPriorityFolder.value : '0',
         folderId
       );
+      console.log(todoDependencies.defaultFolder, 'deF from ADD');
+      console.log(todoDependencies.folders, 'folders from ADD');
       todoTitleFolder.value = '';
       todoDuedateFolder.value = '';
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
 
       clearDisplay('#list-folder');
+      console.log(folderId, 'folderId');
       listOfTodosToDisplay(folderId);
       // Open todo from folder page
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {

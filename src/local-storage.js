@@ -40,46 +40,35 @@ function populateStorage() {
       JSON.stringify(todoDependencies.defaultFolder)
     );
     localStorage.setItem('folders', JSON.stringify(todoDependencies.folders));
-
-    console.log(localStorage, 'HERE');
-    console.log(todoDependencies);
   } else {
     // app.homepage() but with todoDepencies info
     console.log('not good');
   }
+  console.log(localStorage, 'POPULATE STORAGE');
 }
 
 // Make changes from storage to dependencies
 function populateDependencies() {
   if (storageAvailable('localStorage')) {
-    if (!JSON.parse(localStorage.getItem('folders'))) {
-      console.log('first');
+    if (JSON.parse(localStorage.getItem('folders')) == null) {
       populateStorage();
+    } else {
+      // Folder
+      Folder.folderCount = JSON.parse(localStorage.getItem('folderCount'));
+
+      // Todo
+      Todo.todoCount = JSON.parse(localStorage.getItem('todoCount'));
+
+      // todoDependencies
+      todoDependencies.defaultFolder = JSON.parse(
+        localStorage.getItem('defaultFolder')
+      );
+      todoDependencies.folders = JSON.parse(localStorage.getItem('folders'));
     }
-    // Folder
-    const folderCount = JSON.parse(localStorage.getItem('folderCount'));
-    Folder.folderCount = folderCount;
-
-    // Todo
-    const todoCount = JSON.parse(localStorage.getItem('todoCount'));
-    Todo.todoCount = todoCount;
-
-    // todoDependencies
-    const defaultFolder = JSON.parse(localStorage.getItem('defaultFolder'));
-    todoDependencies.defaultFolder = defaultFolder;
-    const folders = JSON.parse(localStorage.getItem('folders'));
-    todoDependencies.folders = folders;
-
-    console.log(folderCount);
-    console.log(todoCount);
-    console.log(defaultFolder);
-    console.log(folders);
-
-    console.log(localStorage);
-    console.log(todoDependencies);
   } else {
     console.log('not good');
   }
+  console.log(todoDependencies, 'POPULATE DEPENDENCIES');
 }
 
 export { populateStorage, populateDependencies };
