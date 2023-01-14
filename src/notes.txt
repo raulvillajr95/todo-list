@@ -54,6 +54,9 @@
 // deleteFolder('School')
 
 /**
+ * make sure git is working well
+ * fix bugs
+ * work on localStorage
  * improve UI/UX wise, heavy on css
  *  first placement of content
  *  then details
@@ -62,6 +65,11 @@
  *    icons
  *
  * Bugs:
+ *  too many delete buttons
+ *    sequence:
+ *      create many folders in homepage
+ *      then open Default folder page
+ *      then add a default todo, it will add hella buttons
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
