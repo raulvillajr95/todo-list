@@ -7,6 +7,10 @@ import TodoList from './todo-list';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 // import Folder from './folder';
 // import Todo from './todo';
+<<<<<<< HEAD
+=======
+import { populateStorage, populateDependencies } from './local-storage';
+>>>>>>> a0fc889305232fea3fd5e4ab801ab3a23c5ffe59
 
 const app = new TodoList();
 
@@ -26,6 +30,8 @@ const app = new TodoList();
 // createTodo('Lighter', 'a fancy big flame lighter', '2022-12-30', 1, 'Liquour');
 // createFolder('Waters');
 // Home Page
+// localStorage.clear();
+populateDependencies();
 app.homePage();
 
 // Folder Page`

@@ -65,11 +65,16 @@
  *    icons
  *
  * Bugs:
+<<<<<<< HEAD
  *  too many delete buttons
  *    sequence:
  *      create many folders in homepage
  *      then open Default folder page
  *      then add a default todo, it will add hella buttons
+=======
+ *  when using localStorage, todos in folder page not adding properly
+ *    try small examples, like with little objects in index.js
+>>>>>>> a0fc889305232fea3fd5e4ab801ab3a23c5ffe59
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'

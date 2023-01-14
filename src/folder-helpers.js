@@ -28,6 +28,7 @@ function deleteFolder(folderId) {
 }
 
 function listOfTodosToDisplay(folderId) {
+  console.log(todoDependencies.folders.length, 'folders length');
   todoDependencies.folders.forEach((currentFolder) => {
     if (currentFolder.folderId === folderId) {
       if (!listElemExists('folder')) {
