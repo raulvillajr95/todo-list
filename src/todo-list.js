@@ -104,6 +104,10 @@ class TodoList {
               listHomeDiv.children[i].children[0].dataset.folderId;
             deleteFolder(Number(folderRemoveId));
             this.homePage();
+
+            // Just test logging results
+            console.log(todoDependencies.defaultFolder, 'default folders');
+            console.log(todoDependencies.folders, 'folders');
           });
         }
       }
@@ -134,6 +138,10 @@ class TodoList {
             listHomeDiv.children[i].children[0].dataset.folderId;
           deleteFolder(Number(folderRemoveId));
           this.homePage();
+
+          // Just test logging results
+          console.log(todoDependencies.defaultFolder, 'default folders');
+          console.log(todoDependencies.folders, 'folders');
         });
       }
     }
@@ -168,6 +176,10 @@ class TodoList {
         const todoAsObj = todoObj(todoId);
         deleteTodo(todoAsObj.todoId);
         this.folderPage(this.folder);
+
+        // Just test logging results
+        console.log(todoDependencies.defaultFolder, 'default folders');
+        console.log(todoDependencies.folders, 'folders');
       });
     }
 
@@ -217,6 +229,10 @@ class TodoList {
           const todoAsObj = todoObj(todoId);
           deleteTodo(todoAsObj.todoId);
           this.folderPage(this.folder);
+
+          // Just test logging results
+          console.log(todoDependencies.defaultFolder, 'default folders');
+          console.log(todoDependencies.folders, 'folders');
         });
       }
 
