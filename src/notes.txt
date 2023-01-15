@@ -9,7 +9,7 @@
 //   1,
 //   'School'
 // )
-// s3, create todo(adds to default folder) ✅
+// s3, create todo(adds to desired folder) ✅
 // createTodo(
 //   'Gas',
 //   'Grab gas this Tuesday',
@@ -18,7 +18,7 @@
 // )
 // s4, view all folders created ✅
 // showFolders()
-// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder ✅
+// s5, create 3 todo's in 1 folder, view all todo's in that 1 folder
 // createFolder('Appliances')
 // createTodo(
 //   'Refrigerator',
@@ -42,19 +42,23 @@
 //   'Appliances'
 // )
 // showTodos('Appliances')
-// s6, view 1 todo ✅
+// s6, view 1 todo
 // showTodo('Microwave')
-// s7, delete single todo ✅
+// s7, delete single todo
 // deleteTodo(
 //   'Shaker',
 //   '12-30-2022',
 //   1
 // )
-// s8, delete whole folder and its todo's ✅
+// s8, delete whole folder and its todo's
 // deleteFolder('School')
 
 /**
- * fix bugs
+ * make sure all 8 sequences work
+ *  seq 3: same thing as other bug, it add multiple todos when I have multiple folders
+ *    and it's now in listOfTodosToDisplay ✅
+ *    needa look for it with print statements
+ * fix bugs, try sequence
  * work on localStorage
  * improve UI/UX wise, heavy on css
  *  first placement of content

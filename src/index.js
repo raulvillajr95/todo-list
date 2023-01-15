@@ -37,4 +37,3 @@ app.homePage();
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');
 console.log(todoDependencies.folders, 'folders');
-console.log(todoDependencies, 'dependencies');

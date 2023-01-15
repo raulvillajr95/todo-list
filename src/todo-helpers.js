@@ -16,11 +16,13 @@ function createTodo(
 ) {
   const todo = new Todo(title, description, dueDate, priority);
   todoDependencies.folders.forEach((currentFolder) => {
-    if (folderId === 0) {
+    if (folderId === 0 && currentFolder.folderId === 0) {
       todoDependencies.defaultFolder.folder.push(todo);
+      console.log('folderId is 0');
     } else if (currentFolder.folderId === folderId) {
       todoDependencies.defaultFolder.folder.push(todo);
       currentFolder.folder.push(todo);
+      console.log('folderId NOT 0');
     }
   });
 }

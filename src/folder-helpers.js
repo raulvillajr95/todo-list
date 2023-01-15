@@ -28,7 +28,6 @@ function deleteFolder(folderId) {
 }
 
 function listOfTodosToDisplay(folderId) {
-  console.log(todoDependencies.folders.length, 'folders length');
   todoDependencies.folders.forEach((currentFolder) => {
     if (currentFolder.folderId === folderId) {
       if (!listElemExists('folder')) {
@@ -63,7 +62,6 @@ function listOfTodosToDisplay(folderId) {
         addTextToElem(`#list-folder-${item.todoId}-duedate`, `${item.dueDate}`);
 
         // Display 'DEL' btn
-        // Add data todo id's
         loadElemToContainer(
           `#list-folder-${item.todoId}-div`,
           'button',

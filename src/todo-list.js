@@ -68,6 +68,10 @@ class TodoList {
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -103,6 +107,10 @@ class TodoList {
           });
         }
       }
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
 
     // Click on folders in home page, after first homePage load
@@ -183,15 +191,12 @@ class TodoList {
         todoPriorityFolder.value ? todoPriorityFolder.value : '0',
         folderId
       );
-      console.log(todoDependencies.defaultFolder, 'deF from ADD');
-      console.log(todoDependencies.folders, 'folders from ADD');
       todoTitleFolder.value = '';
       todoDuedateFolder.value = '';
       todoPriorityFolder.value = '';
       todoDescriptionFolder.value = '';
 
       clearDisplay('#list-folder');
-      console.log(folderId, 'folderId');
       listOfTodosToDisplay(folderId);
       // Open todo from folder page
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
@@ -214,6 +219,10 @@ class TodoList {
           this.folderPage(this.folder);
         });
       }
+
+      // Just test logging results
+      console.log(todoDependencies.defaultFolder, 'default folders');
+      console.log(todoDependencies.folders, 'folders');
     });
 
     // Back button, within folder page
