@@ -54,7 +54,6 @@
 // deleteFolder('School')
 
 /**
- * get rid of change markers
  * fix bugs
  * work on localStorage
  * improve UI/UX wise, heavy on css
@@ -70,8 +69,6 @@
  *      create many folders in homepage
  *      then open Default folder page
  *      then add a default todo, it will add hella buttons
- *  when using localStorage, todos in folder page not adding properly
- *    try small examples, like with little objects in index.js
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
