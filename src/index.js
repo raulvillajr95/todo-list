@@ -7,6 +7,7 @@ import TodoList from './todo-list';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 // import Folder from './folder';
 // import Todo from './todo';
+import { populateDependencies, populateStorage } from './local-storage';
 
 const app = new TodoList();
 
@@ -26,6 +27,9 @@ const app = new TodoList();
 // createTodo('Lighter', 'a fancy big flame lighter', '2022-12-30', 1, 'Liquour');
 // createFolder('Waters');
 // Home Page
+// localStorage.clear();
+populateDependencies();
+// populateStorage();
 app.homePage();
 
 // Folder Page`
@@ -37,3 +41,4 @@ app.homePage();
 // Just test logging results
 console.log(todoDependencies.defaultFolder, 'default folders');
 console.log(todoDependencies.folders, 'folders');
+console.log(localStorage, 'localS');

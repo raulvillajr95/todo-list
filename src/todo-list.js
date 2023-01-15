@@ -72,6 +72,7 @@ class TodoList {
       // Just test logging results
       console.log(todoDependencies.defaultFolder, 'default folders');
       console.log(todoDependencies.folders, 'folders');
+      console.log(localStorage, 'localS');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -108,6 +109,7 @@ class TodoList {
             // Just test logging results
             console.log(todoDependencies.defaultFolder, 'default folders');
             console.log(todoDependencies.folders, 'folders');
+            console.log(localStorage, 'localS');
           });
         }
       }
@@ -115,6 +117,7 @@ class TodoList {
       // Just test logging results
       console.log(todoDependencies.defaultFolder, 'default folders');
       console.log(todoDependencies.folders, 'folders');
+      console.log(localStorage, 'localS');
     });
 
     // Click on folders in home page, after first homePage load
@@ -142,6 +145,7 @@ class TodoList {
           // Just test logging results
           console.log(todoDependencies.defaultFolder, 'default folders');
           console.log(todoDependencies.folders, 'folders');
+          console.log(localStorage, 'localS');
         });
       }
     }
@@ -180,6 +184,7 @@ class TodoList {
         // Just test logging results
         console.log(todoDependencies.defaultFolder, 'default folders');
         console.log(todoDependencies.folders, 'folders');
+        console.log(localStorage, 'localS');
       });
     }
 
@@ -209,7 +214,7 @@ class TodoList {
       todoDescriptionFolder.value = '';
 
       clearDisplay('#list-folder');
-      listOfTodosToDisplay(folderId);
+      listOfTodosToDisplay(folder.folderId);
       // Open todo from folder page
       for (let i = 0; i < listFolderDiv.children.length; i += 1) {
         listFolderDiv.children[i].children[0].addEventListener('click', () => {
@@ -233,12 +238,14 @@ class TodoList {
           // Just test logging results
           console.log(todoDependencies.defaultFolder, 'default folders');
           console.log(todoDependencies.folders, 'folders');
+          console.log(localStorage, 'localS');
         });
       }
 
       // Just test logging results
       console.log(todoDependencies.defaultFolder, 'default folders');
       console.log(todoDependencies.folders, 'folders');
+      console.log(localStorage, 'localS');
     });
 
     // Back button, within folder page

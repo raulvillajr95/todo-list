@@ -6,6 +6,7 @@ import {
   addAttributeToElem,
 } from './helpers';
 import Todo from './todo';
+import { populateStorage } from './local-storage';
 
 function createTodo(
   title,
@@ -18,13 +19,13 @@ function createTodo(
   todoDependencies.folders.forEach((currentFolder) => {
     if (folderId === 0 && currentFolder.folderId === 0) {
       todoDependencies.defaultFolder.folder.push(todo);
-      console.log('folderId is 0');
     } else if (currentFolder.folderId === folderId) {
       todoDependencies.defaultFolder.folder.push(todo);
       currentFolder.folder.push(todo);
-      console.log('folderId NOT 0');
     }
   });
+  // Testing...populate from dependencies to storage
+  populateStorage();
 }
 
 function deleteTodo(todoId) {
@@ -36,6 +37,9 @@ function deleteTodo(todoId) {
       }
     });
   });
+
+  // Testing...populate from dependencies to storage
+  populateStorage();
 }
 
 function todoObj(todoId) {

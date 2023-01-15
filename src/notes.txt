@@ -54,12 +54,12 @@
 // deleteFolder('School')
 
 /**
- * make sure all 8 sequences work
- *  seq 3: same thing as other bug, it add multiple todos when I have multiple folders
- *    and it's now in listOfTodosToDisplay ✅
- *    needa look for it with print statements
- * fix bugs, try sequence
  * work on localStorage
+ *  precreate default folder already inside folders
+ *    where ever it says defaultFolder, use [0]
+ *    or from populateDependencies,
+ *      I can populate defaultFolder,
+ *      then assign defaultFolder to folders[0]
  * improve UI/UX wise, heavy on css
  *  first placement of content
  *  then details
@@ -67,7 +67,7 @@
  *    physical details
  *    icons
  *
- * Bugs:
+ * Bugs:(Maybe done)
  *  too many delete buttons
  *    sequence:
  *      create many folders in homepage
