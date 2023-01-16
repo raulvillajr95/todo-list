@@ -1,4 +1,4 @@
-// import './style.css';
+import './style.css';
 import './reset.css';
 // import { format, parseISO } from 'date-fns';
 import todoDependencies from './dependencies';
@@ -7,7 +7,7 @@ import TodoList from './todo-list';
 // import { createFolder, defaultFolderName } from './folder-helpers';
 // import Folder from './folder';
 // import Todo from './todo';
-import { populateDependencies, populateStorage } from './local-storage';
+import { populateDependencies } from './local-storage';
 
 const app = new TodoList();
 

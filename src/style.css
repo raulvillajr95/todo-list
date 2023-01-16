@@ -19,6 +19,13 @@
 
 /* Mobile */
 @media only screen and (max-width: 38em) {
+  body {
+    /* removable */
+    background-color: antiquewhite;
+  }
+  #content {
+    padding: 1rem;
+  }
   /* Desktop Home */
   #home-title-div {
     height: 9vh;
@@ -117,8 +124,6 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
-    /* removable */
-    background-color: red;
   }
   #folder-title-div > #folder-back-btn {
     font-size: 1rem;
@@ -169,10 +174,102 @@
     grid-row: 4/5;
     font-size: 1.2rem;
   }
+  #list-folder > div {
+    height: 9vh;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    border: 1px solid rgb(162, 162, 162);
+  }
+  #list-folder > div > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #list-folder > div > * {
+    font-size: 1.2rem;
+  }
 
   /* Desktop Todo */
+  #todo-title-div {
+    height: 9vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+  }
+  #todo-title-div > #toco-back-btn {
+    font-size: 1rem;
+  }
+  #todo-title-div > #todo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  #todo-back-btn {
+    font-size: 1rem;
+  }
+  #todo-info-div {
+    height: 18vh;
+    display: grid;
+    grid-template-columns: 3fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #todo-info-div > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  #todo-description {
+    height: 27vh;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+  #todo-edit-btn {
+    height: 9vh;
+    font-size: 1rem;
+    width: 100%;
+  }
 
   /* Desktop Edit Todo */
+  #todo-edit-page-title-label,
+  #todo-edit-page-duedate-label,
+  #todo-edit-page-priority-label,
+  #todo-edit-page-description-label {
+    display: none;
+  }
+  #todo-edit-title,
+  #todo-edit-duedate,
+  #todo-edit-priority,
+  #todo-edit-description,
+  #todo-edit-page-save-btn {
+    font-size: 1.2rem;
+    border: 1px solid rgb(162, 162, 162);
+    display: block;
+  }
+  #todo-edit-title {
+    margin-top: 9vh;
+  }
+  #todo-edit-title,
+  #todo-edit-duedate,
+  #todo-edit-priority {
+    height: 9vh;
+    width: 100vw;
+    text-align: center;
+    padding: 0;
+  }
+  #todo-edit-description {
+    height: 27vh;
+    width: calc(100vw - 1.5rem);
+    padding: 0.75rem;
+  }
+  #todo-edit-page-save-btn {
+    height: 9vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0 auto;
+  }
 }
 
 /* Super small phones */

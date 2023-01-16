@@ -54,17 +54,10 @@
 // deleteFolder('School')
 
 /**
- * work on localStorage
- *  precreate default folder already inside folders
- *    where ever it says defaultFolder, use [0]
- *    or from populateDependencies,
- *      I can populate defaultFolder,
- *      then assign defaultFolder to folders[0]
  * improve UI/UX wise, heavy on css
- *  first placement of content
  *  then details
  *    colors, gradients
- *    physical details
+ *    physical details, fonts
  *    icons
  *
  * Bugs:(Maybe done)
