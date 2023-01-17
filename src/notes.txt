@@ -56,16 +56,11 @@
 /**
  * improve UI/UX wise, heavy on css
  *  then details
- *    colors, gradients
- *    physical details, fonts
+ *    border radii
  *    icons
+ *    responsiveness, desktop, ipad, super small phone
  *
  * Bugs:(Maybe done)
- *  too many delete buttons
- *    sequence:
- *      create many folders in homepage
- *      then open Default folder page
- *      then add a default todo, it will add hella buttons
  *
  * notes:
  * -todos need to be objects, kinda like the 'books'
