@@ -79,7 +79,6 @@ function listOfTodosToDisplay(folderId) {
           'data-todo-id',
           `${item.todoId}`
         );
-        // addTextToElem(`#list-folder-${item.todoId}-del-btn`, 'DEL');
         addAttributeToElem(
           `#list-folder-${item.todoId}-del-btn`,
           'class',

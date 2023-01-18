@@ -56,9 +56,12 @@
 /**
  * improve UI/UX wise, heavy on css
  *  then details
- *    icons, bootstrap, or fontawesome
- *    responsiveness, desktop, ipad, super small phone
+ *    make textarea in todo edit page not move
+ *    responsiveness,
+ *      super small phone
+ *      remove unecessary css
  *    dark mode
+ *  test on mobile
  *
  * Bugs:(Maybe done)
  *

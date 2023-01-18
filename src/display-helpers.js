@@ -43,7 +43,6 @@ function displayList(listToDisplay, page) {
         'i',
         `list-${page}-${id}-del-btn`
       );
-      // addTextToElem(`#list-${page}-${id}-del-btn`, 'DEL');
       addAttributeToElem(
         `#list-${page}-${id}-del-btn`,
         'class',

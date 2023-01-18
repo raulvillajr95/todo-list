@@ -28,6 +28,7 @@ import {
   defaultTodoName,
   displayTodoEditPage,
 } from './todo-helpers';
+import { populateStorage } from './local-storage';
 
 class TodoList {
   constructor() {
@@ -298,6 +299,7 @@ class TodoList {
       objToEdit.priority = todoEditPriority.value;
       objToEdit.description = todoEditDescription.value;
       this.todoPage(currentTodo);
+      populateStorage();
     });
   }
 }
