@@ -71,7 +71,7 @@ function listOfTodosToDisplay(folderId) {
         // Display 'DEL' btn
         loadElemToContainer(
           `#list-folder-${item.todoId}-div`,
-          'button',
+          'i',
           `list-folder-${item.todoId}-del-btn`
         );
         addAttributeToElem(
@@ -79,7 +79,12 @@ function listOfTodosToDisplay(folderId) {
           'data-todo-id',
           `${item.todoId}`
         );
-        addTextToElem(`#list-folder-${item.todoId}-del-btn`, 'DEL');
+        // addTextToElem(`#list-folder-${item.todoId}-del-btn`, 'DEL');
+        addAttributeToElem(
+          `#list-folder-${item.todoId}-del-btn`,
+          'class',
+          'fa-solid fa-trash-can'
+        );
       }
     }
   });

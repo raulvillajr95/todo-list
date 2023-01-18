@@ -40,10 +40,15 @@ function displayList(listToDisplay, page) {
     if (!(item.folderId === 0 && page === 'home')) {
       loadElemToContainer(
         `#list-${page}-${id}-div`,
-        'button',
+        'i',
         `list-${page}-${id}-del-btn`
       );
-      addTextToElem(`#list-${page}-${id}-del-btn`, 'DEL');
+      // addTextToElem(`#list-${page}-${id}-del-btn`, 'DEL');
+      addAttributeToElem(
+        `#list-${page}-${id}-del-btn`,
+        'class',
+        'fa-solid fa-trash-can'
+      );
     }
   }
 }

@@ -23,13 +23,13 @@
 
 /* Tablet */
 @media only screen and (max-width: 56em) {
-  /* Desktop Home */
+  /* Tablet Home */
 
-  /* Desktop Folder */
+  /* Tablet Folder */
 
-  /* Desktop Todo */
+  /* Tablet Todo */
 
-  /* Desktop Edit Todo */
+  /* Tablet Edit Todo */
 }
 
 /* Mobile */
@@ -40,7 +40,7 @@
   #content {
     font-family: 'roboto', Arial, Helvetica, sans-serif;
   }
-  /* Desktop Home */
+  /* Mobile Home */
   #home-title-div {
     height: 9vh;
     display: flex;
@@ -55,6 +55,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, 1fr);
+    margin: 0 1rem;
+    gap: 0.5rem;
   }
   #todo-title-home-label,
   #todo-duedate-home-label,
@@ -71,6 +73,7 @@
     text-align: center;
     font-size: 1.2rem;
     border: 1px solid var(--gainsboro);
+    border-radius: 1.5rem;
   }
   #todo-title-home {
     grid-column: 1/3;
@@ -84,6 +87,7 @@
     grid-column: 1/2;
     grid-row: 2/3;
     color: var(--ash-grey);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
   }
   #todo-priority-home {
     grid-column: 2/3;
@@ -106,9 +110,12 @@
     background-color: var(--slate-blue);
     color: white;
     border: none;
+    border-radius: 1.5rem;
   }
   #list-home {
-    margin-bottom: 9vh;
+    margin-bottom: calc(9vh + 0.75rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   #list-home > div {
     height: 9vh;
@@ -117,6 +124,7 @@
     grid-template-rows: 1fr;
     margin-top: 0.75rem;
     background-color: var(--ghost-white);
+    border-radius: 1.5rem;
   }
   #list-home > div > span {
     display: flex;
@@ -124,10 +132,21 @@
     align-items: center;
     color: var(--almost-black);
   }
+  #list-home > div > .fa-solid {
+    background-color: var(--ash-grey);
+    color: white;
+    border-radius: 0 1.5rem 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+  }
+  /* might delete */
   #list-home > div > button {
     border: none;
     background-color: var(--ash-grey);
     color: white;
+    border-radius: 0 1.5rem 1.5rem 0;
   }
   #list-home > div > * {
     font-size: 1.2rem;
@@ -162,18 +181,20 @@
     border: none;
   }
 
-  /* Desktop Folder */
+  /* Mobile Folder */
   #folder-title-div {
     height: 9vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
+    margin: 0.5rem 1rem;
   }
   #folder-title-div > #folder-back-btn {
     font-size: 1rem;
     border: none;
     background-color: var(--ash-grey);
     color: white;
+    border-radius: 1.5rem;
   }
   #folder-title-div > #folder-title {
     display: flex;
@@ -188,6 +209,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, 1fr);
+    margin: 0 1rem;
+    gap: 0.5rem;
   }
   #todo-title-folder-label,
   #todo-duedate-folder-label,
@@ -202,6 +225,7 @@
     text-align: center;
     font-size: 1.2rem;
     border: 1px solid var(--gainsboro);
+    border-radius: 1.5rem;
   }
   #todo-title-folder {
     grid-column: 1/3;
@@ -215,6 +239,7 @@
     grid-column: 1/2;
     grid-row: 2/3;
     color: var(--ash-grey);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
   }
   #todo-priority-folder {
     grid-column: 2/3;
@@ -232,6 +257,12 @@
     background-color: var(--slate-blue);
     color: white;
     border: none;
+    border-radius: 1.5rem;
+  }
+  #list-folder {
+    margin-bottom: 0.75rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   #list-folder > div {
     height: 9vh;
@@ -240,6 +271,7 @@
     grid-template-rows: 1fr;
     margin-top: 0.75rem;
     background-color: var(--ghost-white);
+    border-radius: 1.5rem;
   }
   #list-folder > div > span {
     display: flex;
@@ -247,27 +279,42 @@
     align-items: center;
     color: var(--almost-black);
   }
+  #list-folder > div > .fa-solid {
+    background-color: var(--ash-grey);
+    color: white;
+    border-radius: 0 1.5rem 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+  }
+  /* might delete */
   #list-folder > div > button {
     border: none;
     background-color: var(--ash-grey);
     color: white;
+    border-radius: 0 1.5rem 1.5rem 0;
   }
   #list-folder > div > * {
     font-size: 1.2rem;
   }
 
-  /* Desktop Todo */
+  /* Mobile Todo */
   #todo-title-div {
     height: 9vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin: 0.5rem 1rem;
   }
   #todo-title-div > #todo-back-btn {
     font-size: 1rem;
     border: none;
     background-color: var(--ash-grey);
     color: white;
+    border-radius: 1.5rem;
   }
   #todo-title-div > #todo-title {
     display: flex;
@@ -293,17 +340,20 @@
     height: 27vh;
     font-size: 1.2rem;
     padding: 0.75rem;
+    margin: 0 1rem;
   }
   #todo-edit-btn {
     height: 9vh;
-    width: 100%;
+    width: calc(100% - 2rem);
     font-size: 1.2rem;
     background-color: var(--slate-blue);
     color: white;
     border: none;
+    margin: 0.5rem 1rem;
+    border-radius: 1.5rem;
   }
 
-  /* Desktop Edit Todo */
+  /* Mobile Edit Todo */
   #todo-edit-page-title-label,
   #todo-edit-page-duedate-label,
   #todo-edit-page-priority-label,
@@ -318,6 +368,7 @@
     font-size: 1.2rem;
     border: 1px solid var(--gainsboro);
     display: block;
+    margin: 0 1rem 0.5rem 1rem;
   }
   #todo-edit-title {
     margin-top: 9vh;
@@ -326,20 +377,29 @@
   #todo-edit-duedate,
   #todo-edit-priority {
     height: 9vh;
-    width: 100vw;
     text-align: center;
     padding: 0;
     color: var(--almost-black);
   }
+  #todo-edit-title,
+  #todo-edit-duedate,
+  #todo-edit-priority,
+  #todo-edit-page-save-btn {
+    width: calc(100% - 2rem);
+    border-radius: 1.5rem;
+  }
+  #todo-edit-duedate {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  }
   #todo-edit-description {
     height: 27vh;
-    width: calc(100vw - 1.5rem);
     padding: 0.75rem;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    width: calc(100% - 3.5rem);
+    border-radius: 1.5rem;
   }
   #todo-edit-page-save-btn {
     height: 9vh;
-    width: 100vw;
     padding: 0;
     margin: 0 auto;
     background-color: var(--slate-blue);
@@ -350,21 +410,21 @@
 
 /* Super small phones */
 @media only screen and (max-width: 22em) {
-  /* Desktop Home */
+  /* Super small Home */
 
-  /* Desktop Folder */
+  /* Super small Folder */
 
-  /* Desktop Todo */
+  /* Super small Todo */
 
-  /* Desktop Edit Todo */
+  /* Super small Edit Todo */
 }
 
 @media (prefers-color-scheme: dark) {
-  /* Desktop Home */
+  /* Home */
 
-  /* Desktop Folder */
+  /* Folder */
 
-  /* Desktop Todo */
+  /* Todo */
 
-  /* Desktop Edit Todo */
+  /* Edit Todo */
 }

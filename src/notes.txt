@@ -56,9 +56,9 @@
 /**
  * improve UI/UX wise, heavy on css
  *  then details
- *    border radii
- *    icons
+ *    icons, bootstrap, or fontawesome
  *    responsiveness, desktop, ipad, super small phone
+ *    dark mode
  *
  * Bugs:(Maybe done)
  *
