@@ -67,11 +67,14 @@ body {
   grid-row: 2/3;
   color: var(--ash-grey);
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  width: 100%;
+  text-align: center;
 }
 #todo-priority-home {
   grid-column: 2/3;
   grid-row: 2/3;
   color: var(--ash-grey);
+  text-align: center;
 }
 #todo-description-home {
   grid-column: 1/3;
@@ -212,11 +215,14 @@ body {
   grid-row: 2/3;
   color: var(--ash-grey);
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  width: 100%;
+  text-align: center;
 }
 #todo-priority-folder {
   grid-column: 2/3;
   grid-row: 2/3;
   color: var(--ash-grey);
+  text-align: center;
 }
 #todo-description-folder {
   grid-column: 1/3;
@@ -338,6 +344,7 @@ body {
 #todo-edit-title {
   margin-top: 9vh;
 }
+
 #todo-edit-title,
 #todo-edit-duedate,
 #todo-edit-priority {
@@ -355,6 +362,13 @@ body {
 }
 #todo-edit-duedate {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#todo-edit-priority {
+  text-align: center;
 }
 #todo-edit-description {
   height: 27vh;
@@ -650,18 +664,24 @@ body {
     border: 1px solid var(--gainsboro);
     background-color: var(--background);
   }
+  #todo-title-home,
+  #todo-duedate-home,
+  #todo-priority-home,
+  #todo-description-home {
+    color: var(--almost-black);
+  }
   #todo-title-home::placeholder,
   #todo-description-home::placeholder {
     color: var(--gainsboro);
   }
   #todo-duedate-home {
-    color: var(--ash-grey);
+    color: var(--almost-black);
   }
   #todo-priority-home {
-    color: var(--ash-grey);
+    color: var(--almost-black);
   }
   #todo-folder-home {
-    color: var(--ash-grey);
+    color: var(--almost-black);
   }
   #todo-add-home-btn {
     background-color: var(--slate-blue);
@@ -704,16 +724,11 @@ body {
   #todo-description-folder {
     border: 1px solid var(--gainsboro);
     background-color: var(--background);
+    color: var(--almost-black);
   }
   #todo-title-folder::placeholder,
   #todo-description-folder::placeholder {
     color: var(--gainsboro);
-  }
-  #todo-duedate-folder {
-    color: var(--ash-grey);
-  }
-  #todo-priority-folder {
-    color: var(--ash-grey);
   }
   #todo-add-folder-btn {
     background-color: var(--slate-blue);
