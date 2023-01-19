@@ -473,6 +473,9 @@ body {
   #todo-edit-page-save-btn {
     margin: 0 1rem 0.5rem 1rem;
   }
+  #todo-edit-title {
+    margin-top: 9vh;
+  }
   #todo-edit-title,
   #todo-edit-duedate,
   #todo-edit-priority,
@@ -617,20 +620,22 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Background */
+    --background: rgb(30, 30, 30);
     /* Title */
-    --almost-black: rgb(18, 16, 27);
+    --almost-black: rgb(237, 239, 228);
     /* Subtitle */
-    --ash-grey: rgb(178, 179, 183);
+    --ash-grey: rgb(77, 76, 72);
     /* Form border/placeholder */
-    --gainsboro: rgb(220, 220, 222);
+    --gainsboro: rgb(53, 53, 52);
     /* List item */
-    --ghost-white: rgb(248, 249, 255);
+    --ghost-white: rgb(48, 47, 43);
     /* Button */
     --slate-blue: rgb(121, 127, 255);
   }
 
   body {
-    background-color: white;
+    background-color: var(--background);
   }
 
   /* Home */
@@ -643,6 +648,7 @@ body {
   #todo-description-home,
   #todo-folder-home {
     border: 1px solid var(--gainsboro);
+    background-color: var(--background);
   }
   #todo-title-home::placeholder,
   #todo-description-home::placeholder {
@@ -674,6 +680,7 @@ body {
   #folder-title-home {
     color: var(--almost-black);
     border: 1px solid var(--gainsboro);
+    background-color: var(--background);
   }
   #folder-title-home::placeholder {
     color: var(--gainsboro);
@@ -696,6 +703,7 @@ body {
   #todo-priority-folder,
   #todo-description-folder {
     border: 1px solid var(--gainsboro);
+    background-color: var(--background);
   }
   #todo-title-folder::placeholder,
   #todo-description-folder::placeholder {
@@ -730,6 +738,11 @@ body {
   #todo-title-div > #todo-title {
     color: var(--almost-black);
   }
+  #todo-duedate,
+  #todo-priority,
+  #todo-description {
+    color: var(--almost-black);
+  }
   #todo-edit-btn {
     background-color: var(--slate-blue);
     color: white;
@@ -745,11 +758,19 @@ body {
   }
   #todo-edit-title,
   #todo-edit-duedate,
+  #todo-edit-priority,
+  #todo-edit-description {
+    background-color: var(--background);
+    color: var(--almost-black);
+  }
+  #todo-edit-title,
+  #todo-edit-duedate,
   #todo-edit-priority {
     color: var(--almost-black);
   }
   #todo-edit-page-save-btn {
     background-color: var(--slate-blue);
     color: white;
+    border-style: none;
   }
 }
