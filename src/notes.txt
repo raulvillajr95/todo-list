@@ -56,9 +56,10 @@
 /**
  * improve UI/UX wise, heavy on css
  *  then details
- *    remove unecessary css
  *    dark mode
  *  test on mobile
+ *    make duedates, priorities, &folder select on all pages center hor & vert
+ *    make duedate 100% width
  *
  * Bugs:(Maybe done)
  *

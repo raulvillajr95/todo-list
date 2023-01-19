@@ -141,7 +141,6 @@ body {
 }
 #folder-title-home {
   text-align: center;
-  /* color: var(--ash-grey); */
   color: var(--almost-black);
   border: 1px solid var(--gainsboro);
 }
@@ -378,60 +377,34 @@ body {
 @media only screen and (max-width: 56em) {
   /* Tablet Home */
   #todo-form-home {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 5rem;
     gap: 0.5rem;
   }
   #list-home {
-    margin-bottom: calc(9vh + 0.75rem);
     margin-left: 5rem;
     margin-right: 5rem;
   }
 
   /* Tablet Folder */
   #folder-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
     margin: 0.5rem 5rem;
   }
   #todo-form-folder {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 5rem;
     gap: 0.5rem;
   }
   #list-folder {
-    margin-bottom: 0.75rem;
     margin-left: 5rem;
     margin-right: 5rem;
   }
 
   /* Tablet Todo */
   #todo-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
     margin: 0.5rem 5rem;
   }
   #todo-edit-btn {
-    height: 9vh;
     width: calc(100% - 10rem);
-    font-size: 1.2rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
     margin: 0.5rem 5rem;
-    border-radius: 1.5rem;
   }
 
   /* Tablet Edit Todo */
@@ -440,9 +413,6 @@ body {
   #todo-edit-priority,
   #todo-edit-description,
   #todo-edit-page-save-btn {
-    font-size: 1.2rem;
-    border: 1px solid var(--gainsboro);
-    display: block;
     margin: 0 5rem 0.5rem 5rem;
   }
   #todo-edit-title {
@@ -453,627 +423,141 @@ body {
   #todo-edit-priority,
   #todo-edit-page-save-btn {
     width: calc(100% - 10rem);
-    border-radius: 1.5rem;
   }
   #todo-edit-description {
-    height: 27vh;
-    padding: 0.75rem;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     width: calc(100% - 11.5rem);
-    border-radius: 1.5rem;
-    resize: none;
   }
 }
 
 /* Mobile */
 @media only screen and (max-width: 38em) {
-  body {
-    background-color: #ffffff;
-  }
-  #content {
-    font-family: 'roboto', Arial, Helvetica, sans-serif;
-  }
   /* Mobile Home */
-  #home-title-div {
-    height: 9vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: var(--almost-black);
-    font-weight: 500;
-  }
   #todo-form-home {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 1rem;
-    gap: 0.5rem;
-  }
-  #todo-title-home-label,
-  #todo-duedate-home-label,
-  #todo-priority-home-label,
-  #todo-description-home-label,
-  #todo-folder-home-label {
-    display: none;
-  }
-  #todo-title-home,
-  #todo-duedate-home,
-  #todo-priority-home,
-  #todo-description-home,
-  #todo-folder-home {
-    text-align: center;
-    font-size: 1.2rem;
-    border: 1px solid var(--gainsboro);
-    border-radius: 1.5rem;
-  }
-  #todo-title-home {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
-  #todo-title-home::placeholder,
-  #todo-description-home::placeholder {
-    color: var(--gainsboro);
-  }
-  #todo-duedate-home {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  }
-  #todo-priority-home {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-  }
-  #todo-description-home {
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
-  #todo-folder-home {
-    grid-column: 1/2;
-    grid-row: 4/5;
-    color: var(--ash-grey);
-  }
-  #todo-add-home-btn {
-    grid-column: 2/3;
-    grid-row: 4/5;
-    font-size: 1.2rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
-    border-radius: 1.5rem;
   }
   #list-home {
-    margin-bottom: calc(9vh + 0.75rem);
     margin-left: 1rem;
     margin-right: 1rem;
-  }
-  #list-home > div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 0.75rem;
-    background-color: var(--ghost-white);
-    border-radius: 1.5rem;
-  }
-  #list-home > div > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--almost-black);
-  }
-  #list-home > div > .fa-solid {
-    background-color: var(--ash-grey);
-    color: white;
-    border-radius: 0 1.5rem 1.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.75rem;
-  }
-  #list-home > div > * {
-    font-size: 1.2rem;
-  }
-  #folder-div-home {
-    height: 9vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr;
-    position: fixed;
-    bottom: 0;
-    overflow: hidden;
-  }
-  #folder-div-home > * {
-    font-size: 1.2rem;
-  }
-  #folder-title-home-label {
-    display: none;
-  }
-  #folder-title-home {
-    text-align: center;
-    color: var(--ash-grey);
-    border: 1px solid var(--gainsboro);
-  }
-  #folder-title-home::placeholder {
-    color: var(--gainsboro);
-  }
-  #folder-add-home-btn {
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
   }
 
   /* Mobile Folder */
   #folder-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
     margin: 0.5rem 1rem;
   }
-  #folder-title-div > #folder-back-btn {
-    font-size: 1rem;
-    border: none;
-    background-color: var(--ash-grey);
-    color: white;
-    border-radius: 1.5rem;
-  }
-  #folder-title-div > #folder-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: var(--almost-black);
-    font-weight: 500;
-  }
   #todo-form-folder {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 1rem;
-    gap: 0.5rem;
-  }
-  #todo-title-folder-label,
-  #todo-duedate-folder-label,
-  #todo-priority-folder-label,
-  #todo-description-folder-label {
-    display: none;
-  }
-  #todo-title-folder,
-  #todo-duedate-folder,
-  #todo-priority-folder,
-  #todo-description-folder {
-    text-align: center;
-    font-size: 1.2rem;
-    border: 1px solid var(--gainsboro);
-    border-radius: 1.5rem;
-  }
-  #todo-title-folder {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
-  #todo-title-folder::placeholder,
-  #todo-description-folder::placeholder {
-    color: var(--gainsboro);
-  }
-  #todo-duedate-folder {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  }
-  #todo-priority-folder {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-  }
-  #todo-description-folder {
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
-  #todo-add-folder-btn {
-    grid-column: 1/3;
-    grid-row: 4/5;
-    font-size: 1.2rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
-    border-radius: 1.5rem;
   }
   #list-folder {
-    margin-bottom: 0.75rem;
     margin-left: 1rem;
     margin-right: 1rem;
-  }
-  #list-folder > div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 0.75rem;
-    background-color: var(--ghost-white);
-    border-radius: 1.5rem;
-  }
-  #list-folder > div > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--almost-black);
-  }
-  #list-folder > div > .fa-solid {
-    background-color: var(--ash-grey);
-    color: white;
-    border-radius: 0 1.5rem 1.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.75rem;
-  }
-  #list-folder > div > * {
-    font-size: 1.2rem;
   }
 
   /* Mobile Todo */
   #todo-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
     margin: 0.5rem 1rem;
   }
-  #todo-title-div > #todo-back-btn {
-    font-size: 1rem;
-    border: none;
-    background-color: var(--ash-grey);
-    color: white;
-    border-radius: 1.5rem;
-  }
-  #todo-title-div > #todo-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: var(--almost-black);
-    font-weight: 500;
-  }
-  #todo-info-div {
-    height: 18vh;
-    display: grid;
-    grid-template-columns: 3fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  #todo-info-div > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-  }
+
   #todo-description {
-    height: 27vh;
-    font-size: 1.2rem;
-    padding: 0.75rem;
     margin: 0 1rem;
   }
   #todo-edit-btn {
-    height: 9vh;
     width: calc(100% - 2rem);
-    font-size: 1.2rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
     margin: 0.5rem 1rem;
-    border-radius: 1.5rem;
   }
 
   /* Mobile Edit Todo */
-  #todo-edit-page-title-label,
-  #todo-edit-page-duedate-label,
-  #todo-edit-page-priority-label,
-  #todo-edit-page-description-label {
-    display: none;
-  }
   #todo-edit-title,
   #todo-edit-duedate,
   #todo-edit-priority,
   #todo-edit-description,
   #todo-edit-page-save-btn {
-    font-size: 1.2rem;
-    border: 1px solid var(--gainsboro);
-    display: block;
     margin: 0 1rem 0.5rem 1rem;
-  }
-  #todo-edit-title {
-    margin-top: 9vh;
-  }
-  #todo-edit-title,
-  #todo-edit-duedate,
-  #todo-edit-priority {
-    height: 9vh;
-    text-align: center;
-    padding: 0;
-    color: var(--almost-black);
   }
   #todo-edit-title,
   #todo-edit-duedate,
   #todo-edit-priority,
   #todo-edit-page-save-btn {
     width: calc(100% - 2rem);
-    border-radius: 1.5rem;
-  }
-  #todo-edit-duedate {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
   }
   #todo-edit-description {
-    height: 27vh;
-    padding: 0.75rem;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     width: calc(100% - 3.5rem);
-    border-radius: 1.5rem;
-  }
-  #todo-edit-page-save-btn {
-    height: 9vh;
-    padding: 0;
-    margin: 0 auto;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
   }
 }
 
 /* Super small phones */
 @media only screen and (max-width: 22em) {
-  body {
-    background-color: #ffffff;
-  }
-  #content {
-    font-family: 'roboto', Arial, Helvetica, sans-serif;
-  }
   /* Super small Home */
   #home-title-div {
-    height: 9vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.2rem;
-    color: var(--almost-black);
-    font-weight: 500;
   }
   #todo-form-home {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 1rem;
-    gap: 0.5rem;
-  }
-  #todo-title-home-label,
-  #todo-duedate-home-label,
-  #todo-priority-home-label,
-  #todo-description-home-label,
-  #todo-folder-home-label {
-    display: none;
   }
   #todo-title-home,
   #todo-duedate-home,
   #todo-priority-home,
   #todo-description-home,
   #todo-folder-home {
-    text-align: center;
     font-size: 1rem;
-    border: 1px solid var(--gainsboro);
     border-radius: 0.75rem;
   }
-  #todo-title-home {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
-  #todo-title-home::placeholder,
-  #todo-description-home::placeholder {
-    color: var(--gainsboro);
-  }
-  #todo-duedate-home {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  }
-  #todo-priority-home {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-  }
-  #todo-description-home {
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
-  #todo-folder-home {
-    grid-column: 1/2;
-    grid-row: 4/5;
-    color: var(--ash-grey);
-  }
   #todo-add-home-btn {
-    grid-column: 2/3;
-    grid-row: 4/5;
     font-size: 1rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
     border-radius: 0.75rem;
   }
   #list-home {
-    margin-bottom: calc(9vh + 0.75rem);
     margin-left: 1rem;
     margin-right: 1rem;
   }
   #list-home > div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 0.75rem;
-    background-color: var(--ghost-white);
     border-radius: 0.75rem;
   }
-  #list-home > div > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--almost-black);
-  }
   #list-home > div > .fa-solid {
-    background-color: var(--ash-grey);
-    color: white;
     border-radius: 0 0.75rem 0.75rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.25rem;
   }
   #list-home > div > * {
     font-size: 1rem;
   }
-  #folder-div-home {
-    height: 9vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 1fr;
-    position: fixed;
-    bottom: 0;
-    overflow: hidden;
-  }
   #folder-div-home > * {
     font-size: 1rem;
-  }
-  #folder-title-home-label {
-    display: none;
-  }
-  #folder-title-home {
-    text-align: center;
-    color: var(--ash-grey);
-    border: 1px solid var(--gainsboro);
-  }
-  #folder-title-home::placeholder {
-    color: var(--gainsboro);
-  }
-  #folder-add-home-btn {
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
   }
 
   /* Super small Folder */
   #folder-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
     margin: 0.5rem 1rem;
   }
   #folder-title-div > #folder-back-btn {
     font-size: 0.75rem;
-    border: none;
-    background-color: var(--ash-grey);
-    color: white;
     border-radius: 0.75rem;
   }
   #folder-title-div > #folder-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.2rem;
-    color: var(--almost-black);
-    font-weight: 500;
   }
   #todo-form-folder {
-    height: 36vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
     margin: 0 1rem;
-    gap: 0.5rem;
-  }
-  #todo-title-folder-label,
-  #todo-duedate-folder-label,
-  #todo-priority-folder-label,
-  #todo-description-folder-label {
-    display: none;
   }
   #todo-title-folder,
   #todo-duedate-folder,
   #todo-priority-folder,
   #todo-description-folder {
-    text-align: center;
     font-size: 1rem;
-    border: 1px solid var(--gainsboro);
     border-radius: 0.75rem;
   }
-  #todo-title-folder {
-    grid-column: 1/3;
-    grid-row: 1/2;
-  }
-  #todo-title-folder::placeholder,
-  #todo-description-folder::placeholder {
-    color: var(--gainsboro);
-  }
-  #todo-duedate-folder {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  }
-  #todo-priority-folder {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    color: var(--ash-grey);
-  }
-  #todo-description-folder {
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
   #todo-add-folder-btn {
-    grid-column: 1/3;
-    grid-row: 4/5;
     font-size: 1rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
     border-radius: 0.75rem;
   }
   #list-folder {
-    margin-bottom: 0.75rem;
     margin-left: 1rem;
     margin-right: 1rem;
   }
   #list-folder > div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 0.75rem;
-    background-color: var(--ghost-white);
     border-radius: 0.75rem;
   }
-  #list-folder > div > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--almost-black);
-  }
+
   #list-folder > div > .fa-solid {
-    background-color: var(--ash-grey);
-    color: white;
     border-radius: 0 0.75rem 0.75rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.25rem;
   }
   #list-folder > div > * {
@@ -1082,73 +566,36 @@ body {
 
   /* Super small Todo */
   #todo-title-div {
-    height: 9vh;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
     margin: 0.5rem 1rem;
   }
   #todo-title-div > #todo-back-btn {
     font-size: 0.75rem;
-    border: none;
-    background-color: var(--ash-grey);
-    color: white;
     border-radius: 0.75rem;
   }
   #todo-title-div > #todo-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.2rem;
-    color: var(--almost-black);
-    font-weight: 500;
-  }
-  #todo-info-div {
-    height: 18vh;
-    display: grid;
-    grid-template-columns: 3fr;
-    grid-template-rows: 1fr 1fr;
   }
   #todo-info-div > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1rem;
   }
   #todo-description {
-    height: 27vh;
     font-size: 1rem;
-    padding: 0.75rem;
     margin: 0 1rem;
   }
   #todo-edit-btn {
-    height: 9vh;
     width: calc(100% - 2rem);
     font-size: 1rem;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
     margin: 0.5rem 1rem;
     border-radius: 0.75rem;
   }
 
   /* Super small Edit Todo */
-  #todo-edit-page-title-label,
-  #todo-edit-page-duedate-label,
-  #todo-edit-page-priority-label,
-  #todo-edit-page-description-label {
-    display: none;
-  }
   #todo-edit-title,
   #todo-edit-duedate,
   #todo-edit-priority,
   #todo-edit-description,
   #todo-edit-page-save-btn {
     font-size: 1rem;
-    border: 1px solid var(--gainsboro);
-    display: block;
     margin: 0 1rem 0.5rem 1rem;
   }
   #todo-edit-title {
@@ -1156,45 +603,153 @@ body {
   }
   #todo-edit-title,
   #todo-edit-duedate,
-  #todo-edit-priority {
-    height: 9vh;
-    text-align: center;
-    padding: 0;
-    color: var(--almost-black);
-  }
-  #todo-edit-title,
-  #todo-edit-duedate,
   #todo-edit-priority,
   #todo-edit-page-save-btn {
     width: calc(100% - 2rem);
     border-radius: 0.75rem;
   }
-  #todo-edit-duedate {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  }
+
   #todo-edit-description {
-    height: 27vh;
-    padding: 0.75rem;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     width: calc(100% - 3.5rem);
     border-radius: 0.75rem;
-  }
-  #todo-edit-page-save-btn {
-    height: 9vh;
-    padding: 0;
-    margin: 0 auto;
-    background-color: var(--slate-blue);
-    color: white;
-    border: none;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    /* Title */
+    --almost-black: rgb(18, 16, 27);
+    /* Subtitle */
+    --ash-grey: rgb(178, 179, 183);
+    /* Form border/placeholder */
+    --gainsboro: rgb(220, 220, 222);
+    /* List item */
+    --ghost-white: rgb(248, 249, 255);
+    /* Button */
+    --slate-blue: rgb(121, 127, 255);
+  }
+
+  body {
+    background-color: rgb(30, 30, 30);
+  }
+
   /* Home */
+  #home-title-div {
+    color: var(--almost-black);
+  }
+  #todo-title-home,
+  #todo-duedate-home,
+  #todo-priority-home,
+  #todo-description-home,
+  #todo-folder-home {
+    border: 1px solid var(--gainsboro);
+  }
+  #todo-title-home::placeholder,
+  #todo-description-home::placeholder {
+    color: var(--gainsboro);
+  }
+  #todo-duedate-home {
+    color: var(--ash-grey);
+  }
+  #todo-priority-home {
+    color: var(--ash-grey);
+  }
+  #todo-folder-home {
+    color: var(--ash-grey);
+  }
+  #todo-add-home-btn {
+    background-color: var(--slate-blue);
+    color: white;
+  }
+  #list-home > div {
+    background-color: var(--ghost-white);
+  }
+  #list-home > div > span {
+    color: var(--almost-black);
+  }
+  #list-home > div > .fa-solid {
+    background-color: var(--ash-grey);
+    color: white;
+  }
+  #folder-title-home {
+    color: var(--almost-black);
+    border: 1px solid var(--gainsboro);
+  }
+  #folder-title-home::placeholder {
+    color: var(--gainsboro);
+  }
+  #folder-add-home-btn {
+    background-color: var(--slate-blue);
+    color: white;
+  }
 
   /* Folder */
+  #folder-title-div > #folder-back-btn {
+    background-color: var(--ash-grey);
+    color: white;
+  }
+  #folder-title-div > #folder-title {
+    color: var(--almost-black);
+  }
+  #todo-title-folder,
+  #todo-duedate-folder,
+  #todo-priority-folder,
+  #todo-description-folder {
+    border: 1px solid var(--gainsboro);
+  }
+  #todo-title-folder::placeholder,
+  #todo-description-folder::placeholder {
+    color: var(--gainsboro);
+  }
+  #todo-duedate-folder {
+    color: var(--ash-grey);
+  }
+  #todo-priority-folder {
+    color: var(--ash-grey);
+  }
+  #todo-add-folder-btn {
+    background-color: var(--slate-blue);
+    color: white;
+  }
+  #list-folder > div {
+    background-color: var(--ghost-white);
+  }
+  #list-folder > div > span {
+    color: var(--almost-black);
+  }
+  #list-folder > div > .fa-solid {
+    background-color: var(--ash-grey);
+    color: white;
+  }
 
   /* Todo */
+  #todo-title-div > #todo-back-btn {
+    background-color: var(--ash-grey);
+    color: white;
+  }
+  #todo-title-div > #todo-title {
+    color: var(--almost-black);
+  }
+  #todo-edit-btn {
+    background-color: var(--slate-blue);
+    color: white;
+  }
 
   /* Edit Todo */
+  #todo-edit-title,
+  #todo-edit-duedate,
+  #todo-edit-priority,
+  #todo-edit-description,
+  #todo-edit-page-save-btn {
+    border: 1px solid var(--gainsboro);
+  }
+  #todo-edit-title,
+  #todo-edit-duedate,
+  #todo-edit-priority {
+    color: var(--almost-black);
+  }
+  #todo-edit-page-save-btn {
+    background-color: var(--slate-blue);
+    color: white;
+  }
 }
