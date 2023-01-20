@@ -172,6 +172,23 @@ function formAddBtn(page) {
   addTextToElem(`#todo-add-${page}-btn`, 'ADD');
 }
 
+// Return color based on priority
+// mostlikely use this in another function so it can be updated
+function priorityColor(priorityNum) {
+  let color = '';
+  console.log(color);
+
+  if (Number(priorityNum) === 2) {
+    console.log('its 2');
+    color = '#A41623';
+  } else if (Number(priorityNum) === 1) {
+    console.log('its 1');
+    color = '#FFB563';
+  }
+
+  return color;
+}
+
 export {
   clearDisplay,
   loadElemToContainer,
@@ -183,4 +200,5 @@ export {
   todoDatePriority,
   displayDescription,
   formAddBtn,
+  priorityColor,
 };

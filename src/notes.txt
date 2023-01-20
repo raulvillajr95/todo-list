@@ -54,7 +54,9 @@
 // deleteFolder('School')
 
 /**
- *  test on mobile
+ * clean up code, clg's and random stuff that's commented out
+ * remove dev mode
+ * test on mobile
  *
  * Bugs:(Maybe done)
  *
@@ -81,10 +83,6 @@
  *    it's a step forward in allowing spaces in titles
  *
  * later:
- * change color based on priorities
- * use 'enter' key to add and stuff
- * clean up code, clg's and random stuff that's commented out
- * remove dev mode
  * do 10 exercises in each, Exercism, CodeWars, & HackerRank
 
 

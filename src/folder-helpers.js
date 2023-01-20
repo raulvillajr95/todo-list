@@ -6,6 +6,7 @@ import {
   loadElemToContainer,
   addTextToElem,
   addAttributeToElem,
+  priorityColor,
 } from './helpers';
 import { populateStorage } from './local-storage';
 
@@ -44,10 +45,17 @@ function listOfTodosToDisplay(folderId) {
       for (let i = 0; i < currentFolder.folder.length; i += 1) {
         const item = currentFolder.folder[i];
 
+        console.log(priorityColor(item.priority));
+
         loadElemToContainer(
           `#list-folder`,
           'div',
           `list-folder-${item.todoId}-div`
+        );
+        addAttributeToElem(
+          `#list-folder-${item.todoId}-div`,
+          'style',
+          `background-color: ${priorityColor(item.priority)}`
         );
         loadElemToContainer(
           `#list-folder-${item.todoId}-div`,
