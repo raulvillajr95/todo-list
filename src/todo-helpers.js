@@ -24,7 +24,7 @@ function createTodo(
       currentFolder.folder.push(todo);
     }
   });
-  // Testing...populate from dependencies to storage
+
   populateStorage();
 }
 
@@ -38,7 +38,6 @@ function deleteTodo(todoId) {
     });
   });
 
-  // Testing...populate from dependencies to storage
   populateStorage();
 }
 
@@ -127,8 +126,6 @@ function displayTodoEditPage(obj) {
   );
   addTextToElem('#todo-edit-page-description-label', 'Description:');
   loadElemToContainer(`#content`, 'textarea', `todo-edit-description`);
-  // addAttributeToElem(`#todo-edit-description`, 'type', 'text');
-  // addAttributeToElem(`#todo-edit-description`, 'value', `${obj.description}`);
   document.querySelector('#todo-edit-description').value = obj.description;
 
   loadElemToContainer('#content', 'button', 'todo-edit-page-save-btn');

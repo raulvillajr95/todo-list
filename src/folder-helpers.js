@@ -12,8 +12,6 @@ import { populateStorage } from './local-storage';
 
 function createFolder(name) {
   todoDependencies.folders.push(new Folder(name));
-
-  // Testing...populate from dependencies to storage
   populateStorage();
 }
 
@@ -31,7 +29,6 @@ function deleteFolder(folderId) {
     }
   });
 
-  // Testing...populate from dependencies to storage
   populateStorage();
 }
 
@@ -44,8 +41,6 @@ function listOfTodosToDisplay(folderId) {
 
       for (let i = 0; i < currentFolder.folder.length; i += 1) {
         const item = currentFolder.folder[i];
-
-        console.log(priorityColor(item.priority));
 
         loadElemToContainer(
           `#list-folder`,

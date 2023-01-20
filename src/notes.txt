@@ -54,8 +54,6 @@
 // deleteFolder('School')
 
 /**
- * clean up code, clg's and random stuff that's commented out
- * remove dev mode
  * test on mobile
  *
  * Bugs:(Maybe done)

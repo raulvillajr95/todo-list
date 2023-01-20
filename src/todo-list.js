@@ -69,11 +69,6 @@ class TodoList {
       todoDuedateHome.value = '';
       todoPriorityHome.value = '';
       todoDescriptionHome.value = '';
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
-      console.log(localStorage, 'localS');
     });
 
     // Home Folder Add Button, maybe make this a function
@@ -106,19 +101,9 @@ class TodoList {
               listHomeDiv.children[i].children[0].dataset.folderId;
             deleteFolder(Number(folderRemoveId));
             this.homePage();
-
-            // Just test logging results
-            console.log(todoDependencies.defaultFolder, 'default folders');
-            console.log(todoDependencies.folders, 'folders');
-            console.log(localStorage, 'localS');
           });
         }
       }
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
-      console.log(localStorage, 'localS');
     });
 
     // Click on folders in home page, after first homePage load
@@ -142,11 +127,6 @@ class TodoList {
             listHomeDiv.children[i].children[0].dataset.folderId;
           deleteFolder(Number(folderRemoveId));
           this.homePage();
-
-          // Just test logging results
-          console.log(todoDependencies.defaultFolder, 'default folders');
-          console.log(todoDependencies.folders, 'folders');
-          console.log(localStorage, 'localS');
         });
       }
     }
@@ -181,11 +161,6 @@ class TodoList {
         const todoAsObj = todoObj(todoId);
         deleteTodo(todoAsObj.todoId);
         this.folderPage(this.folder);
-
-        // Just test logging results
-        console.log(todoDependencies.defaultFolder, 'default folders');
-        console.log(todoDependencies.folders, 'folders');
-        console.log(localStorage, 'localS');
       });
     }
 
@@ -235,18 +210,8 @@ class TodoList {
           const todoAsObj = todoObj(todoId);
           deleteTodo(todoAsObj.todoId);
           this.folderPage(this.folder);
-
-          // Just test logging results
-          console.log(todoDependencies.defaultFolder, 'default folders');
-          console.log(todoDependencies.folders, 'folders');
-          console.log(localStorage, 'localS');
         });
       }
-
-      // Just test logging results
-      console.log(todoDependencies.defaultFolder, 'default folders');
-      console.log(todoDependencies.folders, 'folders');
-      console.log(localStorage, 'localS');
     });
 
     // Back button, within folder page
